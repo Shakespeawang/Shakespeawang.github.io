@@ -7,16 +7,15 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title> - shakespeaWang&#39;s Blog</title>
+  <title>nginx配置书写 - shakespeaWang&#39;s Blog</title>
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="google" content="notranslate" />
 
   
   
-  <meta name="description" content="nginx:配置书写
-①单个服务器上实现动静分离
-12..."> 
+  <meta name="description" content="①单个服务器上实现动静分离
+1234567891011..."> 
   
   <meta name="author" content="Shakespeawang"> 
 
@@ -107,6 +106,17 @@
   
 
 
+<nav class="navbar">
+  <div class="left"></div>
+  <div class="center">nginx配置书写</div>
+  <div class="right">
+    
+      <i class="iconfont iconmoono" id="color-toggle" color-toggle="light"></i>
+    
+    <i class="iconfont iconmenu j-navbar-menu"></i>
+  </div>
+</nav>
+
   <nav class="menu">
   <div class="menu-wrap">
     <div class="menu-close">
@@ -145,7 +155,7 @@
       <li class="menu-item"><a href="/about " class="underline"> 关于</a></li>
       
     </ul>
-    <div class="menu-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme - <a target="_blank" href="https://github.com/izhaoo/hexo-theme-zhaoo">zhaoo</a></p></div>
+    <div class="menu-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme - <a target="_blank" href="https://https://github.com/Shakespeawang/Shakespeawang.github.io">shakespeaWang</a></p></div>
   </div>
 </nav>
   <main id="main">
@@ -155,22 +165,21 @@
     <section class="head">
   <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
   <div class="head-mask">
-    <h1 class="head-title"></h1>
+    <h1 class="head-title">nginx配置书写</h1>
     <div class="head-info">
       <span class="post-info-item"><i class="iconfont iconcalendar"></i>October 28, 2020</span
         class="post-info-item">
       
-      <span class="post-info-item"><i class="iconfont iconfont-size"></i>1628</span>
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>1617</span>
     </div>
   </div>
 </section>
     <section class="main">
       <section class="content">
-        <p><strong>nginx:配置书写</strong></p>
-<p>①单个服务器上实现<strong>动静分离</strong></p>
+        <p>①单个服务器上实现动静分离</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">http&#123;</span><br><span class="line">...</span><br><span class="line">server &#123;</span><br><span class="line">        listen       9090;</span><br><span class="line">        server_name  localhost;</span><br><span class="line"></span><br><span class="line">        #charset koi8-r;</span><br><span class="line"></span><br><span class="line">        #access_log  logs/host.access.log  main;</span><br><span class="line"></span><br><span class="line">        location / &#123;</span><br><span class="line">           proxy_pass http://127.0.0.1:8111;  </span><br><span class="line">        &#125;</span><br><span class="line">		location ~\.(css|js|png)$ &#123;    #表示css、js、png等文件都到如下路径中去找</span><br><span class="line">            root F:/Intelij_workspace/jar/tomcat_8111/webapps/ROOT;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">....</span><br><span class="line">&#125;</span><br><span class="line">...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>②多个服务器上实现<strong>负载均衡</strong></p>
+<p>②多个服务器上实现负载均衡</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">http&#123;</span><br><span class="line">...    </span><br><span class="line">	upstream tomcat_8111_8222&#123;</span><br><span class="line">    server  <span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">8111</span>  weight=<span class="number">1</span>;</span><br><span class="line">    server  <span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">8222</span> weight=<span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    server &#123;</span><br><span class="line">        listen       <span class="number">80</span>;</span><br><span class="line">        server_name  localhost;</span><br><span class="line"> </span><br><span class="line">        #charset koi8-r;</span><br><span class="line"> </span><br><span class="line">        #access_log  logs/host.access.log  main;</span><br><span class="line"> </span><br><span class="line">        location / &#123;</span><br><span class="line">            proxy_pass http:<span class="comment">//tomcat_8111_8222;</span></span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">        location ~\.(css|js|png)$ &#123;</span><br><span class="line">            root C:/Users/X7TI/Downloads/tomcat_8111/webapps/ROOT;</span><br><span class="line">    &#125;</span><br><span class="line"> ....</span><br><span class="line">&#125;</span><br><span class="line">...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
@@ -276,7 +285,7 @@
     </a>
     
   </div>
-  <div class="footer-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme - <a target="_blank" href="https://github.com/izhaoo/hexo-theme-zhaoo">zhaoo</a></p></div>
+  <div class="footer-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme - <a target="_blank" href="https://https://github.com/Shakespeawang/Shakespeawang.github.io">shakespeaWang</a></p></div>
 </footer>
   
       <div class="fab fab-plus">
