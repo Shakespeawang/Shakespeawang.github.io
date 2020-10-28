@@ -7,14 +7,15 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title> - shakespeaWang&#39;s Blog</title>
+  <title>Hello World - shakespeaWang&#39;s Blog</title>
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="google" content="notranslate" />
 
   
   
-  <meta name="description" content="ReadWriterLock接口其就是一个顶级接口，并..."> 
+  <meta name="description" content="其就是一个顶级接口，并没有继承lock接口
+实现类就是..."> 
   
   <meta name="author" content="Shakespeawang"> 
 
@@ -105,6 +106,17 @@
   
 
 
+<nav class="navbar">
+  <div class="left"></div>
+  <div class="center">Hello World</div>
+  <div class="right">
+    
+      <i class="iconfont iconmoono" id="color-toggle" color-toggle="light"></i>
+    
+    <i class="iconfont iconmenu j-navbar-menu"></i>
+  </div>
+</nav>
+
   <nav class="menu">
   <div class="menu-wrap">
     <div class="menu-close">
@@ -153,18 +165,18 @@
     <section class="head">
   <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
   <div class="head-mask">
-    <h1 class="head-title"></h1>
+    <h1 class="head-title">Hello World</h1>
     <div class="head-info">
       <span class="post-info-item"><i class="iconfont iconcalendar"></i>October 28, 2020</span
         class="post-info-item">
       
-      <span class="post-info-item"><i class="iconfont iconfont-size"></i>1349</span>
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>1333</span>
     </div>
   </div>
 </section>
     <section class="main">
       <section class="content">
-        <h1 id="ReadWriterLock接口"><a href="#ReadWriterLock接口" class="headerlink" title="ReadWriterLock接口"></a>ReadWriterLock接口</h1><p>其就是一个顶级接口，并没有继承lock接口</p>
+        <p>其就是一个顶级接口，并没有继承lock接口</p>
 <p>实现类就是ReentrantReadWriterLock，其并没有实现lock接口，是其两个内部类实现了lock接口</p>
 <p><strong>读写锁的作用是提高并发条件下，多个线程读而不写的效率，即一个线程可写，其他线程只能读</strong></p>
 <h2 id="1、ReentrantReadWriterLock"><a href="#1、ReentrantReadWriterLock" class="headerlink" title="1、ReentrantReadWriterLock"></a>1、ReentrantReadWriterLock</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"> <span class="class"><span class="keyword">class</span> <span class="title">CachedData</span> </span>&#123; </span><br><span class="line">     Object data; </span><br><span class="line">     <span class="keyword">volatile</span> <span class="keyword">boolean</span> cacheValid; </span><br><span class="line">     <span class="keyword">final</span> ReentrantReadWriteLock rwl = <span class="keyword">new</span> ReentrantReadWriteLock(); </span><br><span class="line">     <span class="function"><span class="keyword">void</span> <span class="title">processCachedData</span><span class="params">()</span> </span>&#123; </span><br><span class="line">         rwl.readLock().lock(); </span><br><span class="line">         <span class="keyword">if</span> (!cacheValid) &#123; </span><br><span class="line">             <span class="comment">// Must release read lock before acquiring write lock</span></span><br><span class="line">             rwl.readLock().unlock(); </span><br><span class="line">             rwl.writeLock().lock(); </span><br><span class="line">             <span class="keyword">try</span> &#123; <span class="comment">// Recheck state because another thread might have </span></span><br><span class="line">                 <span class="comment">// acquired write lock and changed state before we did. </span></span><br><span class="line">                 <span class="keyword">if</span> (!cacheValid) &#123; </span><br><span class="line">                     data = ... </span><br><span class="line">                    cacheValid = <span class="keyword">true</span>; &#125; </span><br><span class="line">                 <span class="comment">// Downgrade by acquiring read lock before releasing write lock </span></span><br><span class="line">                 rwl.readLock().lock(); </span><br><span class="line">             &#125; <span class="keyword">finally</span> &#123; </span><br><span class="line">                 rwl.writeLock().unlock(); </span><br><span class="line">                        <span class="comment">// Unlock write, still hold read </span></span><br><span class="line">                       &#125; &#125; <span class="keyword">try</span> &#123; use(data); </span><br><span class="line">                          &#125; <span class="keyword">finally</span> &#123; </span><br><span class="line">             rwl.readLock().unlock(); </span><br><span class="line">         &#125; &#125; &#125; </span><br><span class="line">ReentrantReadWriteLocks</span><br></pre></td></tr></table></figure>
@@ -201,10 +213,10 @@
         
 <nav class="nav">
   
-    <a href="/2020/10/28/Redis%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/"><i class="iconfont iconleft"></i></a>
+    <a href="/2020/10/28/Redis%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/"><i class="iconfont iconleft"></i>Hello World</a>
   
   
-    <a href="/2020/10/28/rabbitmq/"><i class="iconfont iconright"></i></a>
+    <a href="/2020/10/28/rabbitmq/">Hello World<i class="iconfont iconright"></i></a>
   
 </nav>
 

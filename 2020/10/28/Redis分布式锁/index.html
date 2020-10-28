@@ -7,14 +7,17 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title> - shakespeaWang&#39;s Blog</title>
+  <title>Hello World - shakespeaWang&#39;s Blog</title>
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="google" content="notranslate" />
 
   
   
-  <meta name="description" content="Redis分布式锁1、SETNX命令SETNX key..."> 
+  <meta name="description" content="1、SETNX命令SETNX key value
+
+
+..."> 
   
   <meta name="author" content="Shakespeawang"> 
 
@@ -105,6 +108,17 @@
   
 
 
+<nav class="navbar">
+  <div class="left"></div>
+  <div class="center">Hello World</div>
+  <div class="right">
+    
+      <i class="iconfont iconmoono" id="color-toggle" color-toggle="light"></i>
+    
+    <i class="iconfont iconmenu j-navbar-menu"></i>
+  </div>
+</nav>
+
   <nav class="menu">
   <div class="menu-wrap">
     <div class="menu-close">
@@ -153,18 +167,18 @@
     <section class="head">
   <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
   <div class="head-mask">
-    <h1 class="head-title"></h1>
+    <h1 class="head-title">Hello World</h1>
     <div class="head-info">
       <span class="post-info-item"><i class="iconfont iconcalendar"></i>October 28, 2020</span
         class="post-info-item">
       
-      <span class="post-info-item"><i class="iconfont iconfont-size"></i>3503</span>
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>3494</span>
     </div>
   </div>
 </section>
     <section class="main">
       <section class="content">
-        <h1 id="Redis分布式锁"><a href="#Redis分布式锁" class="headerlink" title="Redis分布式锁"></a>Redis分布式锁</h1><h2 id="1、SETNX命令"><a href="#1、SETNX命令" class="headerlink" title="1、SETNX命令"></a>1、SETNX命令</h2><p>SETNX key value</p>
+        <h2 id="1、SETNX命令"><a href="#1、SETNX命令" class="headerlink" title="1、SETNX命令"></a>1、SETNX命令</h2><p>SETNX key value</p>
 <p><img   class="lazyload" data-original="C:\Users\vv\AppData\Roaming\Typora\typora-user-images\1597283105002.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1597283105002"></p>
 <p><img   class="lazyload" data-original="C:\Users\vv\AppData\Roaming\Typora\typora-user-images\1597285138666.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1597285138666"></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//使用了redis中底层的setnx，对应stringRedisTemplate中一个setIfAbsent</span></span><br><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WebController</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    StringRedisTemplate stringRedisTemplate;</span><br><span class="line">    <span class="meta">@GetMapping(&quot;/req&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">index</span><span class="params">()</span> <span class="keyword">throws</span> InterruptedException</span>&#123;</span><br><span class="line">        String clientid = UUID.randomUUID().toString();</span><br><span class="line">        String lockKey = <span class="string">&quot;product_01&quot;</span>;</span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            Boolean result = stringRedisTemplate.opsForValue().setIfAbsent(lockKey,clientid);</span><br><span class="line">            stringRedisTemplate.expire(lockKey,<span class="number">10</span>, TimeUnit.SECONDS);</span><br><span class="line"><span class="comment">//上述两行代码可以合成一行，具有原子性，而且通常为了保证在键的生命周期内运行完业务，会开启一个子线程，然后子线程会给这个键续周期，整合起来后就成为了后续提到的redisson</span></span><br><span class="line">            <span class="keyword">if</span>(!result)&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="string">&quot;err&quot;</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">int</span> stock = Integer.parseInt(stringRedisTemplate.opsForValue().get(<span class="string">&quot;stock&quot;</span>));</span><br><span class="line">            <span class="keyword">if</span>(stock&gt;<span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">int</span> realStock = stock-<span class="number">1</span>;</span><br><span class="line">                stringRedisTemplate.opsForValue().set(<span class="string">&quot;stock&quot;</span>,realStock+<span class="string">&quot;&quot;</span>);</span><br><span class="line">                System.out.println(<span class="string">&quot;订单成功，库存减一&quot;</span>);</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                System.out.println(<span class="string">&quot;订单失败&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;<span class="keyword">finally</span> &#123;</span><br><span class="line">            <span class="keyword">if</span>(clientid.equals(stringRedisTemplate.opsForValue().get(lockKey)))&#123;<span class="comment">//解决锁永久失效的问题</span></span><br><span class="line">                stringRedisTemplate.delete(lockKey);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;success&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -216,7 +230,7 @@
     <a href="/2020/10/28/RPC%E5%AD%A6%E4%B9%A0/"><i class="iconfont iconleft"></i></a>
   
   
-    <a href="/2020/10/28/ReadWriterLock%E6%8E%A5%E5%8F%A3/"><i class="iconfont iconright"></i></a>
+    <a href="/2020/10/28/ReadWriterLock%E6%8E%A5%E5%8F%A3/">Hello World<i class="iconfont iconright"></i></a>
   
 </nav>
 
