@@ -7,15 +7,14 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>RPC - shakespeaWang&#39;s Blog</title>
+  <title> - shakespeaWang&#39;s Blog</title>
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="google" content="notranslate" />
 
   
   
-  <meta name="description" content="RPC是一种分布式通信的方式；
-从单机到分布式—&amp;gt..."> 
+  <meta name="description" content="虚拟内存定义：建立在离散分配的情况下，用于把用户逻辑地..."> 
   
   <meta name="author" content="Shakespeawang"> 
 
@@ -106,17 +105,6 @@
   
 
 
-<nav class="navbar">
-  <div class="left"></div>
-  <div class="center">RPC</div>
-  <div class="right">
-    
-      <i class="iconfont iconmoono" id="color-toggle" color-toggle="light"></i>
-    
-    <i class="iconfont iconmenu j-navbar-menu"></i>
-  </div>
-</nav>
-
   <nav class="menu">
   <div class="menu-wrap">
     <div class="menu-close">
@@ -165,25 +153,67 @@
     <section class="head">
   <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
   <div class="head-mask">
-    <h1 class="head-title">RPC</h1>
+    <h1 class="head-title"></h1>
     <div class="head-info">
       <span class="post-info-item"><i class="iconfont iconcalendar"></i>October 28, 2020</span
         class="post-info-item">
       
-      <span class="post-info-item"><i class="iconfont iconfont-size"></i>174</span>
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>1978</span>
     </div>
   </div>
 </section>
     <section class="main">
       <section class="content">
-        <p>RPC是一种分布式通信的方式；</p>
-<p>从单机到分布式—&gt;分布式通信</p>
-<p><strong>应用程序之间的通信</strong>：传统的方式</p>
-<p><img   class="lazyload" data-original="C:\Users\vv\AppData\Roaming\Typora\typora-user-images\1599446688223.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1599446688223"></p>
-<p>改进版：RPC框架，远程进程调用</p>
-<p><img   class="lazyload" data-original="C:\Users\vv\AppData\Roaming\Typora\typora-user-images\1599447231899.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1599447231899"></p>
-<p>远程调用的目的：必须把接口层和实现层面分开，</p>
-<p>服务端提供一个RPC调用接口，客户端建立tcp连接后，发送需要调用的方法和方法参数信息，服务端就会根据这些信息通过动态代理，去调用对应方法的实现，最后返回计算结果</p>
+        <h3 id="虚拟内存"><a href="#虚拟内存" class="headerlink" title="虚拟内存"></a>虚拟内存</h3><p>定义：建立在离散分配的情况下，用于把用户逻辑地址与物理地址分离开来。</p>
+<p>虚拟内存中，逻辑地址可以大于等于物理地址</p>
+<p>优点：程序可以远大于物理内存；可以同时运行更多的程序；程序员不用担心内存的限制；便于共享；进程创建效率更高；</p>
+<p>①虚拟内存中用map映射到实内存和backstorm；一部分映射实存，一部分映射backstorm；若映射到backstorm中则在访问时会出现缺页现象；</p>
+<p>page fault 缺页（<strong>存在，只是不在内存中</strong>）   如果不存在这页，就会出现invalid page  = abort（终止）；  </p>
+<p>当出现invalid page时，   首先找到空闲的页框，再置换这一页，重置页表，改变页的有效位，重启产生中断指令的指令。注意：一条指令可能产生多次缺页中断。</p>
+<p>缺页率 = 0：实际就是实存管理；</p>
+<p>缺页率 = 1；纯请求；</p>
+<p>缺页率越低，性能越好，通常希望缺页率维持在一定范围内：</p>
+<p><img   class="lazyload" data-original="C:\Users\vv\AppData\Roaming\Typora\typora-user-images\1572783247409.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1572783247409"></p>
+<p><strong>请求分页</strong></p>
+<p>只有需要的实时才会请求分页（lazy swapper），对应的是预调（paging，也称预调）；lazy swapper每次都会出现缺页情况；</p>
+<p>页表的数据结构：页号，页框号，<strong>有效位</strong>（表示是否在实内存中），<strong>访问位</strong>（一位或多位），<strong>修改modified位</strong>（脏位，在内存中是否修改），<strong>外存地址</strong>（写到外存中的地址），<strong>保护位</strong>；</p>
+<p><img   class="lazyload" data-original="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1572355529568.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1572355529568"></p>
+<p><strong>页面置换算法</strong>：（指标：缺页率越低越好）</p>
+<p>全局置换与局部置换；global全局置换是多个进程需要多少页框时，分配，例如优先级高的可以剥夺优先级低的；local局部置换是单个进程固定分配一定页框数目；</p>
+<p>在没有free 的frame的情况下：找到一些内存中没有正在使用的页框；</p>
+<p>算法过程:找到需要的页在磁盘上的地址；找到内存中空闲的页框（有的话直接使用，没有的话就用页面置换算法，用一页victim来置换，swap out 修改页表）；swap in换入需要的页，修改页表；重启进程（从waiting到ready）</p>
+<p>①FIFO，先进先出  最早进入的页面先被置换</p>
+<p>存在问题：下一个需要访问的页面刚好被置换掉，因此在页框增大时，置换的次数也会增大，不合理。</p>
+<p>②optimal algorithm 理论最优算法（不能实际运用，因为无法得知哪一个页面不会被访问；通常用这种算法作为其他算法的对比，越接近这个算法，则算法最优）</p>
+<p>思想：置换掉最长一段时间不会被访问的页面</p>
+<p>③least recently used（LRU）</p>
+<p>最近最少被使用先被置换；根据程序的相似性（考虑过去）。容易实现，但是不能保证性能最好</p>
+<p>实现方式：用计数器<strong>记录访问时间</strong>，访问时间越早就被优先置换；用stack实现，栈的最底层是最早使用的，最顶层是最近使用的。压入弹出（但是存在的问题是更新比较麻烦，比如需要访问m，但m在栈中间时，需要把m移动到栈的最顶层，表示最近访问了m）</p>
+<p>④LRU近似算法</p>
+<p>实现方法一：增加一个八位全0的字节，一旦被访问最高位就被置为1；每一个时钟周期内，右移一位（即左边加0，最低位去掉），但一旦被访问最高位就被置为1，选择字节最小的那个页面被置换；</p>
+<p>实现方法二：二次机会，在LRU与时钟结合的算法</p>
+<p>⑤记录counting ，LFU算法</p>
+<p>实现方式：用计数器count记录访问次数，选择count最小的先被置换，容易存在“饿死”现象，可以使用aging的方式来弱化</p>
+<p>⑥MFU算法，最近最常被使用的先被置换；   后两者的性能不太好。</p>
+<p><strong>页框的分配</strong></p>
+<p>进程的运行，一开始就需要最少的几个页框，使得指令能完成。</p>
+<p>①固定分配：几个页框固定等分页框，不管进程大小</p>
+<p> 比例分配：按照进程的大小来比例分配页框</p>
+<p>②优先级分配：局部分配：进程缺页时会在自身所得的页框中置换一个页框；优点是所有进程可以顺利完成，缺点是资源利用率相对不高。</p>
+<p>全局置换：优先级高的需要时会置换优先级低的页框，优点可以合理应用资源；缺点是有的进程可能会“饿死”</p>
+<p><strong>抖动</strong>thrashing</p>
+<p>进程没有足够的页框，缺页率就会下降，缺页率下降会降低cpu利用率，cpu利用率下降时系统会认为cpu闲置，要增加程序道数，进程又增加缺页率，导致恶性循环。</p>
+<p><img   class="lazyload" data-original="C:\Users\vv\AppData\Roaming\Typora\typora-user-images\1572781638830.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1572781638830"></p>
+<p><img   class="lazyload" data-original="C:\Users\vv\AppData\Roaming\Typora\typora-user-images\1572783275716.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1572783275716"></p>
+<p><strong>locality mode局部性模型</strong></p>
+<p>每个程序需要多个页框，可能程序的每个部分（局部模型）都需要一个页框，因此可以把程序所需的页框数近似为局部性模型的数目；</p>
+<p>抖动发生的原因：①所有程序的所有局部性模型数目&gt;总的内存量</p>
+<p>或   ②所需活动的页框数目&gt;所能分配的页框数目</p>
+<p><strong>进程p的工作集模型</strong>：用工作集来表示最近δ时间内需要页框总数量D；主存为M；若D&lt;M则会发生抖动；</p>
+<p>如果δ很小，则不会超过程序的所有局部性模型数目</p>
+<p>如果δ很大，则会超过程序的所有局部性模型数目</p>
+<p>如果δ取无穷，则会超过程序的所有局部性模型数目；</p>
+<p>工作集的实现：</p>
 
       </section>
       <section class="extra">
@@ -191,7 +221,7 @@
         <ul class="copyright">
   
   <li><strong>本文作者：</strong>Shakespeawang</li>
-  <li><strong>本文链接：</strong><a href="https://shakespeawang.github.io/2020/10/28/RPC%E5%AD%A6%E4%B9%A0/index.html">https://shakespeawang.github.io/2020/10/28/RPC%E5%AD%A6%E4%B9%A0/index.html</a></li>
+  <li><strong>本文链接：</strong><a href="https://shakespeawang.github.io/2020/10/28/%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98/index.html">https://shakespeawang.github.io/2020/10/28/%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98/index.html</a></li>
   <li><strong>版权声明：</strong>本博客所有文章均采用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh"
       rel="external nofollow" target="_blank"> BY-NC-SA </a>许可协议，转载请注明出处！</li>
   
@@ -209,15 +239,13 @@
 </section>
         
         
-  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BF%9C%E7%A8%8B%E8%B0%83%E7%94%A8/" rel="tag">远程调用</a></li></ul>
-
         
 <nav class="nav">
   
-    <a href="/2020/10/28/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F_%E7%AC%AC%E4%B8%80%E7%AB%A0/"><i class="iconfont iconleft"></i></a>
+    <a href="/2020/10/28/%E6%B3%A8%E8%A7%A3%E4%B8%8E%E5%8F%8D%E5%B0%84/"><i class="iconfont iconleft"></i></a>
   
   
-    <a href="/2020/10/28/Redis%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/">Redis分布式锁<i class="iconfont iconright"></i></a>
+    <a href="/2020/10/28/%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/"><i class="iconfont iconright"></i></a>
   
 </nav>
 

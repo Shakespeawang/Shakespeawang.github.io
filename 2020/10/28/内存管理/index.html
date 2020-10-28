@@ -7,15 +7,15 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>RPC - shakespeaWang&#39;s Blog</title>
+  <title> - shakespeaWang&#39;s Blog</title>
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="google" content="notranslate" />
 
   
   
-  <meta name="description" content="RPC是一种分布式通信的方式；
-从单机到分布式—&amp;gt..."> 
+  <meta name="description" content="内存管理内存：实际内存，虚拟内存
+把程序与数据（即进程..."> 
   
   <meta name="author" content="Shakespeawang"> 
 
@@ -106,17 +106,6 @@
   
 
 
-<nav class="navbar">
-  <div class="left"></div>
-  <div class="center">RPC</div>
-  <div class="right">
-    
-      <i class="iconfont iconmoono" id="color-toggle" color-toggle="light"></i>
-    
-    <i class="iconfont iconmenu j-navbar-menu"></i>
-  </div>
-</nav>
-
   <nav class="menu">
   <div class="menu-wrap">
     <div class="menu-close">
@@ -165,25 +154,76 @@
     <section class="head">
   <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
   <div class="head-mask">
-    <h1 class="head-title">RPC</h1>
+    <h1 class="head-title"></h1>
     <div class="head-info">
       <span class="post-info-item"><i class="iconfont iconcalendar"></i>October 28, 2020</span
         class="post-info-item">
       
-      <span class="post-info-item"><i class="iconfont iconfont-size"></i>174</span>
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>1785</span>
     </div>
   </div>
 </section>
     <section class="main">
       <section class="content">
-        <p>RPC是一种分布式通信的方式；</p>
-<p>从单机到分布式—&gt;分布式通信</p>
-<p><strong>应用程序之间的通信</strong>：传统的方式</p>
-<p><img   class="lazyload" data-original="C:\Users\vv\AppData\Roaming\Typora\typora-user-images\1599446688223.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1599446688223"></p>
-<p>改进版：RPC框架，远程进程调用</p>
-<p><img   class="lazyload" data-original="C:\Users\vv\AppData\Roaming\Typora\typora-user-images\1599447231899.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1599447231899"></p>
-<p>远程调用的目的：必须把接口层和实现层面分开，</p>
-<p>服务端提供一个RPC调用接口，客户端建立tcp连接后，发送需要调用的方法和方法参数信息，服务端就会根据这些信息通过动态代理，去调用对应方法的实现，最后返回计算结果</p>
+        <h3 id="内存管理"><a href="#内存管理" class="headerlink" title="内存管理"></a>内存管理</h3><p>内存：实际内存，虚拟内存</p>
+<p>把程序与数据（即进程）放到内存中，CPU才能调用</p>
+<p><img   class="lazyload" data-original="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1571470327211.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1571470327211"></p>
+<p>内存结构：CPU可以直接访问的register    memory   cache（高速缓存）    </p>
+<p>cpu直接访问寄存器获取数值，寄存器中数值从内存中获取；cpu直接访问内存，其中存储了需要执行指令；为了让cpu更快得到内存中的资源，先将内存资源放在cache中，cpu再直接访问cache；</p>
+<p><strong>注意：</strong>存储指令中的可能存有某些数值或变量的地址，把这些指令放到内存后，需要注意<strong>地址的绑定</strong>（绑定到内存中的哪里）</p>
+<p><strong>访问速度</strong>：寄存器&gt;cache&gt;内存&gt;硬盘</p>
+<p>对于单cpu而言，只需要两个寄存器来保存进程的基址与limit值，其余进程的基址与limit值则保存在PCB中。</p>
+<p><strong>程序的执行过程</strong></p>
+<p>编译时期： .c文件-&gt;.obj文件-&gt;.exe文件（可执行，但不一定能执行）      地址绑定：绝对绑定，绝对代码</p>
+<p>装载时期：把系统库文件、静\<strong>动态链接</strong>库加载.h/.dll放入内存中                地址绑定：可重定位代码</p>
+<p>执行时期：执行程序       <strong>地址绑定</strong>：任意放置，且可以改变存放地址</p>
+<p>地址的绑定方法：在上述三个时期均可绑定；</p>
+<p><strong>逻辑地址与物理地址</strong></p>
+<p>逻辑地址：程序代码的地址，相对地址，用户可以看到的地址</p>
+<p>物理地址：实际地址，物理内存中的地址，</p>
+<p><strong>逻辑地址—&gt;物理地址</strong>：称为<strong>重定位</strong>              </p>
+<p>内存管理单元（<strong>MMU</strong>）是用来重定位的硬件，其中只有一个寄存器，任务是将逻辑地址转换成物理地址</p>
+<p><strong>！！注意</strong>：装载的时候仍然是逻辑地址；但是工作的时候是物理地址；</p>
+<p>动态装载：在进程执行需要的时候才装载到内存中，只需重定位支持，优点：内存利用率提高; 用的<strong>动态重定位</strong></p>
+<p>与动态重定位对应：静态重定位（在程序执行前，都已经装载定位好了</p>
+<p><strong>Stub 存根</strong>，用于动态链接，一小段代码，可能常驻内存中，用于动态连接内库</p>
+<p>swapping：换入换出空间，用于保存进程的现场</p>
+<p><strong>内存管理</strong>：已分配空间与未分配/空闲空间      </p>
+<p><strong>内存分配</strong></p>
+<p><em>一、连续空间</em>的分配：需要已知起始地址、大小、已分配/未分配标志(<strong>固定分区大小</strong>)</p>
+<p>二、可变分区分配：first fit :第一块空间/best fit：利用率最大 /worst fit ：利用率最小</p>
+<p>所需的参数：起始地址、大小、已/未分配标志</p>
+<p>①</p>
+<p>②</p>
+<p>③</p>
+<p>④</p>
+<p>碎片：fragementation   </p>
+<p>分类：外碎片，内碎片</p>
+<p>外碎片不属于任何一个分区，内碎片是指在连续空间分配中未用到的内存空间</p>
+<p>碎片整理：内存紧凑/紧缩compaction，用了之后就必须用动态链接，动态加载；在可变分区分配的基础上进行</p>
+<p>三、离散分配方式</p>
+<p>分页与分段，段页式：paging  segmentation</p>
+<p>分页：将程序分为多个页，除最后一页外每页的大小size相同，同时将内存中也分为多页，每页大小也为size，将程序的多页离散插入内存中的多页中，再用一个<strong>页表记录程序的每页顺序在内存中的地址</strong>。页表存储在内存中。</p>
+<p> 地址转换机构：</p>
+<p><strong>页表的实现</strong>：页表的基址与偏移量；页表基址寄存器PTBR与页表长度寄存器PTLR；</p>
+<p>每访问一条指令，需要访问两次内存，访问效率为50%;</p>
+<p>为了提升效率，把<strong>页表放在高速缓存</strong>，即联想寄存器TLB；</p>
+<p>用TLB时，访问需要的时间α（Ttlb+T内存）+（1-α）*（Ttlb+2T内存）     α的访问命中率，要求70%以上</p>
+<p>对页设置位valid和invalid，表示该页在进程中可用 与 不可用；</p>
+<p><strong>shared pages</strong>：方案①copy ；方案②分为shared code（pure） 和private code and data</p>
+<p><strong>页表长度过长</strong>时：解决方法①<strong>页表分页</strong>（二级页表、三级….多级）  ②  转置页表   ③哈希页表</p>
+<p>对于二级页表，每访问一条指令，需要访问三次内存；</p>
+<p>对于三级页表，每访问一条指令，需要访问四次内存</p>
+<p><strong>哈希页表</strong>(唯一性)</p>
+<p>一个页号对应一个页框值；一个页号有一个哈希值，并带有一个指针指向下一对哈希值。</p>
+<p><img   class="lazyload" data-original="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1572268845732.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1572268845732"></p>
+<p>转置页表：</p>
+<p>一个转置页表，连续存放进程号和进程页号</p>
+<p><strong>分段管理：</strong></p>
+<p>可变的段，一段表示一个函数，方法，对象等，所以每一段的大小就不同。</p>
+<p>表示方法：</p>
+<p>段表：段号和偏移量（在内存中的偏移量）</p>
+<p><img   class="lazyload" data-original="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1572269655320.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1572269655320"></p>
 
       </section>
       <section class="extra">
@@ -191,7 +231,7 @@
         <ul class="copyright">
   
   <li><strong>本文作者：</strong>Shakespeawang</li>
-  <li><strong>本文链接：</strong><a href="https://shakespeawang.github.io/2020/10/28/RPC%E5%AD%A6%E4%B9%A0/index.html">https://shakespeawang.github.io/2020/10/28/RPC%E5%AD%A6%E4%B9%A0/index.html</a></li>
+  <li><strong>本文链接：</strong><a href="https://shakespeawang.github.io/2020/10/28/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/index.html">https://shakespeawang.github.io/2020/10/28/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/index.html</a></li>
   <li><strong>版权声明：</strong>本博客所有文章均采用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh"
       rel="external nofollow" target="_blank"> BY-NC-SA </a>许可协议，转载请注明出处！</li>
   
@@ -209,15 +249,13 @@
 </section>
         
         
-  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BF%9C%E7%A8%8B%E8%B0%83%E7%94%A8/" rel="tag">远程调用</a></li></ul>
-
         
 <nav class="nav">
   
-    <a href="/2020/10/28/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F_%E7%AC%AC%E4%B8%80%E7%AB%A0/"><i class="iconfont iconleft"></i></a>
+    <a href="/2020/10/28/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"><i class="iconfont iconleft"></i></a>
   
   
-    <a href="/2020/10/28/Redis%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/">Redis分布式锁<i class="iconfont iconright"></i></a>
+    <a href="/2020/10/28/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E2%80%94%E7%AC%AC%E4%BA%94%E7%AB%A0/"><i class="iconfont iconright"></i></a>
   
 </nav>
 

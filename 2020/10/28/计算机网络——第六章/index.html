@@ -7,15 +7,15 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>RPC - shakespeaWang&#39;s Blog</title>
+  <title> - shakespeaWang&#39;s Blog</title>
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="google" content="notranslate" />
 
   
   
-  <meta name="description" content="RPC是一种分布式通信的方式；
-从单机到分布式—&amp;gt..."> 
+  <meta name="description" content="一、应用层协议
+每一个应用层协议：可以理解为一个服务，..."> 
   
   <meta name="author" content="Shakespeawang"> 
 
@@ -106,17 +106,6 @@
   
 
 
-<nav class="navbar">
-  <div class="left"></div>
-  <div class="center">RPC</div>
-  <div class="right">
-    
-      <i class="iconfont iconmoono" id="color-toggle" color-toggle="light"></i>
-    
-    <i class="iconfont iconmenu j-navbar-menu"></i>
-  </div>
-</nav>
-
   <nav class="menu">
   <div class="menu-wrap">
     <div class="menu-close">
@@ -165,33 +154,64 @@
     <section class="head">
   <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
   <div class="head-mask">
-    <h1 class="head-title">RPC</h1>
+    <h1 class="head-title"></h1>
     <div class="head-info">
       <span class="post-info-item"><i class="iconfont iconcalendar"></i>October 28, 2020</span
         class="post-info-item">
       
-      <span class="post-info-item"><i class="iconfont iconfont-size"></i>174</span>
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>968</span>
     </div>
   </div>
 </section>
     <section class="main">
       <section class="content">
-        <p>RPC是一种分布式通信的方式；</p>
-<p>从单机到分布式—&gt;分布式通信</p>
-<p><strong>应用程序之间的通信</strong>：传统的方式</p>
-<p><img   class="lazyload" data-original="C:\Users\vv\AppData\Roaming\Typora\typora-user-images\1599446688223.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1599446688223"></p>
-<p>改进版：RPC框架，远程进程调用</p>
-<p><img   class="lazyload" data-original="C:\Users\vv\AppData\Roaming\Typora\typora-user-images\1599447231899.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1599447231899"></p>
-<p>远程调用的目的：必须把接口层和实现层面分开，</p>
-<p>服务端提供一个RPC调用接口，客户端建立tcp连接后，发送需要调用的方法和方法参数信息，服务端就会根据这些信息通过动态代理，去调用对应方法的实现，最后返回计算结果</p>
-
+        <h2 id="一、应用层协议"><a href="#一、应用层协议" class="headerlink" title="一、应用层协议"></a>一、应用层协议</h2><p><img   class="lazyload" data-original="C:\Users\vv\AppData\Roaming\Typora\typora-user-images\1578796962622.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1578796962622"></p>
+<p>每一个应用层协议：可以理解为一个服务，每一个服务使用不同的协议；</p>
+<h4 id="域名服务（DNS服务）"><a href="#域名服务（DNS服务）" class="headerlink" title="域名服务（DNS服务）"></a>域名服务（DNS服务）</h4><p>域名定义：互联网网站名称，全球唯一</p>
+<p>根 . (一个点，网站最后)；顶级域名 com   edu   net  cn  org gov …. ; <strong>二级域名   如51zxw</strong>  ；三级域名  如 dab </p>
+<p>通常，需要注册缴费的时二级域名；  <a target="_blank" rel="noopener" href="http://www.dab.51zxw.com/">www.dab.51zxw.com</a>.    (四级域名www   三级域名dab   二级域名 51zxw 顶级域名 com   根 . )</p>
+<p>DNS服务的作用：负责解析域名，将域名解析成IP；</p>
+<p><img   class="lazyload" data-original="C:\Users\vv\AppData\Roaming\Typora\typora-user-images\1578797089717.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1578797089717"></p>
+<p>域名解析的过程：分布式查询结构</p>
+<p><img   class="lazyload" data-original="C:\Users\vv\AppData\Roaming\Typora\typora-user-images\1578797959853.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1578797959853"></p>
+<p><strong>需要安装自己的DNS服务器：</strong></p>
+<p>​    1.解析内网自身的域名</p>
+<p>​    2.降低到Internet的域名解析流量</p>
+<p>​    3.需要域环境</p>
+<p>本地DNS服务器上配置了91.xueit.com，可以解析出来；没有配置inhe.net，需要到根服务器上解析，因此未授权。</p>
+<p><img   class="lazyload" data-original="C:\Users\vv\AppData\Roaming\Typora\typora-user-images\1578812058421.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1578812058421"></p>
+<p><strong>DHCP动态主机配置</strong></p>
+<p>静态IP地址:  手动分配</p>
+<p>动态IP地址：</p>
+<p>DHCP客户端请求IP地址的过程： DHCP本身必须是静态地址；</p>
+<p>释放租约：ipconfig /release</p>
+<p>重新获得IP地址： ipconfig/renew;</p>
+<p><strong>跨网段地址分配：</strong></p>
+<p><img   class="lazyload" data-original="C:\Users\vv\AppData\Roaming\Typora\typora-user-images\1578817823176.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1578817823176"></p>
+<p>在路由器上加一条命令：使得计算机请求ip地址的命令转到DHCP服务器上</p>
+<p>Router(config-if)#ip helper-address  dhcp服务器ip</p>
+<p>DHCP:知道MAC地址，广播，解析ip地址</p>
+<p>arp:知道ip地址，通过广播，解析MAC地址</p>
+<p>DHCP客户端请求IP地址就是逆向arp；</p>
+<h4 id="FTP协议"><a href="#FTP协议" class="headerlink" title="FTP协议"></a>FTP协议</h4><p>FTP :file transfer protocol</p>
+<p>FTP协议：两种连接方式；数据连接两种类型</p>
+<p><img   class="lazyload" data-original="C:\Users\vv\AppData\Roaming\Typora\typora-user-images\1578881595500.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1578881595500"></p>
+<p>FTP主动模式：需要防火墙打开21和20端口；</p>
+<p><img   class="lazyload" data-original="C:\Users\vv\AppData\Roaming\Typora\typora-user-images\1578882388315.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1578882388315"></p>
+<p>FTP被动模式：FTP服务器指定某个端口，等待客户端发起连接。因此，若只打开防火墙打开21和20端口，不一定能上传下载数据</p>
+<p><img   class="lazyload" data-original="C:\Users\vv\AppData\Roaming\Typora\typora-user-images\1578882265042.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1578882265042"></p>
+<p>记住：若有防火请，需要在防火墙开21和20端口，使用主动模式进行数据连接。</p>
+<p>netstat -n</p>
+<h4 id="telnet协议"><a href="#telnet协议" class="headerlink" title="telnet协议"></a>telnet协议</h4><p>远程终端协议TELNET ，使用23端口号</p>
+<p>telnet ip port   命令可以测试远程ip下端口的服务是否开启</p>
+<h4 id="远程桌面协议RDP"><a href="#远程桌面协议RDP" class="headerlink" title="远程桌面协议RDP"></a>远程桌面协议RDP</h4>
       </section>
       <section class="extra">
         
         <ul class="copyright">
   
   <li><strong>本文作者：</strong>Shakespeawang</li>
-  <li><strong>本文链接：</strong><a href="https://shakespeawang.github.io/2020/10/28/RPC%E5%AD%A6%E4%B9%A0/index.html">https://shakespeawang.github.io/2020/10/28/RPC%E5%AD%A6%E4%B9%A0/index.html</a></li>
+  <li><strong>本文链接：</strong><a href="https://shakespeawang.github.io/2020/10/28/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E2%80%94%E2%80%94%E7%AC%AC%E5%85%AD%E7%AB%A0/index.html">https://shakespeawang.github.io/2020/10/28/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E2%80%94%E2%80%94%E7%AC%AC%E5%85%AD%E7%AB%A0/index.html</a></li>
   <li><strong>版权声明：</strong>本博客所有文章均采用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh"
       rel="external nofollow" target="_blank"> BY-NC-SA </a>许可协议，转载请注明出处！</li>
   
@@ -209,15 +229,13 @@
 </section>
         
         
-  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BF%9C%E7%A8%8B%E8%B0%83%E7%94%A8/" rel="tag">远程调用</a></li></ul>
-
         
 <nav class="nav">
   
-    <a href="/2020/10/28/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F_%E7%AC%AC%E4%B8%80%E7%AB%A0/"><i class="iconfont iconleft"></i></a>
+    <a href="/2020/10/28/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E2%80%94%E2%80%94%E7%AC%AC%E4%B8%89%E7%AB%A0/"><i class="iconfont iconleft"></i></a>
   
   
-    <a href="/2020/10/28/Redis%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/">Redis分布式锁<i class="iconfont iconright"></i></a>
+    <a href="/2020/10/28/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C_%E7%AC%AC%E4%B8%80%E7%AB%A0/"><i class="iconfont iconright"></i></a>
   
 </nav>
 

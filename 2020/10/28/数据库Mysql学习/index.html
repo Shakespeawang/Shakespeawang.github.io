@@ -7,15 +7,14 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>RPC - shakespeaWang&#39;s Blog</title>
+  <title> - shakespeaWang&#39;s Blog</title>
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="google" content="notranslate" />
 
   
   
-  <meta name="description" content="RPC是一种分布式通信的方式；
-从单机到分布式—&amp;gt..."> 
+  <meta name="description" content="数据库Mysql学习1、事务相关1.1 事务的隔离的实..."> 
   
   <meta name="author" content="Shakespeawang"> 
 
@@ -106,17 +105,6 @@
   
 
 
-<nav class="navbar">
-  <div class="left"></div>
-  <div class="center">RPC</div>
-  <div class="right">
-    
-      <i class="iconfont iconmoono" id="color-toggle" color-toggle="light"></i>
-    
-    <i class="iconfont iconmenu j-navbar-menu"></i>
-  </div>
-</nav>
-
   <nav class="menu">
   <div class="menu-wrap">
     <div class="menu-close">
@@ -165,25 +153,57 @@
     <section class="head">
   <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
   <div class="head-mask">
-    <h1 class="head-title">RPC</h1>
+    <h1 class="head-title"></h1>
     <div class="head-info">
       <span class="post-info-item"><i class="iconfont iconcalendar"></i>October 28, 2020</span
         class="post-info-item">
       
-      <span class="post-info-item"><i class="iconfont iconfont-size"></i>174</span>
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>1603</span>
     </div>
   </div>
 </section>
     <section class="main">
       <section class="content">
-        <p>RPC是一种分布式通信的方式；</p>
-<p>从单机到分布式—&gt;分布式通信</p>
-<p><strong>应用程序之间的通信</strong>：传统的方式</p>
-<p><img   class="lazyload" data-original="C:\Users\vv\AppData\Roaming\Typora\typora-user-images\1599446688223.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1599446688223"></p>
-<p>改进版：RPC框架，远程进程调用</p>
-<p><img   class="lazyload" data-original="C:\Users\vv\AppData\Roaming\Typora\typora-user-images\1599447231899.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1599447231899"></p>
-<p>远程调用的目的：必须把接口层和实现层面分开，</p>
-<p>服务端提供一个RPC调用接口，客户端建立tcp连接后，发送需要调用的方法和方法参数信息，服务端就会根据这些信息通过动态代理，去调用对应方法的实现，最后返回计算结果</p>
+        <h1 id="数据库Mysql学习"><a href="#数据库Mysql学习" class="headerlink" title="数据库Mysql学习"></a>数据库Mysql学习</h1><h2 id="1、事务相关"><a href="#1、事务相关" class="headerlink" title="1、事务相关"></a>1、事务相关</h2><h3 id="1-1-事务的隔离的实现方案"><a href="#1-1-事务的隔离的实现方案" class="headerlink" title="1.1 事务的隔离的实现方案"></a>1.1 事务的隔离的实现方案</h3><ul>
+<li><strong>LBCC</strong> lock based Concurrency control  基于锁的并发控制</li>
+</ul>
+<p>这种方案比较简单粗暴，就是一个事务去读取一条数据的时候，就上锁，不允许其他事务来操作(当然这个锁的实现也比较重要，如果我们只锁定当前一条数据依然无法解决幻读问题)。</p>
+<p><strong>当前读</strong></p>
+<p>MySQL加锁之后就是当前读。假如当前事务只是加共享锁，那么其他事务就不能有排他锁，也就是不能修改数据；而假如当前事务需要加排他锁，那么其他事务就不能持有任何锁。总而言之，能加锁成功，就确保了除了当前事务之外，其他事务不会对当前数据产生影响，所以自然而然的，当前事务读取到的数据就只能是最新的，而不会是快照数据</p>
+<ul>
+<li>MVCC Multi Version Concurrency Control 多版本并发控制</li>
+</ul>
+<p>在修改数据的时候，可以为这条数据创建一个快照，后面就可以直接读取这个快照。为了实现MVCC机制，InnoDB内部为每一行添加了两个隐藏列：DB_TRX_ID和DB_ROLL_PTR（MySQL另外还有一个隐藏列DB_ROW_ID，这是在InnoDB表没有主键的时候会用来作为主键）。</p>
+<p><strong>DB_TRX_ID</strong></p>
+<p>长度为6字节，存储了插入或更新语句的最后一个事务的事务id</p>
+<p><strong>DB_ROLL_PTR</strong></p>
+<p>长度为7字节，称为回滚指针，指向写入回滚段的undo log记录，读取记录时会根据指针读取undo log中的记录</p>
+<p>由于mysql中undo log<strong>维护一个历史数据记录</strong>，因此应该养成定期提交事务的习惯，否则回滚段会越来越大，甚至占满整个表空间。</p>
+<p><strong>快照读</strong></p>
+<p>指的是在RR隔离级别下，在不加锁的情况下MySQL会根据回滚指针选择从undo log记录中获取快照数据，而不总是获取最新的数据，这也就是为什么另一个事务提交了数据，在当前事务中看到的依然是另一个事务提交之前的数据。</p>
+<p><strong>RR隔离级别快照并不是在BEGIN就开始产生了，而是要等到事务当中的第一次查询之后才会产生快照，之后的查询就只读取这个快照数据</strong></p>
+<p>MVCC大致查询规则如下：</p>
+<p>1、只查询事务id小于等于当前事务id的数据。(这里要等于是因为假如自己的事务插入了一条数据，会生成一条当前事务id的数据，所以必须包含本事务自己插入的数据)</p>
+<p>2、只查询未删除(回滚指针为空)或者回滚指针大于当前事务id的数据。(这里不能等于是因为假如自己的事务删除了一条数据，会生成数据的回滚指针为当前事务id，所以必须排除掉自己删除的数据)</p>
+<h2 id="2、锁"><a href="#2、锁" class="headerlink" title="2、锁"></a>2、锁</h2><p><strong>可以按照锁的粒度把数据库锁分为表级锁和行级锁。</strong></p>
+<ul>
+<li><p><strong>表级锁</strong></p>
+<p>Mysql中锁定 <strong>粒度最大</strong> 的一种锁，对当前操作的整张表加锁，实现简单 <strong>，资源消耗也比较少，加锁快，不会出现死锁</strong> 。其锁定粒度最大，触发锁冲突的概率最高，并发度最低，MyISAM和 InnoDB引擎都支持表级锁。</p>
+</li>
+<li><p><strong>行级锁</strong></p>
+<p>Mysql中锁定 <strong>粒度最小</strong> 的一种锁，只针对当前操作的行进行加锁。 <strong>行级锁能大大减少数据库操作的冲突。其加锁粒度最小，并发度高，但加锁的开销也最大，加锁慢，会出现死锁。</strong> InnoDB支持的行级锁，包括如下几种。</p>
+<ul>
+<li><strong>Record Lock:</strong> 对索引项加锁，锁定符合条件的行。其他事务不能修改和删除加锁项；</li>
+<li><strong>Gap Lock:</strong> 对索引项之间的“间隙”加锁，锁定记录的范围（对第一条记录前的间隙或最后一条将记录后的间隙加锁），不包含索引项本身。其他事务不能在锁范围内插入数据，这样就防止了别的事务新增幻影行。</li>
+<li><strong>Next-key Lock：</strong> 锁定索引项本身和索引范围。即Record Lock和Gap Lock的结合。可解决幻读问题。</li>
+</ul>
+</li>
+</ul>
+<p><strong>虽然使用行级索具有粒度小、并发度高等特点，但是表级锁有时候也是非常必要的</strong>：</p>
+<ul>
+<li>事务更新大表中的大部分数据直接使用表级锁效率更高；</li>
+<li>事务比较复杂，使用行级索很可能引起死锁导致回滚。</li>
+</ul>
 
       </section>
       <section class="extra">
@@ -191,7 +211,7 @@
         <ul class="copyright">
   
   <li><strong>本文作者：</strong>Shakespeawang</li>
-  <li><strong>本文链接：</strong><a href="https://shakespeawang.github.io/2020/10/28/RPC%E5%AD%A6%E4%B9%A0/index.html">https://shakespeawang.github.io/2020/10/28/RPC%E5%AD%A6%E4%B9%A0/index.html</a></li>
+  <li><strong>本文链接：</strong><a href="https://shakespeawang.github.io/2020/10/28/%E6%95%B0%E6%8D%AE%E5%BA%93Mysql%E5%AD%A6%E4%B9%A0/index.html">https://shakespeawang.github.io/2020/10/28/%E6%95%B0%E6%8D%AE%E5%BA%93Mysql%E5%AD%A6%E4%B9%A0/index.html</a></li>
   <li><strong>版权声明：</strong>本博客所有文章均采用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh"
       rel="external nofollow" target="_blank"> BY-NC-SA </a>许可协议，转载请注明出处！</li>
   
@@ -209,15 +229,13 @@
 </section>
         
         
-  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BF%9C%E7%A8%8B%E8%B0%83%E7%94%A8/" rel="tag">远程调用</a></li></ul>
-
         
 <nav class="nav">
   
-    <a href="/2020/10/28/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F_%E7%AC%AC%E4%B8%80%E7%AB%A0/"><i class="iconfont iconleft"></i></a>
+    <a href="/2020/10/28/%E6%AD%BB%E9%94%81/"><i class="iconfont iconleft"></i></a>
   
   
-    <a href="/2020/10/28/Redis%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/">Redis分布式锁<i class="iconfont iconright"></i></a>
+    <a href="/2020/10/28/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"><i class="iconfont iconright"></i></a>
   
 </nav>
 

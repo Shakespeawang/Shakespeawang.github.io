@@ -7,15 +7,14 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>RPC - shakespeaWang&#39;s Blog</title>
+  <title> - shakespeaWang&#39;s Blog</title>
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="google" content="notranslate" />
 
   
   
-  <meta name="description" content="RPC是一种分布式通信的方式；
-从单机到分布式—&amp;gt..."> 
+  <meta name="description" content="计算机网络局域网   广域网     internet..."> 
   
   <meta name="author" content="Shakespeawang"> 
 
@@ -106,17 +105,6 @@
   
 
 
-<nav class="navbar">
-  <div class="left"></div>
-  <div class="center">RPC</div>
-  <div class="right">
-    
-      <i class="iconfont iconmoono" id="color-toggle" color-toggle="light"></i>
-    
-    <i class="iconfont iconmenu j-navbar-menu"></i>
-  </div>
-</nav>
-
   <nav class="menu">
   <div class="menu-wrap">
     <div class="menu-close">
@@ -165,25 +153,75 @@
     <section class="head">
   <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
   <div class="head-mask">
-    <h1 class="head-title">RPC</h1>
+    <h1 class="head-title"></h1>
     <div class="head-info">
       <span class="post-info-item"><i class="iconfont iconcalendar"></i>October 28, 2020</span
         class="post-info-item">
       
-      <span class="post-info-item"><i class="iconfont iconfont-size"></i>174</span>
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>1292</span>
     </div>
   </div>
 </section>
     <section class="main">
       <section class="content">
-        <p>RPC是一种分布式通信的方式；</p>
-<p>从单机到分布式—&gt;分布式通信</p>
-<p><strong>应用程序之间的通信</strong>：传统的方式</p>
-<p><img   class="lazyload" data-original="C:\Users\vv\AppData\Roaming\Typora\typora-user-images\1599446688223.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1599446688223"></p>
-<p>改进版：RPC框架，远程进程调用</p>
-<p><img   class="lazyload" data-original="C:\Users\vv\AppData\Roaming\Typora\typora-user-images\1599447231899.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1599447231899"></p>
-<p>远程调用的目的：必须把接口层和实现层面分开，</p>
-<p>服务端提供一个RPC调用接口，客户端建立tcp连接后，发送需要调用的方法和方法参数信息，服务端就会根据这些信息通过动态代理，去调用对应方法的实现，最后返回计算结果</p>
+        <h3 id="计算机网络"><a href="#计算机网络" class="headerlink" title="计算机网络"></a>计算机网络</h3><h5 id="局域网-广域网-internet"><a href="#局域网-广域网-internet" class="headerlink" title="局域网   广域网     internet"></a>局域网   广域网     internet</h5><p><strong>局域网</strong>（覆盖范围较小，总长度不超过100m）：需要自行搭建设备，带宽固定（10M，100M或者1000M），自行维修管理</p>
+<p>接入层交换机：电脑可以直接接入</p>
+<p>汇聚层交换机：交换机可以接入</p>
+<p>采用星形结构</p>
+<p><img   class="lazyload" data-original="C:\Users\vv\AppData\Roaming\Typora\typora-user-images\1573716367596.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1573716367596"></p>
+<p><strong>internet</strong>（属于广域网的一种）</p>
+<p>isp（internet service ）运营商互联，所有isp运营商构成internet：有自己的机房，对网民提供访问internet连接</p>
+<p><strong>广域网</strong></p>
+<p>距离较远（超过100m），花钱买带宽，与局域网不是只有距离相对长短的概念</p>
+<p>计算机数据通信的过程：<img   class="lazyload" data-original="C:\Users\vv\AppData\Roaming\Typora\typora-user-images\1573717164457.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1573717164457"></p>
+<p><img   class="lazyload" data-original="C:\Users\vv\AppData\Roaming\Typora\typora-user-images\1573717480452.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1573717480452"></p>
+<p><img   class="lazyload" data-original="C:\Users\vv\AppData\Roaming\Typora\typora-user-images\1573717680063.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1573717680063"></p>
+<p><img   class="lazyload" data-original="C:\Users\vv\AppData\Roaming\Typora\typora-user-images\1573717934400.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1573717934400"></p>
+<p>ip：网络部分与主机部分，通过子网掩码来说明哪一部分是网络部分，哪些是主机部分。ip地址决定了起始地址与最终目的</p>
+<p>网关：需要连接其他网络，必须给出的出口IP</p>
+<p>MAC地址：计算机网卡拥有，物理地址，出厂已经设定，全球唯一；MAC地址决定了下一条去哪里</p>
+<h4 id="OSI参考模型："><a href="#OSI参考模型：" class="headerlink" title="OSI参考模型："></a><strong>OSI参考模型：</strong></h4><p>应用层：所有能产生网络流量的程序；</p>
+<p>表示层：数据在传输之前是否进行加密或压缩处理，二进制或ASCII码</p>
+<p>会话层：session，访问建立了哪些网页或服务器的会话，可以用来查看木马程序（netstat -n）</p>
+<p>传输层：流量控制，网页碎片传输时，客户端收到要返回确认，可靠传输，不可靠传输（TCP   UDP）</p>
+<p>网络层：选择最佳路径    规划IP地址（TCP/IP V4   TCP/IP V6）</p>
+<p>数据链路层：数据帧的开始与结束   透明传输，差错校验</p>
+<p>物理层：接口标准，  电器标准，如何在物理链路上传输更快的速度。</p>
+<p><strong>每一层相互独立，一层的改变不会影响其它层。各司其职</strong>，每一层为上一层服务。</p>
+<p><img   class="lazyload" data-original="C:\Users\vv\AppData\Roaming\Typora\typora-user-images\1573739287091.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1573739287091"></p>
+<p>网络故障排错指导：</p>
+<p>1、物理层故障：查看连接状态，发送与接收的数据包</p>
+<p>2、数据链路层故障: MAC地址冲突，ADSL欠费    接口网速无法协商一致，计算机连接到错误的vlan上</p>
+<p>3、网络层故障：配置错误IP地址或子网掩码，配置错误的网关，路由器没有配置到达目标网络的路由</p>
+<p>4、应用层故障：应用程序配置错误，</p>
+<p>OSI参考模型与网络安全</p>
+<p>1、物理层安全</p>
+<p>措施：保护网线接口等</p>
+<p>2、数据链路层安全</p>
+<p>ADSL账号密码，VLAN交换机端口绑定MAC地址</p>
+<p>3、网络层安全</p>
+<p>在路由器上使用ACL控制数据包流量，防火墙就是网络层安全</p>
+<p>4、应用层安全</p>
+<p>措施：确认开发的应用程序没有漏洞</p>
+<p><img   class="lazyload" data-original="C:\Users\vv\AppData\Roaming\Typora\typora-user-images\1573993768361.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1573993768361"></p>
+<p><img   class="lazyload" data-original="C:\Users\vv\AppData\Roaming\Typora\typora-user-images\1573993859569.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1573993859569"></p>
+<p>计算机网络的性能:</p>
+<p>①速率：连接在计算机网络上的主机在<strong>数字信道上</strong>传送数据位数的速率(在一个信道上的速率)，也称为数据率</p>
+<p>单位：b/s   kb/s  Mb/S  GB/S</p>
+<p>②带宽：数据通信领域中，数字信道所能达到的最高数据率。</p>
+<p>单位：b/s   kb/s  Mb/S  GB/S</p>
+<p>③吞吐量：单位时间内通过某个网络的数据量</p>
+<p>单位：b/s   kb/s  Mb/S  GB/S</p>
+<p>④时延</p>
+<p>发送时延、传播时延、处理时延、排队时延</p>
+<p><img   class="lazyload" data-original="C:\Users\vv\AppData\Roaming\Typora\typora-user-images\1573994681572.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1573994681572"></p>
+<p>⑤时延带宽积</p>
+<p>通信链路上的数据量</p>
+<p>⑥RRT（Round-trip Time）往返时间</p>
+<p>从发送方发送数据开始，到发送方收到接收方确认的时间</p>
+<p>⑦网络利用率</p>
+<p>信道利用率与网络利用率</p>
+<p><img   class="lazyload" data-original="C:\Users\vv\AppData\Roaming\Typora\typora-user-images\1573995235917.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1573995235917"></p>
 
       </section>
       <section class="extra">
@@ -191,7 +229,7 @@
         <ul class="copyright">
   
   <li><strong>本文作者：</strong>Shakespeawang</li>
-  <li><strong>本文链接：</strong><a href="https://shakespeawang.github.io/2020/10/28/RPC%E5%AD%A6%E4%B9%A0/index.html">https://shakespeawang.github.io/2020/10/28/RPC%E5%AD%A6%E4%B9%A0/index.html</a></li>
+  <li><strong>本文链接：</strong><a href="https://shakespeawang.github.io/2020/10/28/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C_%E7%AC%AC%E4%B8%80%E7%AB%A0/index.html">https://shakespeawang.github.io/2020/10/28/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C_%E7%AC%AC%E4%B8%80%E7%AB%A0/index.html</a></li>
   <li><strong>版权声明：</strong>本博客所有文章均采用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh"
       rel="external nofollow" target="_blank"> BY-NC-SA </a>许可协议，转载请注明出处！</li>
   
@@ -209,15 +247,13 @@
 </section>
         
         
-  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BF%9C%E7%A8%8B%E8%B0%83%E7%94%A8/" rel="tag">远程调用</a></li></ul>
-
         
 <nav class="nav">
   
-    <a href="/2020/10/28/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F_%E7%AC%AC%E4%B8%80%E7%AB%A0/"><i class="iconfont iconleft"></i></a>
+    <a href="/2020/10/28/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E2%80%94%E2%80%94%E7%AC%AC%E5%85%AD%E7%AB%A0/"><i class="iconfont iconleft"></i></a>
   
   
-    <a href="/2020/10/28/Redis%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/">Redis分布式锁<i class="iconfont iconright"></i></a>
+    <a href="/2020/10/28/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C_%E7%AC%AC%E5%9B%9B%E7%AB%A0/"><i class="iconfont iconright"></i></a>
   
 </nav>
 
