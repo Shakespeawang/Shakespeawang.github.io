@@ -78,7 +78,7 @@
       },
       motto: {
         api: '',
-        default: '究竟终点怎样，才值得这一路的颠沛流离'
+        default: '菜单栏在右上角哈，可以点点看'
       },
       galleries: {
         enable: true
@@ -162,7 +162,7 @@
     <article class="article">
   <div class="wrap">
     <section class="head">
-  <img   class="lazyload" data-original="http://shakespea.wang/myphoto/20200718152003.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+  <img   class="lazyload" data-original="http://shakespea.wang/myphoto/20200228081718.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
   <div class="head-mask">
     <h1 class="head-title">计算机网络-网络层</h1>
     <div class="head-info">
@@ -176,18 +176,18 @@
     <section class="main">
       <section class="content">
         <p>网络层：负责在不同网络之间<strong>尽力转发</strong>数据包，基于数据包的IP地址转发；不负责丢失重传，不负责控制顺序</p>
-<p><img   class="lazyload" data-original="C:\Users\vv\AppData\Roaming\Typora\typora-user-images\1574771501674.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1574771501674"></p>
+<p><img   class="lazyload" data-original="http://shakespea.wang/myphoto/tec_pic/1574771501674.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1574771501674"></p>
 <p>数据包：由应用层给的数据，再添加ip地址</p>
 <p>路由器工作在网络层，三层设备，能看到IP地址，一般将一个网段的第一个地址作为路由器的端口地址，也称网关地址。</p>
-<h4 id="二、网络设备与OSI参考模型关系"><a href="#二、网络设备与OSI参考模型关系" class="headerlink" title="二、网络设备与OSI参考模型关系"></a>二、网络设备与OSI参考模型关系</h4><p><img   class="lazyload" data-original="C:\Users\vv\AppData\Roaming\Typora\typora-user-images\1574774262944.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1574774262944"></p>
-<p><img   class="lazyload" data-original="C:\Users\vv\AppData\Roaming\Typora\typora-user-images\1574775142928.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1574775142928"></p>
+<h4 id="二、网络设备与OSI参考模型关系"><a href="#二、网络设备与OSI参考模型关系" class="headerlink" title="二、网络设备与OSI参考模型关系"></a>二、网络设备与OSI参考模型关系</h4><p><img   class="lazyload" data-original="http://shakespea.wang/myphoto/tec_pic/1574774262944.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1574774262944"></p>
+<p><img   class="lazyload" data-original="http://shakespea.wang/myphoto/tec_pic/1574775142928.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1574775142928"></p>
 <p>1、应用层：准备要传输的文件数据</p>
 <p>2、传输层：将应用层的文件数据分段并编号</p>
 <p>3、网络层：将传输层所得的数据段 加上自身发送端的IP地址与目的IP地址（得到数据包）</p>
 <p>4、数据链路层：比较子网掩码，根据IP地址判断发送端与接收端是否在一个子网中；</p>
 <p>①在一个网段的话就不用过路由器，直接解析目标MAC地址（基于ARP协议广播解析目标MAC）</p>
 <p>②不在一个网段，通过<strong>网关</strong>得知路由器的MAC地址，再给数据包加上路由器的MAC地址，并加上帧检验序列，发给路由器，经过路由器，</p>
-<p><img   class="lazyload" data-original="C:\Users\vv\AppData\Roaming\Typora\typora-user-images\1575114456329.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1575114456329"></p>
+<p><img   class="lazyload" data-original="http://shakespea.wang/myphoto/tec_pic/1575114456329.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1575114456329"></p>
 <p><strong>ARP协议为IP协议服务；</strong></p>
 <p>ARP协议：将IP地址通过广播，目标MAC地址是FF-FF-FF-FF-FF-FF  首次解析目标MAC地址；（只能解析本网段，不能跨路由器）</p>
 <p><strong>网络执法官：</strong></p>
@@ -199,11 +199,11 @@
 <p>使用ICMP协议的命令：ping 命令的time：可以查看延迟</p>
 <p>TTL表示  数据包的生存周期，当TTL为0时，则数据包消失 linux系统为64，windows是128，unix255</p>
 <p>ping ip地址或域名 -t（一直ping）   如ping 10.7.1.53 -t</p>
-<p><img   class="lazyload" data-original="C:\Users\vv\AppData\Roaming\Typora\typora-user-images\1577601093211.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1577601093211"></p>
+<p><img   class="lazyload" data-original="http://shakespea.wang/myphoto/tec_pic/1577601093211.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1577601093211"></p>
 <p>ping -l 大小 ip地址或域名   ping -l 200 10.7.1.53 -t（200字节的包）</p>
 <p>ping  ip地址或 域名 -i 2   更改数据包TTL时间，能够跟踪数据包途经的路由器</p>
 <p>pathping ：跟踪数据包路径   计算丢包率;</p>
-<p><img   class="lazyload" data-original="C:\Users\vv\AppData\Roaming\Typora\typora-user-images\1577605371296.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1577605371296"></p>
+<p><img   class="lazyload" data-original="http://shakespea.wang/myphoto/tec_pic/1577605371296.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1577605371296"></p>
 <p>tracert命令 :跟踪数据包路径，但不统计</p>
 <p><strong>注意：以上命令用的ICMP协议，属于网络层协议</strong></p>
 <p><strong>IGMP协议：</strong>（配置在路由器接口上）</p>
@@ -212,8 +212,8 @@
 <p>组播=多播；IGMP主要用于周期扫描网段内是否有计算机绑定流媒体服务器（或数据包）（可以理解为直播）</p>
 <p>多播不建立会话；</p>
 <p>数据链路层  的数据帧最大为1500字节；网络层的数据包最大为65535字节；；要想数据包从网络层到数据链路层<strong>不分片</strong>，则数据包的最大大小为1480字节；若大于1480，则会数据包会分片（分片时，每个数据片都有一个<strong>标志</strong>和<strong>片偏移</strong>，便于接收后数据包的恢复）</p>
-<p><img   class="lazyload" data-original="C:\Users\vv\AppData\Roaming\Typora\typora-user-images\1577794151515.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1577794151515"></p>
-<p><img   class="lazyload" data-original="C:\Users\vv\AppData\Roaming\Typora\typora-user-images\1577794711081.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1577794711081"></p>
+<p><img   class="lazyload" data-original="http://shakespea.wang/myphoto/tec_pic/1577794151515.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1577794151515"></p>
+<p><img   class="lazyload" data-original="http://shakespea.wang/myphoto/tec_pic/1577794711081.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1577794711081"></p>
 <p><strong>IP数据包的结构</strong></p>
 <p>IP数据包：<strong>首部</strong>+<strong>数据部分</strong></p>
 <p>首部：固定部分与可变部分</p>
@@ -224,7 +224,7 @@
 <p>32位 源IP地址；32位 源目标IP地址； </p>
 <p><strong>可变部分</strong>：</p>
 <p>可加可不加，默认没有；用于排错测量与校验；；当长度不足4字节时，往后填充0，凑成4字节</p>
-<p><img   class="lazyload" data-original="C:\Users\vv\AppData\Roaming\Typora\typora-user-images\1577794262064.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1577794262064"></p>
+<p><img   class="lazyload" data-original="http://shakespea.wang/myphoto/tec_pic/1577794262064.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1577794262064"></p>
 <p>使用抓包工具排除网络故障：可以查到广播包与多播包；</p>
 <h4 id="IP协议"><a href="#IP协议" class="headerlink" title="IP协议"></a>IP协议</h4><p>分类：RIP协议与OSPF协议</p>
 <p><strong>静态路由</strong>：手动添加，适用于网络规模较小，变化较小的局域网（不会随着网络变化而调整）</p>
@@ -233,7 +233,7 @@
 <p>RIP协议：条数小于15，路由周期刷新路由表（<strong>最短路径优先协议条数   没有路由就学习，存在  看是否更新</strong>）</p>
 <p>OSPF协议:</p>
 <p><strong>网路畅通的条件：数据包有去有回；</strong></p>
-<p><img   class="lazyload" data-original="C:\Users\vv\AppData\Roaming\Typora\typora-user-images\1578399790514.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1578399790514"></p>
+<p><img   class="lazyload" data-original="http://shakespea.wang/myphoto/tec_pic/1578399790514.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1578399790514"></p>
 
       </section>
       <section class="extra">

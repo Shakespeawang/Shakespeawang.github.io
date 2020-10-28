@@ -78,7 +78,7 @@
       },
       motto: {
         api: '',
-        default: '究竟终点怎样，才值得这一路的颠沛流离'
+        default: '菜单栏在右上角哈，可以点点看'
       },
       galleries: {
         enable: true
@@ -162,7 +162,7 @@
     <article class="article">
   <div class="wrap">
     <section class="head">
-  <img   class="lazyload" data-original="http://shakespea.wang/myphoto/2017071602.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+  <img   class="lazyload" data-original="http://shakespea.wang/myphoto/20200718152122.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
   <div class="head-mask">
     <h1 class="head-title">多线程相关（锁）</h1>
     <div class="head-info">
@@ -178,7 +178,7 @@
         <h2 id="CAS（Compare-And-Swap）"><a href="#CAS（Compare-And-Swap）" class="headerlink" title="CAS（Compare And Swap）"></a>CAS（Compare And Swap）</h2><p>CAS（compare and swap）：读取并记录，写的时候，写之前再读一遍与之前对比，不一致的话，重新操作，一致的话就写。（称为自旋锁或者无锁），一致的话也可能出现ABA问题，解决方法：使用版本号</p>
 <p>另一个问题是写之前读一遍发现一致，但是正要写的时候又修改了，因此必须保持从第二次读到写入过程原子性，用lock</p>
 <p>lock cmpxchg   //lock用于保证原子性，锁总线（cpu访问内存的线路，即其他cpu不能访问内存中的数据了）</p>
-<p><img   class="lazyload" data-original="C:\Users\vv\AppData\Roaming\Typora\typora-user-images\1589372649733.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1589372649733"></p>
+<p><img   class="lazyload" data-original="http://shakespea.wang/myphoto/tec_pic/1589372649733.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1589372649733"></p>
 <p>用途：替换重量级锁（synchronize的前身）</p>
 <p>重量级锁：需要调用内核中的函数，比如jvm申请锁资源通过kernel，系统调用（会有80中断），因此效率较低</p>
 <p>轻量级锁：在用户态就可以申请锁，不需要系统调用</p>
@@ -190,8 +190,8 @@
 <p>总共占8字节的整数倍，①②是object header  各占8字节</p>
 <p>①markword  ②类指针（指向那个类）  ③实例数据   ④padding（用于补充以保证8字节整数倍）</p>
 <p>markword作用：①记录锁信息， ②GC， ③…</p>
-<p><img   class="lazyload" data-original="C:\Users\vv\AppData\Roaming\Typora\typora-user-images\1591792546425.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1591792546425"></p>
-<p><img   class="lazyload" data-original="C:\Users\vv\AppData\Roaming\Typora\typora-user-images\1589378411313.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1589378411313"></p>
+<p><img   class="lazyload" data-original="http://shakespea.wang/myphoto/tec_pic/1591792546425.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1591792546425"></p>
+<p><img   class="lazyload" data-original="http://shakespea.wang/myphoto/tec_pic/1589378411313.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1589378411313"></p>
 <p><strong><em>偏向锁一定比自旋锁效率高吗？</em></strong></p>
 <p>不一定，如果一开始就明确知道有多线程竞争，偏向锁肯定会涉及锁撤销，直接用自旋锁更好</p>
 <p><strong>锁的升级</strong></p>
@@ -201,12 +201,12 @@
 <p>竞争者会一直空转while操作企图把锁改成1，改成功的话就能拥有锁，这一状态就是自旋，<strong>需要消耗cpu操作</strong></p>
 <p>竞争越来越大的话，cpu消耗也越来越大，所以逐渐还不如用重量级锁，此过程由jvm操作</p>
 <p>随着竞争激烈，升级为重量级锁：操作系统中内核实现，其中有一个等待队列，有竞争者就会进入等待队列，即wait方法，等到自己抢锁时，就会有notify/notifyall方法来唤醒。<strong>不会消耗cpu资源</strong></p>
-<p><img   class="lazyload" data-original="C:\Users\vv\AppData\Roaming\Typora\typora-user-images\1589374791907.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1589374791907"></p>
+<p><img   class="lazyload" data-original="http://shakespea.wang/myphoto/tec_pic/1589374791907.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1589374791907"></p>
 <p>这里就是上面的markword中8字节</p>
-<p><img   class="lazyload" data-original="C:\Users\vv\AppData\Roaming\Typora\typora-user-images\1589375024627.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1589375024627"></p>
+<p><img   class="lazyload" data-original="http://shakespea.wang/myphoto/tec_pic/1589375024627.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1589375024627"></p>
 <h2 id="synchronized重入问题"><a href="#synchronized重入问题" class="headerlink" title="synchronized重入问题"></a>synchronized重入问题</h2><p>synchronized（o）中又有synchronized（o），每次重入就入栈一次，解锁就出栈一次，直到为0</p>
 <p>可重入锁的意义：父类中的方法有synchronized修饰，子类synchronized方法中调用父类方法时，需要锁重入，不然无法调用</p>
-<p><img   class="lazyload" data-original="C:\Users\vv\AppData\Roaming\Typora\typora-user-images\1589460444252.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1589460444252"></p>
+<p><img   class="lazyload" data-original="http://shakespea.wang/myphoto/tec_pic/1589460444252.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1589460444252"></p>
 <h2 id="volatile的作用"><a href="#volatile的作用" class="headerlink" title="volatile的作用"></a>volatile的作用</h2><p>一、保持线程之间的可见性（比如某一个变量在一个线程中改了，马上写回去保持一致）</p>
 <p>二、防止指令重排序</p>
 <p>指令重排序：没有依赖关系的指令可以互换顺序进行（cpu会优化指令顺序，比如有的指令等待IO比较慢，后面的先执行了，这就是重排序）</p>
@@ -215,10 +215,10 @@
 
 
 
-<p><img   class="lazyload" data-original="C:\Users\vv\AppData\Roaming\Typora\typora-user-images\1589458767622.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1589458767622"></p>
+<p><img   class="lazyload" data-original="http://shakespea.wang/myphoto/tec_pic/1589458767622.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1589458767622"></p>
 <p><strong>防止指令重排序的实现：</strong></p>
 <p>JVM实现方式：使用了内存屏障，在volatile修饰的变量操作前后都要加入内存屏障，这样就能防止指令重排，store是写，load是读</p>
-<p><img   class="lazyload" data-original="C:\Users\vv\AppData\Roaming\Typora\typora-user-images\1589460926005.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1589460926005"></p>
+<p><img   class="lazyload" data-original="http://shakespea.wang/myphoto/tec_pic/1589460926005.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1589460926005"></p>
 <p><strong>缓存一致性协议：</strong></p>
 <p>cpu级别的volatile实现：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/c729f26b47f9">https://www.jianshu.com/p/c729f26b47f9</a> ，可以参看这篇博客</p>
 <p>当计算机加入了缓存，cpu读取数据的时候首先会从缓存读取，如果缓存中不存在，则从主存读取，同时把该数据加入到缓存中，这样下次再次使用的时候就可以直接从缓存中读取。当修改了某些数据，先把修改后的数据写入到缓存中，然后再刷到主存中，以此来提高效率。</p>
@@ -248,8 +248,8 @@
 <p>只有当缓存段处于 E 或 M 状态时，处理器才能去写它（往缓存中写入），也就是说只有这两种状态下，处理器是独占这个缓存段的。当处理器想写某个缓存段时，如果它没有独占权，它必须先发送一条“我要独占权”的请求给总线，这会通知其他处理器（使用的是一种类似广播的形式来进行通讯），把它们拥有的同一缓存段的拷贝失效（如果它们有的话）。只有在获得独占权后，处理器才能开始修改数据——并且此时，这个处理器知道，这个缓存段只有一份拷贝，在我自己的缓存里，所以不会有任何冲突。</p>
 <p>反之，如果有其他处理器想读取这个缓存段，独占或已修改的缓存段必须先回到“共享”状态。如果是已修改的缓存段，那么还要先把内容回写到内存中。</p>
 </blockquote>
-<p><img   class="lazyload" data-original="C:\Users\vv\AppData\Roaming\Typora\typora-user-images\1589460444252.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1589460444252"></p>
-<p><img   class="lazyload" data-original="C:\Users\vv\AppData\Roaming\Typora\typora-user-images\1589462130039.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1589462130039"></p>
+<p><img   class="lazyload" data-original="http://shakespea.wang/myphoto/tec_pic/1589460444252.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1589460444252"></p>
+<p><img   class="lazyload" data-original="http://shakespea.wang/myphoto/tec_pic/1589462130039.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1589462130039"></p>
 <h2 id="synchronized-与ReentrantLock的区别"><a href="#synchronized-与ReentrantLock的区别" class="headerlink" title="synchronized 与ReentrantLock的区别"></a>synchronized 与ReentrantLock的区别</h2><p><strong>一、api区别</strong></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//synchronized的使用api</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="comment">//方法体``</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">synchronized</span>（Object） &#123;</span><br><span class="line"><span class="comment">//括号中表示需要锁的对象.</span></span><br><span class="line"><span class="comment">//线程执行的时候会对Object上锁</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//ReentrantLock的api</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">test</span>（）</span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Lock lock = <span class="keyword">new</span> ReentrantLock();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testMethod</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">try</span></span><br><span class="line">        &#123;</span><br><span class="line">            lock.lock();</span><br></pre></td></tr></table></figure>
 <pre><code>        //省略
@@ -279,7 +279,7 @@
 <p>线程同步：实际是一种等待机制，使用队列与锁(synchronized)</p>
 <p>引起的问题：①线程有锁的话其他需要锁的线程挂起，②多线程竞争下，加锁、释放锁会增加线程上下文切换，影响性能  ③优先级高的等待优先级低的释放锁，发生性能倒置现象</p>
 <p>使用synchronized关键字实现线程同步</p>
-<p><img   class="lazyload" data-original="C:\Users\vv\AppData\Roaming\Typora\typora-user-images\1589723711708.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1589723711708"></p>
+<p><img   class="lazyload" data-original="http://shakespea.wang/myphoto/tec_pic/1589723711708.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1589723711708"></p>
 <h2 id="死锁"><a href="#死锁" class="headerlink" title="死锁"></a>死锁</h2><p>四个条件</p>
 <p>①资源互斥：每个资源每次只能被一个进程使用</p>
 <p>②请求与保持：进程在请求到资源而阻塞时，保持已经获得的资源</p>
