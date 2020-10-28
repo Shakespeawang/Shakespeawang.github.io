@@ -7,14 +7,14 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title> - shakespeaWang&#39;s Blog</title>
+  <title>Linux系统命令 - shakespeaWang&#39;s Blog</title>
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="google" content="notranslate" />
 
   
   
-  <meta name="description" content="Linux系统命令123456789101112131..."> 
+  <meta name="description" content="123456789101112131415161718..."> 
   
   <meta name="author" content="Shakespeawang"> 
 
@@ -105,6 +105,17 @@
   
 
 
+<nav class="navbar">
+  <div class="left"></div>
+  <div class="center">Linux系统命令</div>
+  <div class="right">
+    
+      <i class="iconfont iconmoono" id="color-toggle" color-toggle="light"></i>
+    
+    <i class="iconfont iconmenu j-navbar-menu"></i>
+  </div>
+</nav>
+
   <nav class="menu">
   <div class="menu-wrap">
     <div class="menu-close">
@@ -151,20 +162,20 @@
     <article class="article">
   <div class="wrap">
     <section class="head">
-  <img   class="lazyload" data-original="https://pic.izhaoo.com/20200718151924.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+  <img   class="lazyload" data-original="https://pic.izhaoo.com/20200718151427.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
   <div class="head-mask">
-    <h1 class="head-title"></h1>
+    <h1 class="head-title">Linux系统命令</h1>
     <div class="head-info">
       <span class="post-info-item"><i class="iconfont iconcalendar"></i>October 28, 2020</span
         class="post-info-item">
       
-      <span class="post-info-item"><i class="iconfont iconfont-size"></i>3007</span>
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>2998</span>
     </div>
   </div>
 </section>
     <section class="main">
       <section class="content">
-        <h2 id="Linux系统命令"><a href="#Linux系统命令" class="headerlink" title="Linux系统命令"></a>Linux系统命令</h2><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">pwd  #显示当前用户所在的目录</span><br><span class="line"></span><br><span class="line"><span class="built_in">mkdir</span> newdir #在当前目录下创建文件夹newdir</span><br><span class="line"></span><br><span class="line"><span class="built_in">mkdir</span> -p newdir/newdir1/newdir2   #递归创建文件夹，创建多级目录</span><br><span class="line"></span><br><span class="line"><span class="built_in">rmdir</span> newdir #删除目录，仅能删除空文件，递归删除需要加 -p</span><br><span class="line">netstat -anp|grep 端口号    #查看端口号被哪些进程占用</span><br><span class="line">df -lh   #查看磁盘使用情况</span><br><span class="line">df -a    #文件系统的使用情况</span><br><span class="line">du -a 文件或者目录  #用来看某个文件目录下的空间使用情况</span><br><span class="line"></span><br><span class="line">tar  -zxvf 文件名 #解压压缩文件</span><br><span class="line"></span><br><span class="line">cp filename dirname #把filename拷贝到dirname路径中</span><br><span class="line"></span><br><span class="line">chgrp [-R] 属组名 文件名  #改变数组名</span><br><span class="line"></span><br><span class="line">chown [–R] 属主名 文件名    #-R是对文件目录下的子文件全都递归更改</span><br><span class="line">chown [-R] 属主名：属组名 文件名  #与上面一条等同</span><br><span class="line"></span><br><span class="line">rm -f filename   #忽略不存在的文件，不会出现警告，删除文件或者目录</span><br><span class="line">rm -r filename    #可以递归删除目录/文件</span><br><span class="line">rm -i     #互动，删除询问是否删除</span><br><span class="line">rm -rf/   #系统中所有文件都被删除了，切忌使用</span><br><span class="line"></span><br><span class="line">mv   #移动文件或者目录  加 -f是强制移动， -u是只替换已经更新过的文件</span><br><span class="line">mv filename dirname/  #移动文件到指定文件</span><br><span class="line">mv filename filename2  #重命名文件夹，把前者改名为后者</span><br><span class="line"></span><br><span class="line">ls  #显示当前目录下所有的文件/目录</span><br><span class="line">ls -ll  #显示所有文件/目录，包括他们的权限，创建日期、大小</span><br><span class="line"></span><br><span class="line">chmod file <span class="number">777</span> #赋予文件权限，第一个<span class="number">7</span>：指root用户的<span class="number">3</span>个权限（读<span class="number">4</span>，写<span class="number">2</span>，操作<span class="number">1</span>）；</span><br><span class="line">ifconfig   #查看网络ip</span><br><span class="line"></span><br><span class="line">ps au|grep 关键字   #查找关键字相关的进程，会查到相关进程号</span><br><span class="line">kill -<span class="number">9</span> pid   #关闭掉进程号为pid的进程</span><br></pre></td></tr></table></figure>
+        <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">pwd  #显示当前用户所在的目录</span><br><span class="line"></span><br><span class="line"><span class="built_in">mkdir</span> newdir #在当前目录下创建文件夹newdir</span><br><span class="line"></span><br><span class="line"><span class="built_in">mkdir</span> -p newdir/newdir1/newdir2   #递归创建文件夹，创建多级目录</span><br><span class="line"></span><br><span class="line"><span class="built_in">rmdir</span> newdir #删除目录，仅能删除空文件，递归删除需要加 -p</span><br><span class="line">netstat -anp|grep 端口号    #查看端口号被哪些进程占用</span><br><span class="line">df -lh   #查看磁盘使用情况</span><br><span class="line">df -a    #文件系统的使用情况</span><br><span class="line">du -a 文件或者目录  #用来看某个文件目录下的空间使用情况</span><br><span class="line"></span><br><span class="line">tar  -zxvf 文件名 #解压压缩文件</span><br><span class="line"></span><br><span class="line">cp filename dirname #把filename拷贝到dirname路径中</span><br><span class="line"></span><br><span class="line">chgrp [-R] 属组名 文件名  #改变数组名</span><br><span class="line"></span><br><span class="line">chown [–R] 属主名 文件名    #-R是对文件目录下的子文件全都递归更改</span><br><span class="line">chown [-R] 属主名：属组名 文件名  #与上面一条等同</span><br><span class="line"></span><br><span class="line">rm -f filename   #忽略不存在的文件，不会出现警告，删除文件或者目录</span><br><span class="line">rm -r filename    #可以递归删除目录/文件</span><br><span class="line">rm -i     #互动，删除询问是否删除</span><br><span class="line">rm -rf/   #系统中所有文件都被删除了，切忌使用</span><br><span class="line"></span><br><span class="line">mv   #移动文件或者目录  加 -f是强制移动， -u是只替换已经更新过的文件</span><br><span class="line">mv filename dirname/  #移动文件到指定文件</span><br><span class="line">mv filename filename2  #重命名文件夹，把前者改名为后者</span><br><span class="line"></span><br><span class="line">ls  #显示当前目录下所有的文件/目录</span><br><span class="line">ls -ll  #显示所有文件/目录，包括他们的权限，创建日期、大小</span><br><span class="line"></span><br><span class="line">chmod file <span class="number">777</span> #赋予文件权限，第一个<span class="number">7</span>：指root用户的<span class="number">3</span>个权限（读<span class="number">4</span>，写<span class="number">2</span>，操作<span class="number">1</span>）；</span><br><span class="line">ifconfig   #查看网络ip</span><br><span class="line"></span><br><span class="line">ps au|grep 关键字   #查找关键字相关的进程，会查到相关进程号</span><br><span class="line">kill -<span class="number">9</span> pid   #关闭掉进程号为pid的进程</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">awk的相关命令，是一个文本分析工具，在对数据分析并生成报告时，</span><br><span class="line">test是一个文件</span><br><span class="line">通用：awk &#x27;&#123;匹配的内容&#125;&#x27; 匹配的文件名称</span><br><span class="line"></span><br><span class="line">#输出文中每行的<span class="number">1</span>、<span class="number">4</span>项内容：</span><br><span class="line">awk &#x27;&#123;<span class="built_in">print</span> $<span class="number">1</span>,$<span class="number">4</span>&#125;&#x27; test</span><br><span class="line"></span><br><span class="line">#添加如下内容使其格式化输出：</span><br><span class="line">awk &#x27;&#123;printf &quot;%-<span class="number">8</span>s %-<span class="number">10</span>s\n&quot;,$<span class="number">1</span>,$<span class="number">4</span>&#125;&#x27; test </span><br><span class="line"></span><br><span class="line">#用逗号分割输出每行的第一、二项内容：</span><br><span class="line">awk -F, &#x27;&#123;<span class="built_in">print</span> $<span class="number">1</span>,$<span class="number">2</span>&#125;&#x27; test</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
@@ -264,13 +275,15 @@
 </section>
         
         
+  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%91%BD%E4%BB%A4/" rel="tag">命令</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag">操作系统</a></li></ul>
+
         
 <nav class="nav">
   
-    <a href="/2020/10/28/Mybatis%E5%AD%A6%E4%B9%A0/"><i class="iconfont iconleft"></i></a>
+    <a href="/2020/10/28/Mybatis%E5%AD%A6%E4%B9%A0/"><i class="iconfont iconleft"></i>Mybatis学习</a>
   
   
-    <a href="/2020/10/28/jvm%E8%B0%83%E4%BC%98/"><i class="iconfont iconright"></i></a>
+    <a href="/2020/10/28/jvm%E8%B0%83%E4%BC%98/">jvm调优参数<i class="iconfont iconright"></i></a>
   
 </nav>
 

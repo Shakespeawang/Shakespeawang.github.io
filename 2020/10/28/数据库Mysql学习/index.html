@@ -7,14 +7,15 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title> - shakespeaWang&#39;s Blog</title>
+  <title>数据库底层相关 - shakespeaWang&#39;s Blog</title>
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="google" content="notranslate" />
 
   
   
-  <meta name="description" content="数据库Mysql学习1、事务相关1.1 事务的隔离的实..."> 
+  <meta name="description" content="1、事务相关1.1 事务的隔离的实现方案
+LBCC l..."> 
   
   <meta name="author" content="Shakespeawang"> 
 
@@ -105,6 +106,17 @@
   
 
 
+<nav class="navbar">
+  <div class="left"></div>
+  <div class="center">数据库底层相关</div>
+  <div class="right">
+    
+      <i class="iconfont iconmoono" id="color-toggle" color-toggle="light"></i>
+    
+    <i class="iconfont iconmenu j-navbar-menu"></i>
+  </div>
+</nav>
+
   <nav class="menu">
   <div class="menu-wrap">
     <div class="menu-close">
@@ -151,20 +163,20 @@
     <article class="article">
   <div class="wrap">
     <section class="head">
-  <img   class="lazyload" data-original="https://pic.izhaoo.com/20200305030152.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+  <img   class="lazyload" data-original="https://pic.izhaoo.com/2014031601.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
   <div class="head-mask">
-    <h1 class="head-title"></h1>
+    <h1 class="head-title">数据库底层相关</h1>
     <div class="head-info">
       <span class="post-info-item"><i class="iconfont iconcalendar"></i>October 28, 2020</span
         class="post-info-item">
       
-      <span class="post-info-item"><i class="iconfont iconfont-size"></i>1603</span>
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>1593</span>
     </div>
   </div>
 </section>
     <section class="main">
       <section class="content">
-        <h1 id="数据库Mysql学习"><a href="#数据库Mysql学习" class="headerlink" title="数据库Mysql学习"></a>数据库Mysql学习</h1><h2 id="1、事务相关"><a href="#1、事务相关" class="headerlink" title="1、事务相关"></a>1、事务相关</h2><h3 id="1-1-事务的隔离的实现方案"><a href="#1-1-事务的隔离的实现方案" class="headerlink" title="1.1 事务的隔离的实现方案"></a>1.1 事务的隔离的实现方案</h3><ul>
+        <h2 id="1、事务相关"><a href="#1、事务相关" class="headerlink" title="1、事务相关"></a>1、事务相关</h2><h3 id="1-1-事务的隔离的实现方案"><a href="#1-1-事务的隔离的实现方案" class="headerlink" title="1.1 事务的隔离的实现方案"></a>1.1 事务的隔离的实现方案</h3><ul>
 <li><strong>LBCC</strong> lock based Concurrency control  基于锁的并发控制</li>
 </ul>
 <p>这种方案比较简单粗暴，就是一个事务去读取一条数据的时候，就上锁，不允许其他事务来操作(当然这个锁的实现也比较重要，如果我们只锁定当前一条数据依然无法解决幻读问题)。</p>
@@ -229,13 +241,15 @@
 </section>
         
         
+  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%90%8E%E7%AB%AF/" rel="tag">后端</a></li></ul>
+
         
 <nav class="nav">
   
-    <a href="/2020/10/28/%E6%AD%BB%E9%94%81/"><i class="iconfont iconleft"></i></a>
+    <a href="/2020/10/28/%E6%AD%BB%E9%94%81/"><i class="iconfont iconleft"></i>操作系统-死锁</a>
   
   
-    <a href="/2020/10/28/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"><i class="iconfont iconright"></i></a>
+    <a href="/2020/10/28/%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E6%B5%81%E7%9A%84%E4%B8%80%E4%BA%9B%E4%BD%BF%E7%94%A8/">java io相关<i class="iconfont iconright"></i></a>
   
 </nav>
 

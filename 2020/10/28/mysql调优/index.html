@@ -7,14 +7,14 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title> - shakespeaWang&#39;s Blog</title>
+  <title>mysql调优 - shakespeaWang&#39;s Blog</title>
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="google" content="notranslate" />
 
   
   
-  <meta name="description" content="mysql调优1、索引相关1.1 索引分类：主键索引、..."> 
+  <meta name="description" content="1、索引相关1.1 索引分类：主键索引、唯一索引、普通..."> 
   
   <meta name="author" content="Shakespeawang"> 
 
@@ -105,6 +105,17 @@
   
 
 
+<nav class="navbar">
+  <div class="left"></div>
+  <div class="center">mysql调优</div>
+  <div class="right">
+    
+      <i class="iconfont iconmoono" id="color-toggle" color-toggle="light"></i>
+    
+    <i class="iconfont iconmenu j-navbar-menu"></i>
+  </div>
+</nav>
+
   <nav class="menu">
   <div class="menu-wrap">
     <div class="menu-close">
@@ -151,20 +162,20 @@
     <article class="article">
   <div class="wrap">
     <section class="head">
-  <img   class="lazyload" data-original="https://pic.izhaoo.com/20200228081718.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+  <img   class="lazyload" data-original="https://pic.izhaoo.com/20200718151924.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
   <div class="head-mask">
-    <h1 class="head-title"></h1>
+    <h1 class="head-title">mysql调优</h1>
     <div class="head-info">
       <span class="post-info-item"><i class="iconfont iconcalendar"></i>October 28, 2020</span
         class="post-info-item">
       
-      <span class="post-info-item"><i class="iconfont iconfont-size"></i>1687</span>
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>1680</span>
     </div>
   </div>
 </section>
     <section class="main">
       <section class="content">
-        <h1 id="mysql调优"><a href="#mysql调优" class="headerlink" title="mysql调优"></a>mysql调优</h1><h2 id="1、索引相关"><a href="#1、索引相关" class="headerlink" title="1、索引相关"></a>1、索引相关</h2><h3 id="1-1-索引分类："><a href="#1-1-索引分类：" class="headerlink" title="1.1 索引分类："></a>1.1 索引分类：</h3><p><strong>主键索引、唯一索引、普通索引、全文索引、组合索引</strong></p>
+        <h2 id="1、索引相关"><a href="#1、索引相关" class="headerlink" title="1、索引相关"></a>1、索引相关</h2><h3 id="1-1-索引分类："><a href="#1-1-索引分类：" class="headerlink" title="1.1 索引分类："></a>1.1 索引分类：</h3><p><strong>主键索引、唯一索引、普通索引、全文索引、组合索引</strong></p>
 <p>mysql的innodb会为唯一非空主键建立索引，即主键索引</p>
 <p>全文索引:（5.6之后才支持）很少用，比如表中存的是英文文章，需要提取其中包含了java关键字，就需要用全文索引，但是有其他技术可以替代，比如java的ES</p>
 <p>组合索引：多个列组合成索引，需要用最左前缀匹配原则</p>
@@ -215,13 +226,15 @@
 </section>
         
         
+  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%90%8E%E7%AB%AF/" rel="tag">后端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag">数据库</a></li></ul>
+
         
 <nav class="nav">
   
-    <a href="/2020/10/28/shell%E5%AD%A6%E4%B9%A0/"><i class="iconfont iconleft"></i></a>
+    <a href="/2020/10/28/shell%E5%AD%A6%E4%B9%A0/"><i class="iconfont iconleft"></i>Shell学习</a>
   
   
-    <a href="/2020/10/28/Mybatis%E5%AD%A6%E4%B9%A0/"><i class="iconfont iconright"></i></a>
+    <a href="/2020/10/28/Mybatis%E5%AD%A6%E4%B9%A0/">Mybatis学习<i class="iconfont iconright"></i></a>
   
 </nav>
 
