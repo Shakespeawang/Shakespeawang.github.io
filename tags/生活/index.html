@@ -7,15 +7,13 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>jvm调优参数 - shakespeaWang&#39;s Blog</title>
+  <title>生活 - shakespeaWang&#39;s Blog</title>
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="google" content="notranslate" />
 
   
   
-  <meta name="description" content="jvm中参数：
-12345-Xms10m-Xmx10m..."> 
   
   <meta name="author" content="Shakespeawang"> 
 
@@ -108,7 +106,7 @@
 
 <nav class="navbar">
   <div class="left"></div>
-  <div class="center">jvm调优参数</div>
+  <div class="center">标签</div>
   <div class="right">
     
       <i class="iconfont iconmoono" id="color-toggle" color-toggle="light"></i>
@@ -159,112 +157,23 @@
   </div>
 </nav>
   <main id="main">
-  <div class="container" id="container">
-    <article class="article">
-  <div class="wrap">
-    <section class="head">
-  <img   class="lazyload" data-original="http://shakespea.wang/myphoto/2014031601.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
-  <div class="head-mask">
-    <h1 class="head-title">jvm调优参数</h1>
-    <div class="head-info">
-      <span class="post-info-item"><i class="iconfont iconcalendar"></i>October 28, 2020</span
-        class="post-info-item">
-      
-      <span class="post-info-item"><i class="iconfont iconfont-size"></i>708</span>
+  <section class="archive">
+    <div class="archive-container">
+      <div class="archive-post">
+        <h2 class="archive-total"># 生活</h2>
+        
+        
+        
+        <h3 class="archive-year">2020</h3>
+        
+        <div class="archive-item">
+          <a class="archive-date" href="/2020/11/02/%E5%85%B3%E4%BA%8E%E8%AF%BB%E7%A0%94%E7%9A%84%E6%84%9F%E6%83%B3/">11/02</a>
+          <a class="archive-title" href="/2020/11/02/%E5%85%B3%E4%BA%8E%E8%AF%BB%E7%A0%94%E7%9A%84%E6%84%9F%E6%83%B3/">读研压抑的感想--关于北理同学那件事</a>
+        </div>
+        
+      </div>
     </div>
-  </div>
-</section>
-    <section class="main">
-      <section class="content">
-        <p>jvm中参数：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">-Xms10m</span><br><span class="line">-Xmx10m</span><br><span class="line">-XX:+PrintGCDetails   </span><br><span class="line">-XX:+HeapDumpOnOutOfMemoryError</span><br><span class="line">-XX:HeapDumpPath=d:\oomdump.dump</span><br></pre></td></tr></table></figure>
-
-<p><img   class="lazyload" data-original="http://shakespea.wang/myphoto/tec_pic/1596163525507.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1596163525507"></p>
-<p>可以装入jvm的图形界面中，run后可以分析哪个线程出现oom</p>
-<h2 id="2、常用的jvm命令"><a href="#2、常用的jvm命令" class="headerlink" title="2、常用的jvm命令"></a>2、常用的jvm命令</h2><h3 id="2-1关于编译的命令"><a href="#2-1关于编译的命令" class="headerlink" title="2.1关于编译的命令"></a>2.1关于编译的命令</h3><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">javac filename.java    ##编译某个java写的程序，然后会生产xx.class文件</span><br><span class="line">java  xx   ##就能运行</span><br><span class="line"></span><br><span class="line">javap -c xx.class &gt; xx1.txt  ##反编译后得到如下图的指令，前面每一个序号就是程序计数器中存的数</span><br></pre></td></tr></table></figure>
-
-<p><img   class="lazyload" data-original="http://shakespea.wang/myphoto/tec_pic/1596186222181.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1596186222181"></p>
-<h3 id="2-2关于查看线程或者内存占用情况的"><a href="#2-2关于查看线程或者内存占用情况的" class="headerlink" title="2.2关于查看线程或者内存占用情况的"></a>2.2关于查看线程或者内存占用情况的</h3><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">jstat -gc pid     可以显示gc的信息，查看gc的次数，及时间。其中最后五项，分别是young gc的次数，young gc的时间，full gc的次数，full gc的时间，gc的总时间。</span><br><span class="line"></span><br><span class="line">jmap -dump:<span class="built_in">format</span>=b,file=路径文件名 &lt;pid&gt;    </span><br><span class="line">比如jmap -dump:<span class="built_in">format</span>=b,file=d:\dump22.dump <span class="number">14140</span></span><br><span class="line">file：保存路径及文件名 </span><br><span class="line">pid：进程编号 </span><br><span class="line"></span><br><span class="line">jstack pid &gt; 路径文件名      将线程运行状态记录到文件中，可以查看是否有死锁现象等等信息</span><br><span class="line"></span><br><span class="line">jinfo：查看或者输出java进程中的参数</span><br><span class="line">jinfo -flags pid   查看该进程所有的参数</span><br><span class="line">jinfo -flag 参数名  pid 查看该进程的某一个参数</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-      </section>
-      <section class="extra">
-        
-        <ul class="copyright">
-  
-  <li><strong>本文作者：</strong>Shakespeawang</li>
-  <li><strong>本文链接：</strong><a href="https://shakespeawang.github.io/2020/10/28/jvm%E8%B0%83%E4%BC%98/index.html">https://shakespeawang.github.io/2020/10/28/jvm%E8%B0%83%E4%BC%98/index.html</a></li>
-  <li><strong>版权声明：</strong>本博客所有文章均采用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh"
-      rel="external nofollow" target="_blank"> BY-NC-SA </a>许可协议，转载请注明出处！</li>
-  
-</ul>
-        
-        
-        <section class="donate">
-  <div class="qrcode">
-    <img   class="lazyload" data-original="http://shakespea.wang/myphoto/t00ecentpay.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" >
-  </div>
-  <div class="icon">
-    <a href="javascript:;" id="alipay"><i class="iconfont iconalipay"></i></a>
-    <a href="javascript:;" id="wechat"><i class="iconfont iconwechat-fill"></i></a>
-  </div>
-</section>
-        
-        
-  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/java-se/" rel="tag">java se</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%BA%90%E7%A0%81/" rel="tag">源码</a></li></ul>
-
-        
-<nav class="nav">
-  
-    <a href="/2020/10/28/linux%E5%AD%A6%E4%B9%A0/"><i class="iconfont iconleft"></i>Linux系统命令</a>
-  
-  
-    <a href="/2020/10/28/jQuery/">jQuery<i class="iconfont iconright"></i></a>
-  
-</nav>
-
-      </section>
-      
-      <section class="comments">
-  
-  <div class="btn" id="comments-btn">查看评论</div>
-  
-  
-<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-<div id="gitalk" class="gitalk"></div>
-<script defer src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-<script src="/js/md5.min.js"></script>
-<script>
-  window.onload = function () {
-    var gitalk = new Gitalk({
-      clientID: 'b94de692eec1311af431',
-      clientSecret: '4170846cebfc84405d9b2c39a9593de7dc88045f',
-      id: md5(window.location.pathname),
-      repo: 'BlogComments',
-      owner: 'ShakespeaWang',
-      admin: 'ShakespeaWang',
-    });
-    if ( true ) {
-      $("#comments-btn").on("click", function () {
-        $(this).hide();
-        gitalk.render('gitalk');
-      });
-    } else {
-      gitalk.render('gitalk');
-    }
-  }
-</script>
-
-</section>
-      
-    </section>
-  </div>
-</article>
-  </div>
+  </section>
 </main>
   <footer class="footer">
   <div class="footer-social">
