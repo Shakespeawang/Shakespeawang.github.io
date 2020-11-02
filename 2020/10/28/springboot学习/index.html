@@ -1,0 +1,427 @@
+
+
+<!DOCTYPE html>
+<html lang="en" color-mode=light>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>sringboot基础 - shakespeaWang&#39;s Blog</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="google" content="notranslate" />
+
+  
+  
+  <meta name="description" content="重点是自动装配与run方法
+约定大于配置
+微服务架构：..."> 
+  
+  <meta name="author" content="Shakespeawang"> 
+
+  
+    <link rel="icon" href="/images/icons/favicon-16x16.png" type="image/png" sizes="16x16">
+  
+  
+    <link rel="icon" href="/images/icons/favicon-32x32.png" type="image/png" sizes="32x32">
+  
+  
+    <link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png" sizes="180x180">
+  
+  
+    <meta rel="mask-icon" href="/images/icons/stun-logo.svg" color="#333333">
+  
+  
+    <meta rel="msapplication-TileImage" content="/images/icons/favicon-144x144.png">
+    <meta rel="msapplication-TileColor" content="#000000">
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+  
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1445822_onl0g0h21np.css">
+
+  
+
+  
+  
+  
+<link rel="stylesheet" href="https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min.css">
+
+  
+
+  
+  
+  
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/xcode.min.css">
+
+  
+
+  <script>
+    var CONFIG = window.CONFIG || {};
+    var ZHAOO = window.ZHAOO || {};
+    CONFIG = {
+      isHome: false,
+      fancybox: true,
+      pjax: false,
+      lazyload: {
+        enable: true,
+        onlyPost: 'false',
+        loading: '/images/theme/loading.gif'
+      },
+      donate: {
+        enable: true,
+        alipay: 'http://shakespea.wang/myphoto/t00ecentpay.jpg',
+        wechat: 'http://shakespea.wang/myphoto/al00ipay.jpg'
+      },
+      motto: {
+        api: '',
+        default: '一 如 既 往，万 事 胜 意'
+      },
+      galleries: {
+        enable: true
+      },
+      fab: {
+        enable: true,
+        alwaysShow: false
+      },
+      carrier: {
+        enable: true
+      },
+      daovoice: {
+        enable: true
+      }
+    }
+  </script>
+
+  
+
+  
+<meta name="generator" content="Hexo 5.2.0"></head>
+<body class="lock-screen">
+  <div class="loading"></div>
+  
+
+
+<nav class="navbar">
+  <div class="left"></div>
+  <div class="center">sringboot基础</div>
+  <div class="right">
+    
+      <i class="iconfont iconmoono" id="color-toggle" color-toggle="light"></i>
+    
+    <i class="iconfont iconmenu j-navbar-menu"></i>
+  </div>
+</nav>
+
+  <nav class="menu">
+  <div class="menu-wrap">
+    <div class="menu-close">
+      <i class="iconfont iconbaseline-close-px"></i>
+    </div>
+    <ul class="menu-content">
+      
+      
+      
+      
+      <li class="menu-item"><a href="/ " class="underline"> 首页</a></li>
+      
+      
+      
+      
+      <li class="menu-item"><a href="/galleries " class="underline"> 摄影</a></li>
+      
+      
+      
+      
+      <li class="menu-item"><a href="/archives " class="underline"> 归档</a></li>
+      
+      
+      
+      
+      <li class="menu-item"><a href="/tags " class="underline"> 标签</a></li>
+      
+      
+      
+      
+      <li class="menu-item"><a href="/categories " class="underline"> 分类</a></li>
+      
+      
+      
+      
+      <li class="menu-item"><a href="/about " class="underline"> 作者</a></li>
+      
+    </ul>
+    <div class="menu-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme - <a target="_blank" href="https://github.com/Shakespeawang/Shakespeawang.github.io">shakespeaWang</a></p></div>
+  </div>
+</nav>
+  <main id="main">
+  <div class="container" id="container">
+    <article class="article">
+  <div class="wrap">
+    <section class="head">
+  <img   class="lazyload" data-original="http://shakespea.wang/myphoto/20200718151427.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+  <div class="head-mask">
+    <h1 class="head-title">sringboot基础</h1>
+    <div class="head-info">
+      <span class="post-info-item"><i class="iconfont iconcalendar"></i>October 28, 2020</span
+        class="post-info-item">
+      
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>3103</span>
+    </div>
+  </div>
+</section>
+    <section class="main">
+      <section class="content">
+        <p>重点是<strong>自动装配与run方法</strong></p>
+<p>约定大于配置</p>
+<p>微服务架构：把各个service分为各个模块，分布在不同的服务器上</p>
+<p>自动装配原理：</p>
+<p>一、pom.xml :核心依赖在父工程中； 不需要写版本，父工程中有版本仓库</p>
+<p>二、启动器，就是xxx-starter，需要什么模快就要加入相应的启动器。</p>
+<p>三、主程序：</p>
+<p>注解：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringbootApplication</span> <span class="comment">//表明是一个springboot应用;</span></span><br><span class="line">	<span class="meta">@SpringbootConfiguration</span> <span class="comment">// 表明是一个@Configuration</span></span><br><span class="line">		<span class="meta">@Configuration</span>  <span class="comment">//spring的配置注解</span></span><br><span class="line">			<span class="meta">@Component</span>  <span class="comment">//表明是spring容器中的组件</span></span><br><span class="line">	<span class="meta">@ComponentScan</span>  <span class="comment">//扫描与当前类所在的包及其子包下的组件</span></span><br><span class="line">	<span class="meta">@EnableAutoConfiguration</span></span><br><span class="line">			<span class="meta">@AutoConfigurationPackage</span>  <span class="comment">//用于注册实体@Entity</span></span><br><span class="line">			<span class="meta">@Import(&#123;AutoConfigurationImportSelector.class&#125;)</span> <span class="comment">//需要执行该类中的方法</span></span><br><span class="line"></span><br><span class="line">AutoConfigurationImportSelector.class <span class="comment">//中的一些源码</span></span><br><span class="line">    String[] selectImports(AnnotationMetadata annotationMetadata)</span><br><span class="line">    ···</span><br><span class="line">     List&lt;String&gt; configurations = SpringFactoriesLoader.loadFactoryNames(<span class="keyword">this</span>.getSpringFactoriesLoaderFactoryClass(), <span class="keyword">this</span>.getBeanClassLoader());</span><br><span class="line"></span><br><span class="line">    <span class="comment">//最后一直调用到该方法</span></span><br><span class="line">    Class&lt;?&gt; getSpringFactoriesLoaderFactoryClass() &#123;</span><br><span class="line">        <span class="keyword">return</span> EnableAutoConfiguration.class;</span><br><span class="line">    &#125;  <span class="comment">//到所有jar路径下META-INF/spring.factories中，将文件封装为properties对象，然后找到key为EnableAutoConfiguration的所有数据（类全限定名），然后加载它们到spring容器中</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">//spring.factories文件也是一组一组的key=value的形式，其中一个key是EnableAutoConfiguration类的全类名，而它的value是一个xxxxAutoConfiguration的类名的列表，这些类名以逗号分隔</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//@EnableAutoConfiguration注解通过@SpringBootApplication被间接的标记在了Spring Boot的启动类上。</span></span><br><span class="line"><span class="comment">//在SpringApplication.run(...)的内部就会执行selectImports()方法，找到所有JavaConfig自动配置类的全</span></span><br><span class="line"><span class="comment">//限定名对应的class，然后将所有自动配置类加载到Spring容器中。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//xxAutoConfiguration自动配置类中有一个@EnableConfigurationProperties(xxProperties.class)注解，xxProperties类中又有注解@ConfigurationProperties(prefix = &quot;xxx.xxx&quot;)，在yaml或者properties文件中，可以写xxx.xxx.属性 = 属性值</span></span><br><span class="line">也就是说xxAutoConfiguration自动配置类中的一些属性封装在xxProperties类中，而xxProperties类中封装了默认的属性，同时这些属性也可以在yaml或者properties文件中定义，其在yaml或properties中写的前缀已经在<span class="meta">@ConfigurationProperties(prefix = &quot;xxx.xxx&quot;)</span>注解出</span><br><span class="line"></span><br><span class="line">总结就是：xxAutoConfiguration是自动配置类，其会自动帮我们配置所需的参数，而它的属性被封装在xxProperties类中，xxProperties类中既有默认属性，也与yaml或properties文件的前缀绑定</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//每一个xxAutoConfiguration自动配置类都是在某些条件之下才会生效的，这些条件的限制在Spring Boot中以注解的形式体现，常见的条件注解有如下几项：</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@ConditionalOnBean</span> <span class="comment">//当容器里有指定的bean的条件下。</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@ConditionalOnMissingBean</span>：当容器里不存在指定bean的条件下。</span><br><span class="line"></span><br><span class="line"><span class="meta">@ConditionalOnClass</span>：当类路径下有指定类的条件下。</span><br><span class="line"></span><br><span class="line"><span class="meta">@ConditionalOnMissingClass</span>：当类路径下不存在指定类的条件下。</span><br><span class="line"></span><br><span class="line"><span class="meta">@ConditionalOnProperty</span>：指定的属性是否有指定的值，比如<span class="meta">@ConditionalOnProperties(prefix=”xxx.xxx”, value=”enable”, matchIfMissing=true)</span>，代表当xxx.xxx为enable时条件的布尔值为<span class="keyword">true</span>，如果没有设置的情况下也为<span class="keyword">true</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<p>@SpringbootApplication：表明是一个springboot应用;</p>
+<p>​        @SpringbootConfiguration: 表明是一个@Configuration</p>
+<p>​        @EnableAutoConfiguration</p>
+<p>​                @Import()</p>
+<p><img   class="lazyload" data-original="http://shakespea.wang/myphoto/tec_pic/1591237424361.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1591237424361"></p>
+<p><strong>yaml配置：</strong></p>
+<p>可以放键值对，也可以放对象；对空格要求极其严格</p>
+<p>通过在实体类上注解@ConfigurationProperties(prefix = “对象名”)；就能将person对象注入</p>
+<p><img   class="lazyload" data-original="http://shakespea.wang/myphoto/tec_pic/1591319770276.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1591319770276"></p>
+<p>支持松散绑定，比如属性last-name和lastname可以绑定</p>
+<p>支持jsr303校验，@Validated</p>
+<p><strong>properties配置：</strong></p>
+<p>只能放键值对，不支持松散绑定</p>
+<p><strong>JSR303校验</strong></p>
+<p>验证绑定的属性值，属性的格式需要限定，如果不符就无法绑定，会报错</p>
+<p>注意：配置文件可以放在各个目录下，但是必须是application.yaml或者application.properties，各个目录下的优先级不同</p>
+<p>也可以同个目录下，配置不同文件，比如application-dev.properties和application-test.properties；</p>
+<p>在application.properties中配置属性spring.profiles.active=dev/test; </p>
+<p>需要多个文件，不如yaml方便</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">server:</span> </span><br><span class="line">	<span class="attr">port:</span> <span class="number">8081</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line"> <span class="attr">profile:</span></span><br><span class="line">  <span class="string">active:dev</span></span><br><span class="line"></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">server:</span> </span><br><span class="line">	<span class="attr">port:</span> <span class="number">8081</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line"> <span class="string">profile:dev</span></span><br><span class="line"></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">server:</span> </span><br><span class="line">	<span class="attr">port:</span> <span class="number">8081</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line"> <span class="string">profile:test</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Springboot-web应用"><a href="#Springboot-web应用" class="headerlink" title="Springboot web应用"></a>Springboot web应用</h2>
+      </section>
+      <section class="extra">
+        
+        <ul class="copyright">
+  
+  <li><strong>本文作者：</strong>Shakespeawang</li>
+  <li><strong>本文链接：</strong><a href="https://shakespeawang.github.io/2020/10/28/springboot%E5%AD%A6%E4%B9%A0/index.html">https://shakespeawang.github.io/2020/10/28/springboot%E5%AD%A6%E4%B9%A0/index.html</a></li>
+  <li><strong>版权声明：</strong>本博客所有文章均采用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh"
+      rel="external nofollow" target="_blank"> BY-NC-SA </a>许可协议，转载请注明出处！</li>
+  
+</ul>
+        
+        
+        <section class="donate">
+  <div class="qrcode">
+    <img   class="lazyload" data-original="http://shakespea.wang/myphoto/t00ecentpay.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" >
+  </div>
+  <div class="icon">
+    <a href="javascript:;" id="alipay"><i class="iconfont iconalipay"></i></a>
+    <a href="javascript:;" id="wechat"><i class="iconfont iconwechat-fill"></i></a>
+  </div>
+</section>
+        
+        
+  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/" rel="tag">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%90%8E%E7%AB%AF/" rel="tag">后端</a></li></ul>
+
+        
+<nav class="nav">
+  
+    <a href="/2020/10/28/Springcloud%E5%AD%A6%E4%B9%A0/"><i class="iconfont iconleft"></i>sringcloud基础</a>
+  
+  
+    <a href="/2020/10/28/SkipList/">跳表的实现（java）<i class="iconfont iconright"></i></a>
+  
+</nav>
+
+      </section>
+      
+      <section class="comments">
+  
+  <div class="btn" id="comments-btn">查看评论</div>
+  
+  
+</section>
+      
+    </section>
+  </div>
+</article>
+  </div>
+</main>
+  <footer class="footer">
+  <div class="footer-social">
+    
+    
+    
+    
+    
+    <a href="tencent://message/?Menu=yes&uin=357689848 " target="_blank" onMouseOver="this.style.color= '#12B7F5'"
+      onMouseOut="this.style.color='#33333D'">
+      <i class="iconfont footer-social-item  iconQQ "></i>
+    </a>
+    
+    
+    
+    
+    
+    <a href="javascript:; " target="_blank" onMouseOver="this.style.color= '#09BB07'"
+      onMouseOut="this.style.color='#33333D'">
+      <i class="iconfont footer-social-item  iconwechat-fill "></i>
+    </a>
+    
+    
+    
+    
+    
+    <a href="https://www.instagram.com/izhaoo/ " target="_blank" onMouseOver="this.style.color= '#DA2E76'"
+      onMouseOut="this.style.color='#33333D'">
+      <i class="iconfont footer-social-item  iconinstagram "></i>
+    </a>
+    
+    
+    
+    
+    
+    <a href="https://github.com/Shakespeawang " target="_blank" onMouseOver="this.style.color= '#24292E'"
+      onMouseOut="this.style.color='#33333D'">
+      <i class="iconfont footer-social-item  icongithub-fill "></i>
+    </a>
+    
+    
+    
+    
+    
+    <a href="357689848@qq.com " target="_blank" onMouseOver="this.style.color='#FFBE5B'"
+      onMouseOut="this.style.color='#33333D'">
+      <i class="iconfont footer-social-item  iconmail"></i>
+    </a>
+    
+  </div>
+  <div class="footer-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme - <a target="_blank" href="https://github.com/Shakespeawang/Shakespeawang.github.io">shakespeaWang</a></p></div>
+</footer>
+  
+      <div class="fab fab-plus">
+    <i class="iconfont iconplus"></i>
+  </div>
+  
+  <div class="fab fab-daovoice">
+    <i class="iconfont iconcomment"></i>
+  </div>
+  
+  <div class="fab fab-up">
+    <i class="iconfont iconcaret-up"></i>
+  </div>
+  
+  
+    
+<script src="/js/color-mode.js"></script>
+
+  
+</body>
+
+
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+
+
+
+
+
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
+
+
+
+
+
+
+<script src="https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+
+
+
+
+
+<script src="/js/utils.js"></script>
+<script src="/js/modules.js"></script>
+<script src="/js/zui.js"></script>
+<script src="/js/script.js"></script>
+
+
+
+
+
+<script>
+  (function (i, s, o, g, r, a, m) {
+    i["DaoVoiceObject"] = r;
+    i[r] = i[r] || function () {
+      (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date();
+    a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+    a.async = 1;
+    a.src = g;
+    a.charset = "utf-8";
+    m.parentNode.insertBefore(a, m)
+  })(window, document, "script", ('https:' == document.location.protocol ? 'https:' : 'http:') +
+    "//widget.daovoice.io/widget/0f81ff2f.js", "daovoice")
+  daovoice('init', {
+    app_id: "abcdefg"
+  }, {
+    launcher: {
+      disableLauncherIcon: true,
+    },
+  });
+  daovoice('update');
+</script>
+
+
+
+<script>
+  (function () {
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    } else {
+      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+  })();
+</script>
+
+
+<script>
+  var _hmt = _hmt || [];
+  (function () {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?4c204d8bc027a0455b5fc642ac334ca8";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+
+
+
+
+
+
+
+
+
+
+</html>

@@ -1,0 +1,454 @@
+
+
+<!DOCTYPE html>
+<html lang="en" color-mode=light>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>计算机网络-数据链路层 - shakespeaWang&#39;s Blog</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="google" content="notranslate" />
+
+  
+  
+  <meta name="description" content="传送数据帧；
+①点到点的信道：一对一的点对点通信方式
+..."> 
+  
+  <meta name="author" content="Shakespeawang"> 
+
+  
+    <link rel="icon" href="/images/icons/favicon-16x16.png" type="image/png" sizes="16x16">
+  
+  
+    <link rel="icon" href="/images/icons/favicon-32x32.png" type="image/png" sizes="32x32">
+  
+  
+    <link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png" sizes="180x180">
+  
+  
+    <meta rel="mask-icon" href="/images/icons/stun-logo.svg" color="#333333">
+  
+  
+    <meta rel="msapplication-TileImage" content="/images/icons/favicon-144x144.png">
+    <meta rel="msapplication-TileColor" content="#000000">
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+  
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1445822_onl0g0h21np.css">
+
+  
+
+  
+  
+  
+<link rel="stylesheet" href="https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min.css">
+
+  
+
+  
+  
+  
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/xcode.min.css">
+
+  
+
+  <script>
+    var CONFIG = window.CONFIG || {};
+    var ZHAOO = window.ZHAOO || {};
+    CONFIG = {
+      isHome: false,
+      fancybox: true,
+      pjax: false,
+      lazyload: {
+        enable: true,
+        onlyPost: 'false',
+        loading: '/images/theme/loading.gif'
+      },
+      donate: {
+        enable: true,
+        alipay: 'http://shakespea.wang/myphoto/t00ecentpay.jpg',
+        wechat: 'http://shakespea.wang/myphoto/al00ipay.jpg'
+      },
+      motto: {
+        api: '',
+        default: '一 如 既 往，万 事 胜 意'
+      },
+      galleries: {
+        enable: true
+      },
+      fab: {
+        enable: true,
+        alwaysShow: false
+      },
+      carrier: {
+        enable: true
+      },
+      daovoice: {
+        enable: true
+      }
+    }
+  </script>
+
+  
+
+  
+<meta name="generator" content="Hexo 5.2.0"></head>
+<body class="lock-screen">
+  <div class="loading"></div>
+  
+
+
+<nav class="navbar">
+  <div class="left"></div>
+  <div class="center">计算机网络-数据链路层</div>
+  <div class="right">
+    
+      <i class="iconfont iconmoono" id="color-toggle" color-toggle="light"></i>
+    
+    <i class="iconfont iconmenu j-navbar-menu"></i>
+  </div>
+</nav>
+
+  <nav class="menu">
+  <div class="menu-wrap">
+    <div class="menu-close">
+      <i class="iconfont iconbaseline-close-px"></i>
+    </div>
+    <ul class="menu-content">
+      
+      
+      
+      
+      <li class="menu-item"><a href="/ " class="underline"> 首页</a></li>
+      
+      
+      
+      
+      <li class="menu-item"><a href="/galleries " class="underline"> 摄影</a></li>
+      
+      
+      
+      
+      <li class="menu-item"><a href="/archives " class="underline"> 归档</a></li>
+      
+      
+      
+      
+      <li class="menu-item"><a href="/tags " class="underline"> 标签</a></li>
+      
+      
+      
+      
+      <li class="menu-item"><a href="/categories " class="underline"> 分类</a></li>
+      
+      
+      
+      
+      <li class="menu-item"><a href="/about " class="underline"> 作者</a></li>
+      
+    </ul>
+    <div class="menu-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme - <a target="_blank" href="https://github.com/Shakespeawang/Shakespeawang.github.io">shakespeaWang</a></p></div>
+  </div>
+</nav>
+  <main id="main">
+  <div class="container" id="container">
+    <article class="article">
+  <div class="wrap">
+    <section class="head">
+  <img   class="lazyload" data-original="http://shakespea.wang/myphoto/20200305030152.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+  <div class="head-mask">
+    <h1 class="head-title">计算机网络-数据链路层</h1>
+    <div class="head-info">
+      <span class="post-info-item"><i class="iconfont iconcalendar"></i>October 28, 2020</span
+        class="post-info-item">
+      
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>1368</span>
+    </div>
+  </div>
+</section>
+    <section class="main">
+      <section class="content">
+        <p>传送数据帧；</p>
+<p>①点到点的信道：一对一的点对点通信方式</p>
+<p>②广播信道：一对多的广播通信方式</p>
+<p>链路：点到点的<strong>物理线路段</strong>，中间没有任何其他的交换结点；</p>
+<p>数据链路：除了<strong>物理线路</strong>外，还必须有<strong>通信协议来控制这些数据的传输</strong>；把实现这些协议的硬件与软件加到链路上，就构成了数据链路。（最常用的方法是使用适配器，即网卡来实现这些协议的硬件与软件）</p>
+<p>一般的适配器都包括了数据链路层与物理层这两层的功能</p>
+<p><strong>二、数据帧</strong></p>
+<p>数据到网络层，会加上ip地址，称为数据包；到数据链路层时，会加入帧头与帧尾、物理层地址，校验值，称为数据帧；</p>
+<p><strong>三、解决的问题</strong></p>
+<p>1、封装成帧</p>
+<p>在一段数据的前后分别添加首部与尾部，然后就构成了一个帧，确定帧的界限。帧头与帧尾的作用就是进行帧定界</p>
+<p><img   class="lazyload" data-original="http://shakespea.wang/myphoto/tec_pic/1574252814016.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1574252814016"></p>
+<p><img   class="lazyload" data-original="http://shakespea.wang/myphoto/tec_pic/1574252867505.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1574252867505"></p>
+<p>2、透明传输</p>
+<p>在帧的数据段部分出现了SOH（帧头）或EOT（帧尾）时，接收数据出现问题；解决方法：在出现SOH（帧头）或EOT（帧尾）时，在前面加上”ESC”的ASCII码，即“1B”，称为转义字符；若数据段中真的有“ESC”（1B），则在前面再加一个“ESC”（1B）.</p>
+<p><img   class="lazyload" data-original="http://shakespea.wang/myphoto/tec_pic/1574252943491.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1574252943491"></p>
+<p>3、差错控制</p>
+<p>传输过程中可能产生比特差错：1变成0，0变成1,；在一段时间内，传输错误的比特占所传输的比特总数的比率为误码率；误码率与信噪比有很大的关系；</p>
+<p>数据链路层<strong>只能判断检测有无错误；若有错误会丢掉数据帧</strong>；可靠传输是<strong>由传输层</strong>决定的</p>
+<p>如何进行检测差错：在数据帧后面加上帧检验序列FCS；</p>
+<p>方法：<strong>循环冗余检验CRC：</strong></p>
+<p><img   class="lazyload" data-original="http://shakespea.wang/myphoto/tec_pic/1574253111953.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1574253111953"></p>
+<p><strong>四、两种协议通信</strong></p>
+<p>1、<strong>广域网使用点到点信道的数据链路层</strong></p>
+<p>PPP协议：point to point protocol</p>
+<p>使用拨号联网时用的协议；</p>
+<p><img   class="lazyload" data-original="http://shakespea.wang/myphoto/tec_pic/1574253447521.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1574253447521"></p>
+<p><img   class="lazyload" data-original="http://shakespea.wang/myphoto/tec_pic/1574253535892.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1574253535892"></p>
+<p><img   class="lazyload" data-original="http://shakespea.wang/myphoto/tec_pic/1574253648382.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1574253648382"></p>
+<p>注意：PPP协议之所以不使用序号与确认机制原因如下：</p>
+<p><img   class="lazyload" data-original="http://shakespea.wang/myphoto/tec_pic/1574253988343.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1574253988343"></p>
+<p>2、<strong>广播信道的数据链路的协议</strong></p>
+<p>局域网内使用：广播通过地址来实现</p>
+<p>共享通信媒体</p>
+<p>静态划分信道：包括频分复用，时分复用，波分复用，码分复用</p>
+<p><strong>动态媒体接入控制</strong>(多点接入)：随机接入（目前使用）、受控接入</p>
+<p><img   class="lazyload" data-original="http://shakespea.wang/myphoto/tec_pic/1574338372033.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1574338372033"></p>
+<p><img   class="lazyload" data-original="http://shakespea.wang/myphoto/tec_pic/1574338425417.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1574338425417"></p>
+<p>CSMA/CD表示载波监听多点接入/碰撞检测     以太网使用CSMA/CD协议</p>
+<p><img   class="lazyload" data-original="http://shakespea.wang/myphoto/tec_pic/1574338574392.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1574338574392"></p>
+<p><img   class="lazyload" data-original="http://shakespea.wang/myphoto/tec_pic/1574338687361.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1574338687361"></p>
+<p><strong>传播时延的影响</strong><img   class="lazyload" data-original="http://shakespea.wang/myphoto/tec_pic/1574338865631.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1574338865631"></p>
+<p>CSMA/CD协议：不能进行全双工通信，只能进行双向；每个站在发送数据之后一小段时间内，都有发生碰撞的可能；；这种<strong>发送的不确定性</strong>使整个以太网的平均通信量远小于以太网的最高数据率。</p>
+<p><img   class="lazyload" data-original="http://shakespea.wang/myphoto/tec_pic/1574339400075.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1574339400075"></p>
+<p><img   class="lazyload" data-original="http://shakespea.wang/myphoto/tec_pic/1574339741596.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1574339741596"></p>
+<p>数据链路的两个子层：①逻辑链路控制LLC子层   ②媒体接入控制MAC子层；</p>
+<p>现在的适配器上<strong>仅装有MAC协议</strong>而没有LLC协议了；</p>
+<p><strong>集线器的特点</strong><img   class="lazyload" data-original="http://shakespea.wang/myphoto/tec_pic/1574340296555.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1574340296555"></p>
+<p>集线器连接的局域网，也称为10BASE-T，base表示基频信号，T代表双绞线；</p>
+<p><img   class="lazyload" data-original="http://shakespea.wang/myphoto/tec_pic/1574341141254.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1574341141254"></p>
+<p><img   class="lazyload" data-original="http://shakespea.wang/myphoto/tec_pic/1574341219271.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1574341219271"></p>
+<p><img   class="lazyload" data-original="http://shakespea.wang/myphoto/tec_pic/1574341242090.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1574341242090"></p>
+<h4 id="扩展以太网"><a href="#扩展以太网" class="headerlink" title="扩展以太网"></a>扩展以太网</h4><p>距离上：使用光纤</p>
+<p>数量上：使用集线器级联（但存在问题，更大的冲突域）</p>
+<p>扩展局域网的方法：使用网桥，网桥能够记录设备MAC地址的范围，因此可以缩小冲突域。</p>
+<p><img   class="lazyload" data-original="http://shakespea.wang/myphoto/tec_pic/1574422534903.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1574422534903"></p>
+<p><img   class="lazyload" data-original="http://shakespea.wang/myphoto/tec_pic/1574422632390.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1574422632390"></p>
+<p>交换机的前身就是网桥，网桥连的是集线器，集线器再连接多台电脑；交换机直接连电脑，可以直接基于MAC地址转发，且多台计算机向同一台计算机发送数据帧时，交换机端口可以缓存，再发送，因此交换机连接的计算机<strong>是全双工工作</strong>的；  集线器只是半双工工作。</p>
+<p><strong>交换机的优点</strong>：端口带宽独享，安全，基于MAC地址转发， 自学习记录MAC地址（MAC地址并不是提前告诉的）</p>
+<p><strong>记忆：集线器平分共享带宽；交换机是独享带宽。</strong></p>
+<p>相关知识</p>
+<p><img   class="lazyload" data-original="http://shakespea.wang/myphoto/tec_pic/1574423820816.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1574423820816"><img   class="lazyload" data-original="http://shakespea.wang/myphoto/tec_pic/1574424150594.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1574424150594"></p>
+
+      </section>
+      <section class="extra">
+        
+        <ul class="copyright">
+  
+  <li><strong>本文作者：</strong>Shakespeawang</li>
+  <li><strong>本文链接：</strong><a href="https://shakespeawang.github.io/2020/10/28/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E2%80%94%E2%80%94%E7%AC%AC%E4%B8%89%E7%AB%A0/index.html">https://shakespeawang.github.io/2020/10/28/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E2%80%94%E2%80%94%E7%AC%AC%E4%B8%89%E7%AB%A0/index.html</a></li>
+  <li><strong>版权声明：</strong>本博客所有文章均采用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh"
+      rel="external nofollow" target="_blank"> BY-NC-SA </a>许可协议，转载请注明出处！</li>
+  
+</ul>
+        
+        
+        <section class="donate">
+  <div class="qrcode">
+    <img   class="lazyload" data-original="http://shakespea.wang/myphoto/t00ecentpay.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" >
+  </div>
+  <div class="icon">
+    <a href="javascript:;" id="alipay"><i class="iconfont iconalipay"></i></a>
+    <a href="javascript:;" id="wechat"><i class="iconfont iconwechat-fill"></i></a>
+  </div>
+</section>
+        
+        
+  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag">计算机网络</a></li></ul>
+
+        
+<nav class="nav">
+  
+    <a href="/2020/10/28/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E2%80%94%E7%AC%AC%E4%BA%94%E7%AB%A0/"><i class="iconfont iconleft"></i>计算机网络-传输层</a>
+  
+  
+    <a href="/2020/10/28/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E2%80%94%E2%80%94%E7%AC%AC%E5%85%AD%E7%AB%A0/">计算机网络-应用层<i class="iconfont iconright"></i></a>
+  
+</nav>
+
+      </section>
+      
+      <section class="comments">
+  
+  <div class="btn" id="comments-btn">查看评论</div>
+  
+  
+</section>
+      
+    </section>
+  </div>
+</article>
+  </div>
+</main>
+  <footer class="footer">
+  <div class="footer-social">
+    
+    
+    
+    
+    
+    <a href="tencent://message/?Menu=yes&uin=357689848 " target="_blank" onMouseOver="this.style.color= '#12B7F5'"
+      onMouseOut="this.style.color='#33333D'">
+      <i class="iconfont footer-social-item  iconQQ "></i>
+    </a>
+    
+    
+    
+    
+    
+    <a href="javascript:; " target="_blank" onMouseOver="this.style.color= '#09BB07'"
+      onMouseOut="this.style.color='#33333D'">
+      <i class="iconfont footer-social-item  iconwechat-fill "></i>
+    </a>
+    
+    
+    
+    
+    
+    <a href="https://www.instagram.com/izhaoo/ " target="_blank" onMouseOver="this.style.color= '#DA2E76'"
+      onMouseOut="this.style.color='#33333D'">
+      <i class="iconfont footer-social-item  iconinstagram "></i>
+    </a>
+    
+    
+    
+    
+    
+    <a href="https://github.com/Shakespeawang " target="_blank" onMouseOver="this.style.color= '#24292E'"
+      onMouseOut="this.style.color='#33333D'">
+      <i class="iconfont footer-social-item  icongithub-fill "></i>
+    </a>
+    
+    
+    
+    
+    
+    <a href="357689848@qq.com " target="_blank" onMouseOver="this.style.color='#FFBE5B'"
+      onMouseOut="this.style.color='#33333D'">
+      <i class="iconfont footer-social-item  iconmail"></i>
+    </a>
+    
+  </div>
+  <div class="footer-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme - <a target="_blank" href="https://github.com/Shakespeawang/Shakespeawang.github.io">shakespeaWang</a></p></div>
+</footer>
+  
+      <div class="fab fab-plus">
+    <i class="iconfont iconplus"></i>
+  </div>
+  
+  <div class="fab fab-daovoice">
+    <i class="iconfont iconcomment"></i>
+  </div>
+  
+  <div class="fab fab-up">
+    <i class="iconfont iconcaret-up"></i>
+  </div>
+  
+  
+    
+<script src="/js/color-mode.js"></script>
+
+  
+</body>
+
+
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+
+
+
+
+
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
+
+
+
+
+
+
+<script src="https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+
+
+
+
+
+<script src="/js/utils.js"></script>
+<script src="/js/modules.js"></script>
+<script src="/js/zui.js"></script>
+<script src="/js/script.js"></script>
+
+
+
+
+
+<script>
+  (function (i, s, o, g, r, a, m) {
+    i["DaoVoiceObject"] = r;
+    i[r] = i[r] || function () {
+      (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date();
+    a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+    a.async = 1;
+    a.src = g;
+    a.charset = "utf-8";
+    m.parentNode.insertBefore(a, m)
+  })(window, document, "script", ('https:' == document.location.protocol ? 'https:' : 'http:') +
+    "//widget.daovoice.io/widget/0f81ff2f.js", "daovoice")
+  daovoice('init', {
+    app_id: "abcdefg"
+  }, {
+    launcher: {
+      disableLauncherIcon: true,
+    },
+  });
+  daovoice('update');
+</script>
+
+
+
+<script>
+  (function () {
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    } else {
+      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+  })();
+</script>
+
+
+<script>
+  var _hmt = _hmt || [];
+  (function () {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?4c204d8bc027a0455b5fc642ac334ca8";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+
+
+
+
+
+
+
+
+
+
+</html>

@@ -1,0 +1,476 @@
+
+
+<!DOCTYPE html>
+<html lang="en" color-mode=light>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>HTTP协议 - shakespeaWang&#39;s Blog</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="google" content="notranslate" />
+
+  
+  
+  <meta name="description" content="webservice = http协议+xml
+res..."> 
+  
+  <meta name="author" content="Shakespeawang"> 
+
+  
+    <link rel="icon" href="/images/icons/favicon-16x16.png" type="image/png" sizes="16x16">
+  
+  
+    <link rel="icon" href="/images/icons/favicon-32x32.png" type="image/png" sizes="32x32">
+  
+  
+    <link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png" sizes="180x180">
+  
+  
+    <meta rel="mask-icon" href="/images/icons/stun-logo.svg" color="#333333">
+  
+  
+    <meta rel="msapplication-TileImage" content="/images/icons/favicon-144x144.png">
+    <meta rel="msapplication-TileColor" content="#000000">
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+  
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1445822_onl0g0h21np.css">
+
+  
+
+  
+  
+  
+<link rel="stylesheet" href="https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min.css">
+
+  
+
+  
+  
+  
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/xcode.min.css">
+
+  
+
+  <script>
+    var CONFIG = window.CONFIG || {};
+    var ZHAOO = window.ZHAOO || {};
+    CONFIG = {
+      isHome: false,
+      fancybox: true,
+      pjax: false,
+      lazyload: {
+        enable: true,
+        onlyPost: 'false',
+        loading: '/images/theme/loading.gif'
+      },
+      donate: {
+        enable: true,
+        alipay: 'http://shakespea.wang/myphoto/t00ecentpay.jpg',
+        wechat: 'http://shakespea.wang/myphoto/al00ipay.jpg'
+      },
+      motto: {
+        api: '',
+        default: '一 如 既 往，万 事 胜 意'
+      },
+      galleries: {
+        enable: true
+      },
+      fab: {
+        enable: true,
+        alwaysShow: false
+      },
+      carrier: {
+        enable: true
+      },
+      daovoice: {
+        enable: true
+      }
+    }
+  </script>
+
+  
+
+  
+<meta name="generator" content="Hexo 5.2.0"></head>
+<body class="lock-screen">
+  <div class="loading"></div>
+  
+
+
+<nav class="navbar">
+  <div class="left"></div>
+  <div class="center">HTTP协议</div>
+  <div class="right">
+    
+      <i class="iconfont iconmoono" id="color-toggle" color-toggle="light"></i>
+    
+    <i class="iconfont iconmenu j-navbar-menu"></i>
+  </div>
+</nav>
+
+  <nav class="menu">
+  <div class="menu-wrap">
+    <div class="menu-close">
+      <i class="iconfont iconbaseline-close-px"></i>
+    </div>
+    <ul class="menu-content">
+      
+      
+      
+      
+      <li class="menu-item"><a href="/ " class="underline"> 首页</a></li>
+      
+      
+      
+      
+      <li class="menu-item"><a href="/galleries " class="underline"> 摄影</a></li>
+      
+      
+      
+      
+      <li class="menu-item"><a href="/archives " class="underline"> 归档</a></li>
+      
+      
+      
+      
+      <li class="menu-item"><a href="/tags " class="underline"> 标签</a></li>
+      
+      
+      
+      
+      <li class="menu-item"><a href="/categories " class="underline"> 分类</a></li>
+      
+      
+      
+      
+      <li class="menu-item"><a href="/about " class="underline"> 作者</a></li>
+      
+    </ul>
+    <div class="menu-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme - <a target="_blank" href="https://github.com/Shakespeawang/Shakespeawang.github.io">shakespeaWang</a></p></div>
+  </div>
+</nav>
+  <main id="main">
+  <div class="container" id="container">
+    <article class="article">
+  <div class="wrap">
+    <section class="head">
+  <img   class="lazyload" data-original="http://shakespea.wang/myphoto/20200421201200.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+  <div class="head-mask">
+    <h1 class="head-title">HTTP协议</h1>
+    <div class="head-info">
+      <span class="post-info-item"><i class="iconfont iconcalendar"></i>October 28, 2020</span
+        class="post-info-item">
+      
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>2131</span>
+    </div>
+  </div>
+</section>
+    <section class="main">
+      <section class="content">
+        <p>webservice = http协议+xml</p>
+<p>rest = http协议+json</p>
+<p><img   class="lazyload" data-original="http://shakespea.wang/myphoto/tec_pic/1596526289560.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1596526289560"></p>
+<h2 id="1、请求信息与响应信息"><a href="#1、请求信息与响应信息" class="headerlink" title="1、请求信息与响应信息"></a>1、请求信息与响应信息</h2><h3 id="请求"><a href="#请求" class="headerlink" title="请求"></a>请求</h3><p>1）请求行</p>
+<p>①请求方法  ②请求路径   ③所用的协议</p>
+<p>请求方法：GET、POST、PUT、DELETE、TRACE、OPTIONS、HEAD</p>
+<p><strong>HEAD</strong>： 跟get方法一致，只是不返回响应体，只有响应行和响应头)</p>
+<p><strong>TRACE</strong>：  用来代理上网， 看代理有没有修改http请求，但是服务器未必开启该方法支持</p>
+<p><img   class="lazyload" data-original="http://shakespea.wang/myphoto/tec_pic/1596532812040.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1596532812040"></p>
+<p><strong>OPTIONS</strong>：返回服务器有哪些方法是可以用的</p>
+<p><img   class="lazyload" data-original="http://shakespea.wang/myphoto/tec_pic/1596532952368.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1596532952368"></p>
+<p><strong>PUT</strong>：put方法跟post方法一样，对数据进行修改，post侧重于数据的增加，put侧重对数据的修改</p>
+<p>2）请求头信息</p>
+<p><img   class="lazyload" data-original="http://shakespea.wang/myphoto/tec_pic/1596594931192.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1596594931192"></p>
+<p>可以有Accept-language；Accept； Accept-Encoding；Connection；host</p>
+<p><img   class="lazyload" data-original="http://shakespea.wang/myphoto/tec_pic/1599124449945.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1599124449945"></p>
+<p><img   class="lazyload" data-original="http://shakespea.wang/myphoto/tec_pic/1596592994046.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1596592994046"></p>
+<p>3）空行</p>
+<p>4）请求主体信息（可以没有）</p>
+<p>头部信息结束后与主体信息之间要空一行</p>
+<p><strong>GET</strong>方法请求</p>
+<p><img   class="lazyload" data-original="http://shakespea.wang/myphoto/tec_pic/1596527676547.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1596527676547"></p>
+<p><strong>post</strong>方法请求</p>
+<p>post方法请求中需要在请求体的头部中加上，内容类型，内容长度， 空格后再加上请求体</p>
+<p><img   class="lazyload" data-original="http://shakespea.wang/myphoto/tec_pic/1596531586757.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1596531586757"></p>
+<h3 id="响应"><a href="#响应" class="headerlink" title="响应"></a>响应</h3><p>1）响应行</p>
+<p>①协议  </p>
+<p>②状态码：用来反映服务器的响应情况的</p>
+<p>200 OK ;404 NOT FOUND</p>
+<p>301/2： 永久/暂时重定向；也就是会转到另一个服务器中； （如果是post方法提交一个数据，用了重定向之后，在新的请求中，提交的数据会丢失）</p>
+<p>304：未修改（比如之前已经请求，已经在客户端缓存中，客户端会保存一个上次修改的时间戳和记录时间，然后再次请求时，会对比这个记录的时间戳，如果没变的话就是未修改）</p>
+<p>503：服务器暂时不可用</p>
+<p>500：服务器内部出错</p>
+<p><img   class="lazyload" data-original="http://shakespea.wang/myphoto/tec_pic/1596533091400.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1596533091400"></p>
+<p>③状态文字</p>
+<p>上面的ok ，not found都是状态文字</p>
+<p>如HTPP/1.1 200 OK</p>
+<p>2）响应头：key-value类型</p>
+<p>常见的有，编码格式（deflate、gzip和zlib、sdch） 内容格式（application/x-www-form-urlencoded；multipart/formdata、text/html、application/json）</p>
+<p>content-encoding: gzip</p>
+<p>content-length: 1339</p>
+<p>content-type: application/javascript</p>
+<p>如Host：localhost</p>
+<p>Content-type：text/html  </p>
+<p>Content-length:5</p>
+<p>3)空行</p>
+<p>4）响应主体（可能没有）</p>
+<h2 id="2、cookie"><a href="#2、cookie" class="headerlink" title="2、cookie"></a>2、cookie</h2><p><img   class="lazyload" data-original="http://shakespea.wang/myphoto/tec_pic/1597029472434.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1597029472434"></p>
+<h3 id="2-1内容"><a href="#2-1内容" class="headerlink" title="2.1内容"></a>2.1内容</h3><p>cookie中除了存放session id（上图中的value）之外，还能保存expires属性，即cookie的生命周期，path属性，即web站点上可以访问cookie的目录，domain属性（cookie的web站点或域名），secure属性（指定是否用https安全协议发送cookie）</p>
+<h2 id="3、referer防盗链"><a href="#3、referer防盗链" class="headerlink" title="3、referer防盗链"></a>3、referer防盗链</h2><p><strong>现象</strong>：比如在站外引用一个图片链接，就会失效</p>
+<p>或者统计网站的用户从何而来，如下图</p>
+<p><img   class="lazyload" data-original="http://shakespea.wang/myphoto/tec_pic/1596959569453.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1596959569453"></p>
+<p><strong>定义</strong>：在请求头部：有一个referer</p>
+<p>referer：代表网页的来源，即上一页的地址；</p>
+<p>如果是直接访问，就没有referer，</p>
+<p>为了防盗，即减轻服务器的压力。原理：如果referer与host不同，则需要把url重写，这时照片就可能变了，如下，然后会把refer不是localhost的图变成下图</p>
+<p><img   class="lazyload" data-original="http://shakespea.wang/myphoto/tec_pic/1596965571171.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1596965571171"></p>
+<p><img   class="lazyload" data-original="http://shakespea.wang/myphoto/tec_pic/1596961024740.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1596961024740"></p>
+<p>rewritecond（condition的缩写）：重写规则，第二条就是referer不等于localhost</p>
+<p>rewriterule： 替换为哪种资源，如下</p>
+<p><img   class="lazyload" data-original="http://shakespea.wang/myphoto/tec_pic/1596965775490.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1596965775490"></p>
+<h2 id="4、http协议缓存"><a href="#4、http协议缓存" class="headerlink" title="4、http协议缓存"></a>4、http协议缓存</h2><p><img   class="lazyload" data-original="http://shakespea.wang/myphoto/tec_pic/1596972667991.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1596972667991"></p>
+<p><strong>思考</strong>：如果有N台缓存服务器，那么这N台缓存服务器怎样处理主服务器上的文件？</p>
+<p>1、是否需要缓存</p>
+<p>2、需要缓存多久</p>
+<p>打开缓存，即打开apache中的缓存模块，——&gt;在.htaccess中设置ExpiresActive On</p>
+<p><img   class="lazyload" data-original="http://shakespea.wang/myphoto/tec_pic/1596973925448.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1596973925448"></p>
+<p>在响应头会有如下信息</p>
+<p>cache-control为最大周期</p>
+<p>expires：什么时候到期</p>
+<p><img   class="lazyload" data-original="http://shakespea.wang/myphoto/tec_pic/1596973704276.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1596973704276"></p>
+<p>如果是在集群中，缓存服务器得到此图片，将会认为生命周期内有效，在这生命周期内，如果有对其有请求，将直接从缓存服务器中获取，这样可以降低主服务器的压力。</p>
+<h2 id="5、http协议与内容压缩"><a href="#5、http协议与内容压缩" class="headerlink" title="5、http协议与内容压缩"></a>5、http协议与内容压缩</h2><p>保存网页源码为txt文件，就会发现其占用空间比content-length小很多，这是由于有content-encoding，在进行压缩，即为了网页在网络上的传输速度，服务器会对主体信息进行压缩；</p>
+<p>常见的有gzip压缩，zlib压缩，deflate压缩，compress压缩，以及google chrome的sdch压缩</p>
+<h2 id="6、AJAX"><a href="#6、AJAX" class="headerlink" title="6、AJAX"></a>6、AJAX</h2><p>asychronous javascript and xml，ajax不是一种新的编程语言，而是一种用于创建更好更快以及交互性更强的web应用程序的技术</p>
+<p>网页异步刷新技术，jQuery的写法，默认是get方法，可以直接用$.post表示post方法请求</p>
+<p><img   class="lazyload" data-original="http://shakespea.wang/myphoto/tec_pic/1597051693201.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1597051693201"></p>
+<p>或者用@Responsebody，可以传对象到前端</p>
+<p><img   class="lazyload" data-original="http://shakespea.wang/myphoto/tec_pic/1597127233351.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1597127233351"></p>
+<p><strong>前端的写法</strong></p>
+<p><img   class="lazyload" data-original="http://shakespea.wang/myphoto/tec_pic/1597127135624.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1597127135624"></p>
+<p>ajax的写法：</p>
+<p>1、url ：controller请求</p>
+<p>2、data： 键值对</p>
+<p>3、success： 回调函数</p>
+
+      </section>
+      <section class="extra">
+        
+        <ul class="copyright">
+  
+  <li><strong>本文作者：</strong>Shakespeawang</li>
+  <li><strong>本文链接：</strong><a href="https://shakespeawang.github.io/2020/10/28/Http%E5%8D%8F%E8%AE%AE%E5%AD%A6%E4%B9%A0/index.html">https://shakespeawang.github.io/2020/10/28/Http%E5%8D%8F%E8%AE%AE%E5%AD%A6%E4%B9%A0/index.html</a></li>
+  <li><strong>版权声明：</strong>本博客所有文章均采用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh"
+      rel="external nofollow" target="_blank"> BY-NC-SA </a>许可协议，转载请注明出处！</li>
+  
+</ul>
+        
+        
+        <section class="donate">
+  <div class="qrcode">
+    <img   class="lazyload" data-original="http://shakespea.wang/myphoto/t00ecentpay.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" >
+  </div>
+  <div class="icon">
+    <a href="javascript:;" id="alipay"><i class="iconfont iconalipay"></i></a>
+    <a href="javascript:;" id="wechat"><i class="iconfont iconwechat-fill"></i></a>
+  </div>
+</section>
+        
+        
+  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/" rel="tag">http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a></li></ul>
+
+        
+<nav class="nav">
+  
+    <a href="/2020/10/28/IO%E6%B5%81%E7%9B%B8%E5%85%B3/"><i class="iconfont iconleft"></i>IO流相关操作</a>
+  
+  
+    <a href="/2020/10/28/html/">HTML<i class="iconfont iconright"></i></a>
+  
+</nav>
+
+      </section>
+      
+      <section class="comments">
+  
+  <div class="btn" id="comments-btn">查看评论</div>
+  
+  
+</section>
+      
+    </section>
+  </div>
+</article>
+  </div>
+</main>
+  <footer class="footer">
+  <div class="footer-social">
+    
+    
+    
+    
+    
+    <a href="tencent://message/?Menu=yes&uin=357689848 " target="_blank" onMouseOver="this.style.color= '#12B7F5'"
+      onMouseOut="this.style.color='#33333D'">
+      <i class="iconfont footer-social-item  iconQQ "></i>
+    </a>
+    
+    
+    
+    
+    
+    <a href="javascript:; " target="_blank" onMouseOver="this.style.color= '#09BB07'"
+      onMouseOut="this.style.color='#33333D'">
+      <i class="iconfont footer-social-item  iconwechat-fill "></i>
+    </a>
+    
+    
+    
+    
+    
+    <a href="https://www.instagram.com/izhaoo/ " target="_blank" onMouseOver="this.style.color= '#DA2E76'"
+      onMouseOut="this.style.color='#33333D'">
+      <i class="iconfont footer-social-item  iconinstagram "></i>
+    </a>
+    
+    
+    
+    
+    
+    <a href="https://github.com/Shakespeawang " target="_blank" onMouseOver="this.style.color= '#24292E'"
+      onMouseOut="this.style.color='#33333D'">
+      <i class="iconfont footer-social-item  icongithub-fill "></i>
+    </a>
+    
+    
+    
+    
+    
+    <a href="357689848@qq.com " target="_blank" onMouseOver="this.style.color='#FFBE5B'"
+      onMouseOut="this.style.color='#33333D'">
+      <i class="iconfont footer-social-item  iconmail"></i>
+    </a>
+    
+  </div>
+  <div class="footer-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme - <a target="_blank" href="https://github.com/Shakespeawang/Shakespeawang.github.io">shakespeaWang</a></p></div>
+</footer>
+  
+      <div class="fab fab-plus">
+    <i class="iconfont iconplus"></i>
+  </div>
+  
+  <div class="fab fab-daovoice">
+    <i class="iconfont iconcomment"></i>
+  </div>
+  
+  <div class="fab fab-up">
+    <i class="iconfont iconcaret-up"></i>
+  </div>
+  
+  
+    
+<script src="/js/color-mode.js"></script>
+
+  
+</body>
+
+
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+
+
+
+
+
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
+
+
+
+
+
+
+<script src="https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+
+
+
+
+
+<script src="/js/utils.js"></script>
+<script src="/js/modules.js"></script>
+<script src="/js/zui.js"></script>
+<script src="/js/script.js"></script>
+
+
+
+
+
+<script>
+  (function (i, s, o, g, r, a, m) {
+    i["DaoVoiceObject"] = r;
+    i[r] = i[r] || function () {
+      (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date();
+    a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+    a.async = 1;
+    a.src = g;
+    a.charset = "utf-8";
+    m.parentNode.insertBefore(a, m)
+  })(window, document, "script", ('https:' == document.location.protocol ? 'https:' : 'http:') +
+    "//widget.daovoice.io/widget/0f81ff2f.js", "daovoice")
+  daovoice('init', {
+    app_id: "abcdefg"
+  }, {
+    launcher: {
+      disableLauncherIcon: true,
+    },
+  });
+  daovoice('update');
+</script>
+
+
+
+<script>
+  (function () {
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    } else {
+      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+  })();
+</script>
+
+
+<script>
+  var _hmt = _hmt || [];
+  (function () {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?4c204d8bc027a0455b5fc642ac334ca8";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+
+
+
+
+
+
+
+
+
+
+</html>
