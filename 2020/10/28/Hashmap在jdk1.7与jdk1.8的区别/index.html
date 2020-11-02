@@ -243,15 +243,16 @@
 <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
 <div id="gitalk" class="gitalk"></div>
 <script defer src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script src="/js/src/md5.min.js"></script>
 <script>
   window.onload = function () {
     var gitalk = new Gitalk({
       clientID: 'b94de692eec1311af431',
       clientSecret: '4170846cebfc84405d9b2c39a9593de7dc88045f',
-      id: window.location.pathname,
+      id: md5(window.location.pathname),
       repo: 'BlogComments',
       owner: 'ShakespeaWang',
-      admin: 'ShakespeaWang'
+      admin: 'ShakespeaWang',
     });
     if ( true ) {
       $("#comments-btn").on("click", function () {
