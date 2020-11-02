@@ -1,0 +1,497 @@
+
+
+<!DOCTYPE html>
+<html lang="en" color-mode=light>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>计算机网络-IP相关 - shakespeaWang&#39;s Blog</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="google" content="notranslate" />
+
+  
+  
+  <meta name="description" content="ip的分类：ip v4 /ip v6
+ip v4  4..."> 
+  
+  <meta name="author" content="Shakespeawang"> 
+
+  
+    <link rel="icon" href="/images/icons/favicon-16x16.png" type="image/png" sizes="16x16">
+  
+  
+    <link rel="icon" href="/images/icons/favicon-32x32.png" type="image/png" sizes="32x32">
+  
+  
+    <link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png" sizes="180x180">
+  
+  
+    <meta rel="mask-icon" href="/images/icons/stun-logo.svg" color="#333333">
+  
+  
+    <meta rel="msapplication-TileImage" content="/images/icons/favicon-144x144.png">
+    <meta rel="msapplication-TileColor" content="#000000">
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+  
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1445822_onl0g0h21np.css">
+
+  
+
+  
+  
+  
+<link rel="stylesheet" href="https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min.css">
+
+  
+
+  
+  
+  
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/xcode.min.css">
+
+  
+
+  <script>
+    var CONFIG = window.CONFIG || {};
+    var ZHAOO = window.ZHAOO || {};
+    CONFIG = {
+      isHome: false,
+      fancybox: true,
+      pjax: false,
+      lazyload: {
+        enable: true,
+        onlyPost: 'false',
+        loading: '/images/theme/loading.gif'
+      },
+      donate: {
+        enable: true,
+        alipay: 'http://shakespea.wang/myphoto/t00ecentpay.jpg',
+        wechat: 'http://shakespea.wang/myphoto/al00ipay.jpg'
+      },
+      motto: {
+        api: '',
+        default: '一 如 既 往，万 事 胜 意'
+      },
+      galleries: {
+        enable: true
+      },
+      fab: {
+        enable: true,
+        alwaysShow: false
+      },
+      carrier: {
+        enable: true
+      },
+      daovoice: {
+        enable: true
+      }
+    }
+  </script>
+
+  
+
+  
+<meta name="generator" content="Hexo 5.2.0"></head>
+<body class="lock-screen">
+  <div class="loading"></div>
+  
+
+
+<nav class="navbar">
+  <div class="left"></div>
+  <div class="center">计算机网络-IP相关</div>
+  <div class="right">
+    
+      <i class="iconfont iconmoono" id="color-toggle" color-toggle="light"></i>
+    
+    <i class="iconfont iconmenu j-navbar-menu"></i>
+  </div>
+</nav>
+
+  <nav class="menu">
+  <div class="menu-wrap">
+    <div class="menu-close">
+      <i class="iconfont iconbaseline-close-px"></i>
+    </div>
+    <ul class="menu-content">
+      
+      
+      
+      
+      <li class="menu-item"><a href="/ " class="underline"> 首页</a></li>
+      
+      
+      
+      
+      <li class="menu-item"><a href="/galleries " class="underline"> 摄影</a></li>
+      
+      
+      
+      
+      <li class="menu-item"><a href="/archives " class="underline"> 归档</a></li>
+      
+      
+      
+      
+      <li class="menu-item"><a href="/tags " class="underline"> 标签</a></li>
+      
+      
+      
+      
+      <li class="menu-item"><a href="/categories " class="underline"> 分类</a></li>
+      
+      
+      
+      
+      <li class="menu-item"><a href="/about " class="underline"> 作者</a></li>
+      
+    </ul>
+    <div class="menu-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme - <a target="_blank" href="https://github.com/Shakespeawang/Shakespeawang.github.io">shakespeaWang</a></p></div>
+  </div>
+</nav>
+  <main id="main">
+  <div class="container" id="container">
+    <article class="article">
+  <div class="wrap">
+    <section class="head">
+  <img   class="lazyload" data-original="http://shakespea.wang/myphoto/20200718152003.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+  <div class="head-mask">
+    <h1 class="head-title">计算机网络-IP相关</h1>
+    <div class="head-info">
+      <span class="post-info-item"><i class="iconfont iconcalendar"></i>October 28, 2020</span
+        class="post-info-item">
+      
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>7852</span>
+    </div>
+  </div>
+</section>
+    <section class="main">
+      <section class="content">
+        <p>ip的分类：ip v4 /ip v6</p>
+<p>ip v4  4个字节  0-255</p>
+<p>ip v6   128位，8个无符号整数！</p>
+<p>公网/私网地址</p>
+<p>ABCD四类</p>
+<h2 id="端口"><a href="#端口" class="headerlink" title="端口"></a>端口</h2><p>同一个协议下多个进程不能使用同一个端口；不同协议下多个进程可以使用同一个端口。</p>
+<p>端口分类：http：80；https：443；ftp：21；telnet：23；</p>
+<p><strong>同步与异步</strong></p>
+<ul>
+<li><strong>同步：</strong> 同步就是发起一个调用后，被调用者未处理完请求之前，调用不返回。</li>
+<li><strong>异步：</strong> 异步就是发起一个调用后，立刻得到被调用者的回应表示已接收到请求，但是被调用者并没有返回结果，此时我们可以处理其他的请求，被调用者通常依靠事件，回调等机制来通知调用者其返回结果。</li>
+</ul>
+<p><strong>阻塞和非阻塞</strong></p>
+<ul>
+<li><strong>阻塞：</strong> 阻塞就是发起一个请求，调用者一直等待请求结果返回，也就是当前线程会被挂起，无法从事其他任务，只有当条件就绪才能继续。</li>
+<li><strong>非阻塞：</strong> 非阻塞就是发起一个请求，调用者不用一直等着结果返回，可以先去干其他事情。</li>
+</ul>
+<p>select  poll 和epoll 都是同步IO</p>
+<p><strong>BIO：</strong></p>
+<p>阻塞时释放cpu资源，不支持并发，需要支持并发的话就需要为每一个客户端连接开启一个线程</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//服务端</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LoadServer</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        ServerSocket serverSocket = <span class="keyword">new</span> ServerSocket(<span class="number">8080</span>);</span><br><span class="line">        </span><br><span class="line">        Socket socket = serverSocket.accept();</span><br><span class="line">        InputStream is = socket.getInputStream();</span><br><span class="line">        FileOutputStream fos = <span class="keyword">new</span> FileOutputStream(<span class="string">&quot;copy.jpg&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">byte</span>[] buffer = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span>];</span><br><span class="line">        <span class="keyword">int</span> len = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>((len=is.read(buffer))!=-<span class="number">1</span>)&#123;</span><br><span class="line">            fos.write(buffer,<span class="number">0</span>,len);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//客户端</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LoadClient</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        Socket socket = <span class="keyword">new</span> Socket(<span class="string">&quot;127.0.0.1&quot;</span>,<span class="number">8080</span>);</span><br><span class="line">        OutputStream os = socket.getOutputStream();</span><br><span class="line">        FileInputStream fis = <span class="keyword">new</span> FileInputStream(<span class="string">&quot;pic.jpg&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">byte</span> []buffer = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span>];</span><br><span class="line">        <span class="keyword">int</span> len = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>((len=fis.read(buffer))!=-<span class="number">1</span>)&#123;</span><br><span class="line">            os.write(buffer,<span class="number">0</span>,len);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>NIO：</strong></p>
+<p>10000次连接，只有100个有数据</p>
+<p>支持高并发，但是while中有很多无意义的轮询，因此不用API中操作，放到kernel中操作，会节省时间</p>
+<p><img   class="lazyload" data-original="http://shakespea.wang/myphoto/tec_pic/1591928403601.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1591928403601"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.net.InetSocketAddress;</span><br><span class="line"><span class="keyword">import</span> java.net.SocketAddress;</span><br><span class="line"><span class="keyword">import</span> java.nio.ByteBuffer;</span><br><span class="line"><span class="keyword">import</span> java.nio.channels.ServerSocketChannel;</span><br><span class="line"><span class="keyword">import</span> java.nio.channels.SocketChannel;</span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> ByteBuffer byteBuffer = ByteBuffer.allocate(<span class="number">512</span>);</span><br><span class="line">    <span class="keyword">static</span> List&lt;SocketChannel&gt; channelList = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line"></span><br><span class="line">        ServerSocketChannel serverSocket = ServerSocketChannel.open();</span><br><span class="line">        SocketAddress socketAddress = <span class="keyword">new</span> InetSocketAddress(<span class="number">8080</span>);</span><br><span class="line">        serverSocket.bind(socketAddress);<span class="comment">//绑定端口与本地ip，并侦听连接</span></span><br><span class="line"></span><br><span class="line">        serverSocket.configureBlocking(<span class="keyword">false</span>);</span><br><span class="line">        <span class="keyword">while</span>(<span class="keyword">true</span>)&#123;<span class="comment">//轮询</span></span><br><span class="line">            </span><br><span class="line">            <span class="keyword">for</span> (SocketChannel socketChannel : channelList) &#123;</span><br><span class="line">                <span class="keyword">int</span> read = socketChannel.read(byteBuffer);</span><br><span class="line">                <span class="keyword">if</span>(read&gt;<span class="number">0</span>)&#123;</span><br><span class="line">                    System.out.println(<span class="string">&quot;read&quot;</span>+read);</span><br><span class="line">                    byteBuffer.flip();</span><br><span class="line">                    <span class="keyword">byte</span>[] bs = <span class="keyword">new</span> <span class="keyword">byte</span>[read];</span><br><span class="line">                    byteBuffer.get(bs);</span><br><span class="line">                    String content = <span class="keyword">new</span> String(bs);</span><br><span class="line">                    System.out.println(content);</span><br><span class="line">                    byteBuffer.flip();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            SocketChannel accept = serverSocket.accept(); <span class="comment">//接收连接</span></span><br><span class="line">            <span class="keyword">if</span>(accept!=<span class="keyword">null</span>)&#123;</span><br><span class="line">                System.out.println(<span class="string">&quot;conn success&quot;</span>);</span><br><span class="line">				<span class="comment">//</span></span><br><span class="line">                accept.configureBlocking(<span class="keyword">false</span>);</span><br><span class="line">                <span class="comment">//放到list中，在selector和epoll优化时，对象会变成文件，传给内核，文件描述符就是记录这个文件的地址（指针）</span></span><br><span class="line">                channelList.add(accept);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>slector和epoll解决上述NIO中list的无意义轮询问题，会把list中的对象给kernel中，任其处理</p>
+<p>select是操作系统中的一个函数，可以将上述list的轮询放到内核中进行，这样可以减少服务端中的操作，（内核的操作更快，因为读写需要将内核的拷贝到用户态，直接在内核态中可以减少切换次数，速度就更快了）</p>
+<p>java中的是对象，比如socket,放到kernel后就是文件，内核中一切皆文件；socket在linux中就是一个文件（有ip和端口号）</p>
+<p><img   class="lazyload" data-original="http://shakespea.wang/myphoto/tec_pic/1591928741082.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1591928741082"></p>
+<p>java中的是对象，比如,放到kernel后就是文件，内核中一切皆文件；</p>
+<p>文件描述符就是进程操作打开文件的句柄，标识</p>
+<p>c文件的形式如下，linux中部分源码</p>
+<p><img   class="lazyload" data-original="http://shakespea.wang/myphoto/tec_pic/1591932786130.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1591932786130"></p>
+<p>window和linux系统中的nio，区别select还是epoll</p>
+<p><img   class="lazyload" data-original="http://shakespea.wang/myphoto/tec_pic/1591863134183.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1591863134183"></p>
+<p>epoll的原理</p>
+<p><img   class="lazyload" data-original="http://shakespea.wang/myphoto/tec_pic/1591933830071.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1591933830071"></p>
+<p><img   class="lazyload" data-original="http://shakespea.wang/myphoto/tec_pic/1591934533921.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1591934533921"></p>
+<p><img   class="lazyload" data-original="http://shakespea.wang/myphoto/tec_pic/1591934604321.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1591934604321"></p>
+<p>![1591934713273](<a target="_blank" rel="noopener" href="http://shakespea.wang/myphoto/tec_pic/1591934713273.png">http://shakespea.wang/myphoto/tec_pic/1591934713273.png</a></p>
+<p><img   class="lazyload" data-original="http://shakespea.wang/myphoto/tec_pic/1591934738087.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1591934738087"></p>
+<p><strong>Select：</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">select</span><span class="params">(<span class="keyword">int</span> maxfdp1,fd_set *readset,fd_set *writeset,fd_set *exceptset,<span class="keyword">const</span> struct timeval *timeout)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//参数说明</span></span><br><span class="line"><span class="keyword">int</span> maxfdp1 指定待测试的文件描述字个数，它的值是待测试的最大描述字加<span class="number">1</span>。</span><br><span class="line">fd_set *readset , fd_set *writeset , fd_set *exceptset</span><br><span class="line">fd_set可以理解为一个集合，这个集合中存放的是文件描述符(file descriptor)，即文件句柄。中间的三个参数指定我们要让内核测试读、写和异常条件的文件描述符集合。如果对某一个的条件不感兴趣，就可以把它设为空指针。</span><br><span class="line"><span class="keyword">const</span> <span class="class"><span class="keyword">struct</span> <span class="title">timeval</span> *<span class="title">timeout</span> <span class="title">timeout</span>告知内核等待所指定文件描述符集合中的任何一个就绪可花多少时间。其<span class="title">timeval</span>结构用于指定这段时间的秒数和微秒数。</span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class">【返回值】</span></span><br><span class="line"><span class="class"><span class="title">int</span> 若有就绪描述符返回其数目，若超时则为0，若出错则为-1</span></span><br></pre></td></tr></table></figure>
+
+<p>select()的机制中提供一种<code>fd_set</code>的数据结构，实际上是一个long类型的数组，每一个数组元素都能与一打开的文件句柄（不管是Socket句柄,还是其他文件或命名管道或设备句柄）建立联系，建立联系的工作由程序员完成，当调用select()时，<strong>由内核根据IO状态修改fd_set的内容</strong>，由此来通知执行了select()的进程哪一Socket或文件可读。-</p>
+<ol>
+<li><p>每次调用select，都需要把<code>fd_set</code>集合从用户态拷贝到内核态，如果<code>fd_set</code>集合很大时，那这个开销也很大</p>
+</li>
+<li><p>同时每次调用select都需要在内核遍历传递进来的所有<code>fd_set</code>，如果<code>fd_set</code>集合很大时，那这个开销也很大</p>
+</li>
+<li><p>当有变化时，则内核通知用户态，又需要遍历fd_set，处理事件，然后重新初始化fd_set,再回到步骤①</p>
+</li>
+<li><p>为了减少数据拷贝带来的性能损坏，内核对被监控的<code>fd_set</code>集合大小做了限制，并且这个是通过宏控制的，<strong>大小不可改变(限制为1024  32位系统，2048  64位系统)</strong></p>
+</li>
+</ol>
+<p><strong>POLL</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">poll</span><span class="params">(struct pollfd *fds, <span class="keyword">nfds_t</span> nfds, <span class="keyword">int</span> timeout)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">pollfd</span> &#123;</span></span><br><span class="line">        <span class="keyword">int</span> fd;                         <span class="comment">// 需要被检测或选择的文件描述符</span></span><br><span class="line">        <span class="keyword">short</span> events;                   <span class="comment">// 对文件描述符fd上感兴趣的事件</span></span><br><span class="line">        <span class="keyword">short</span> revents;                  <span class="comment">// 文件描述符fd上当前实际发生的事件</span></span><br><span class="line">&#125; <span class="keyword">pollfd_t</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//参数说明</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">pollfd</span> *<span class="title">fds</span> <span class="title">fds</span>是一个<span class="keyword">struct</span> <span class="title">pollfd</span>类型的链表，用于存放需要检测其状态的<span class="title">socket</span>描述符，并且调用<span class="title">poll</span>函数之后<span class="title">fds</span>数组不会被清空；一个<span class="title">pollfd</span>结构体表示一个被监视的文件描述符，通过传递<span class="title">fds</span>指示 <span class="title">poll</span>() 监视多个文件描述符。其中，结构体的<span class="title">events</span>域是监视该文件描述符的事件掩码，由用户来设置这个域，结构体的<span class="title">revents</span>域是文件描述符的操作结果事件掩码，内核在调用返回时设置这个域</span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class"><span class="title">nfds_t</span> <span class="title">nfds</span> 记录数组<span class="title">fds</span>中描述符的总数量</span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class">【返回值】</span></span><br><span class="line"><span class="class"><span class="title">int</span> 函数返回<span class="title">fds</span>集合中就绪的读、写，或出错的描述符数量，返回0表示超时，返回-1表示出错</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>Epoll</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">epoll_create</span><span class="params">(<span class="keyword">int</span> size)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">epoll_ctl</span><span class="params">(<span class="keyword">int</span> epfd, <span class="keyword">int</span> op, <span class="keyword">int</span> fd, struct epoll_event *event)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">epoll_wait</span><span class="params">(<span class="keyword">int</span> epfd, struct epoll_event * events, <span class="keyword">int</span> maxevents, <span class="keyword">int</span> timeout)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//参数说明</span></span><br><span class="line"><span class="number">1.</span> epoll_create 函数创建一个epoll句柄，参数size表明内核要监听的描述符数量。调用成功时返回一个epoll句柄描述符，失败时返回<span class="number">-1</span>。</span><br><span class="line"><span class="number">2.</span> epoll_ctl 函数注册要监听的事件类型。四个参数解释如下：</span><br><span class="line">epfd 表示epoll句柄</span><br><span class="line">op 表示fd操作类型，有如下<span class="number">3</span>种</span><br><span class="line">EPOLL_CTL_ADD 注册新的fd到epfd中</span><br><span class="line">EPOLL_CTL_MOD 修改已注册的fd的监听事件</span><br><span class="line">EPOLL_CTL_DEL 从epfd中删除一个fd</span><br><span class="line">fd 是要监听的描述符</span><br><span class="line">event 表示要监听的事件</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">epoll_event</span> &#123;</span></span><br><span class="line">    <span class="keyword">__uint32_t</span> events;  <span class="comment">/* Epoll events */</span></span><br><span class="line">    <span class="keyword">epoll_data_t</span> data;  <span class="comment">/* User data variable */</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">union</span> <span class="title">epoll_data</span> &#123;</span></span><br><span class="line">    <span class="keyword">void</span> *ptr;</span><br><span class="line">    <span class="keyword">int</span> fd;</span><br><span class="line">    <span class="keyword">__uint32_t</span> u32;</span><br><span class="line">    <span class="keyword">__uint64_t</span> u64;</span><br><span class="line">&#125; <span class="keyword">epoll_data_t</span>;</span><br><span class="line"></span><br><span class="line"><span class="number">3.</span> epoll_wait 函数等待事件的就绪，成功时返回就绪的事件数目，调用失败时返回 <span class="number">-1</span>，等待超时返回 <span class="number">0</span>。</span><br><span class="line">epfd 是epoll句柄</span><br><span class="line">events 表示从内核得到的就绪事件集合</span><br><span class="line">maxevents 告诉内核events的大小</span><br><span class="line">timeout 表示等待的超时事件</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<p><img   class="lazyload" data-original="http://shakespea.wang/myphoto/tec_pic/1591934950185.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1591934950185"></p>
+<p><img   class="lazyload" data-original="http://shakespea.wang/myphoto/tec_pic/1591935003093.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1591935003093"></p>
+<p><img   class="lazyload" data-original="http://shakespea.wang/myphoto/tec_pic/1592004829088.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="1592004829088"></p>
+<h3 id="使用红黑树的原因"><a href="#使用红黑树的原因" class="headerlink" title="使用红黑树的原因"></a>使用红黑树的原因</h3><p>需要维护多个文件描述符fd，涉及到增加、删除、改的操作，必定会有先查询的操作，因此用树，不用hashmap是为了省内存（hashmap是java中的一种数据结构，同时hashmap中有地址%数组长度的操作，这个在内核中比较耗时），不用平衡查找树是因为该树的增加删除复杂度也是O（log N），而红黑树的增加删除复杂度也是O（1）,其自旋操作只要2-3次（插入最多2次，删除最多3次）</p>
+<p><strong>当我们需要频繁的对数据进行插入删除而且还需要保证查找效率的时候，就应该想到使用红黑树。</strong></p>
+<h3 id="epoll和select还有poll的对比"><a href="#epoll和select还有poll的对比" class="headerlink" title="epoll和select还有poll的对比**"></a>epoll和select还有poll的对比**</h3><p>没有对比就没有伤害！通过四个方面来对比一下他们就能很明显的知道为啥epoll这么优秀了！</p>
+<p><strong>tips：</strong>轮询是指，想要知道操作系统内核中哪些fd发生了读写事件需要不断地去询问操作系统，也就是循环的询问。</p>
+<p><strong>用户态将文件描述符传入内核的方式</strong><br>select:创建三个文件描述符集，分别监听读、写、异常动作，这里单个进程文件描述最大个数为1024.<br>poll：将传入的struct pollfd数组传入内核，让内核监听<br>epoll：不用传入内核，而是通过在内核的高速cache中维护一颗红黑树去监听，然后再维护一个就绪链表去存储已经触发的事件。可以往红黑树上增加删除节点</p>
+<p><strong>内核检测文件描述符状态的方式</strong><br>select：内核采用轮询的方式，遍历前面出入的文件描述符，然后返回一个描述符读写操作是否就绪的mask掩码，根据这个掩码给fd_set赋值。<br>poll:也是采用轮询机制，内核轮询刚才传入的数组，当数组中fd就绪，就加入到等待队列中，然后继续遍历<br>epoll：采用回调机制，每一个事件都注册了回调函数，当内核检测到某个fd可读可写时就会调用回调函数把事件添加到就绪链表中去，由于红黑树就是在内核中的，所以没有了拷贝操作，也不需要轮询，内核直接去操作红黑树上的fd就行。</p>
+<p><strong>文件描述符传递给用户的方式</strong><br>select：同样的这里也要把文件描述符集拷贝回去，返回哪些文件描述符处于就绪态了，但是用户态依然不知道哪个就绪了，所以需要来遍历判断。<br>poll：将之前传入的数组拷贝回给用户态，并返回就绪的个数，用户也不知道哪些是就绪的，也需要遍历数组来判断。<br>epoll：epoll就不用这样了，它是通过把就绪状态的文件描述符记录在了就绪链表中，所以放在传入的数组就行了，然后用户只要遍历这个数组处理事件就行了，不需要再判断是否发生了读写操作。而且这里是通过<strong>mmap让内核和用户共享一块数据，避免了不必要的拷贝操作</strong>！</p>
+<p><strong>重复监听的方式，I/O多路复用</strong><br>select：需要将新的文件描述符集合拷贝给内核然后重复以上操作。<br>poll：将新的数组拷贝到内核中，然后重复以上步骤。<br>epoll：epoll只需要直接向红黑树中增加删除即可，红黑树就是在内核中的。</p>
+<p>epoll更加高性能：<br>select和poll的动作基本一致，只是poll采用链表来进行文件描述符的存储，而select采用fd标注位来存放，所以select会受到最大连接数的限制，而poll不会。<br>select、poll、epoll虽然都会返回就绪的文件描述符数量。但是select和poll并不会明确指出是哪些文件描述符就绪，而epoll会。造成的区别就是，系统调用返回后，调用select和poll的程序需要遍历监听的整个文件描述符找到是谁处于就绪，而epoll则直接处理即可。<br>select、poll都需要将有关文件描述符的数据结构拷贝进内核，最后再拷贝出来。而epoll创建的有关文件描述符的数据结构本身就存于内核态中，系统调用返回时利用mmap()文件映射内存加速与内核空间的消息传递：即epoll使用mmap减少复制开销。<br>select、poll采用轮询的方式来检查文件描述符是否处于就绪态，而epoll采用回调机制。造成的结果就是，随着fd的增加，select和poll的效率会线性降低，而epoll不会受到太大影响，除非活跃的socket很多。<br>epoll的边缘触发模式效率高，系统不会充斥大量不关心的就绪文件描述符。<br>————————————————</p>
+
+      </section>
+      <section class="extra">
+        
+        <ul class="copyright">
+  
+  <li><strong>本文作者：</strong>Shakespeawang</li>
+  <li><strong>本文链接：</strong><a href="https://shakespeawang.github.io/2020/10/28/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/index.html">https://shakespeawang.github.io/2020/10/28/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/index.html</a></li>
+  <li><strong>版权声明：</strong>本博客所有文章均采用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh"
+      rel="external nofollow" target="_blank"> BY-NC-SA </a>许可协议，转载请注明出处！</li>
+  
+</ul>
+        
+        
+        <section class="donate">
+  <div class="qrcode">
+    <img   class="lazyload" data-original="http://shakespea.wang/myphoto/t00ecentpay.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" >
+  </div>
+  <div class="icon">
+    <a href="javascript:;" id="alipay"><i class="iconfont iconalipay"></i></a>
+    <a href="javascript:;" id="wechat"><i class="iconfont iconwechat-fill"></i></a>
+  </div>
+</section>
+        
+        
+  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag">计算机网络</a></li></ul>
+
+        
+<nav class="nav">
+  
+    <a href="/2020/10/28/%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/"><i class="iconfont iconleft"></i>操作系统-文件系统</a>
+  
+  
+    <a href="/2020/10/28/%E5%9B%BE/">图<i class="iconfont iconright"></i></a>
+  
+</nav>
+
+      </section>
+      
+      <section class="comments">
+  
+  <div class="btn" id="comments-btn">查看评论</div>
+  
+  
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<div id="gitalk" class="gitalk"></div>
+<script defer src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script>
+  window.onload = function () {
+    var gitalk = new Gitalk({
+      clientID: 'b94de692eec1311af431',
+      clientSecret: '4170846cebfc84405d9b2c39a9593de7dc88045f',
+      id: window.location.pathname,
+      repo: 'https://github.com/Shakespeawang/BlogComments.git',
+      owner: 'ShakespeaWang',
+      admin: 'ShakespeaWang'
+    });
+    if ( true ) {
+      $("#comments-btn").on("click", function () {
+        $(this).hide();
+        gitalk.render('gitalk');
+      });
+    } else {
+      gitalk.render('gitalk');
+    }
+  }
+</script>
+
+</section>
+      
+    </section>
+  </div>
+</article>
+  </div>
+</main>
+  <footer class="footer">
+  <div class="footer-social">
+    
+    
+    
+    
+    
+    <a href="tencent://message/?Menu=yes&uin=357689848 " target="_blank" onMouseOver="this.style.color= '#12B7F5'"
+      onMouseOut="this.style.color='#33333D'">
+      <i class="iconfont footer-social-item  iconQQ "></i>
+    </a>
+    
+    
+    
+    
+    
+    <a href="javascript:; " target="_blank" onMouseOver="this.style.color= '#09BB07'"
+      onMouseOut="this.style.color='#33333D'">
+      <i class="iconfont footer-social-item  iconwechat-fill "></i>
+    </a>
+    
+    
+    
+    
+    
+    <a href="https://www.instagram.com/izhaoo/ " target="_blank" onMouseOver="this.style.color= '#DA2E76'"
+      onMouseOut="this.style.color='#33333D'">
+      <i class="iconfont footer-social-item  iconinstagram "></i>
+    </a>
+    
+    
+    
+    
+    
+    <a href="https://github.com/Shakespeawang " target="_blank" onMouseOver="this.style.color= '#24292E'"
+      onMouseOut="this.style.color='#33333D'">
+      <i class="iconfont footer-social-item  icongithub-fill "></i>
+    </a>
+    
+    
+    
+    
+    
+    <a href="357689848@qq.com " target="_blank" onMouseOver="this.style.color='#FFBE5B'"
+      onMouseOut="this.style.color='#33333D'">
+      <i class="iconfont footer-social-item  iconmail"></i>
+    </a>
+    
+  </div>
+  <div class="footer-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme - <a target="_blank" href="https://github.com/Shakespeawang/Shakespeawang.github.io">shakespeaWang</a></p></div>
+</footer>
+  
+      <div class="fab fab-plus">
+    <i class="iconfont iconplus"></i>
+  </div>
+  
+  <div class="fab fab-daovoice">
+    <i class="iconfont iconcomment"></i>
+  </div>
+  
+  <div class="fab fab-up">
+    <i class="iconfont iconcaret-up"></i>
+  </div>
+  
+  
+    
+<script src="/js/color-mode.js"></script>
+
+  
+</body>
+
+
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+
+
+
+
+
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
+
+
+
+
+
+
+<script src="https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+
+
+
+
+
+<script src="/js/utils.js"></script>
+<script src="/js/modules.js"></script>
+<script src="/js/zui.js"></script>
+<script src="/js/script.js"></script>
+
+
+
+
+
+<script>
+  (function (i, s, o, g, r, a, m) {
+    i["DaoVoiceObject"] = r;
+    i[r] = i[r] || function () {
+      (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date();
+    a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+    a.async = 1;
+    a.src = g;
+    a.charset = "utf-8";
+    m.parentNode.insertBefore(a, m)
+  })(window, document, "script", ('https:' == document.location.protocol ? 'https:' : 'http:') +
+    "//widget.daovoice.io/widget/0f81ff2f.js", "daovoice")
+  daovoice('init', {
+    app_id: "abcdefg"
+  }, {
+    launcher: {
+      disableLauncherIcon: true,
+    },
+  });
+  daovoice('update');
+</script>
+
+
+
+<script>
+  (function () {
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    } else {
+      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+  })();
+</script>
+
+
+<script>
+  var _hmt = _hmt || [];
+  (function () {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?4c204d8bc027a0455b5fc642ac334ca8";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+
+
+
+
+
+
+
+
+
+
+</html>

@@ -1,0 +1,594 @@
+
+
+<!DOCTYPE html>
+<html lang="en" color-mode=light>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>spring基础 - shakespeaWang&#39;s Blog</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="google" content="notranslate" />
+
+  
+  
+  <meta name="description" content="Spring：使得现有的技术更加容易使用，本身是一个大..."> 
+  
+  <meta name="author" content="Shakespeawang"> 
+
+  
+    <link rel="icon" href="/images/icons/favicon-16x16.png" type="image/png" sizes="16x16">
+  
+  
+    <link rel="icon" href="/images/icons/favicon-32x32.png" type="image/png" sizes="32x32">
+  
+  
+    <link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png" sizes="180x180">
+  
+  
+    <meta rel="mask-icon" href="/images/icons/stun-logo.svg" color="#333333">
+  
+  
+    <meta rel="msapplication-TileImage" content="/images/icons/favicon-144x144.png">
+    <meta rel="msapplication-TileColor" content="#000000">
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+  
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1445822_onl0g0h21np.css">
+
+  
+
+  
+  
+  
+<link rel="stylesheet" href="https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min.css">
+
+  
+
+  
+  
+  
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/xcode.min.css">
+
+  
+
+  <script>
+    var CONFIG = window.CONFIG || {};
+    var ZHAOO = window.ZHAOO || {};
+    CONFIG = {
+      isHome: false,
+      fancybox: true,
+      pjax: false,
+      lazyload: {
+        enable: true,
+        onlyPost: 'false',
+        loading: '/images/theme/loading.gif'
+      },
+      donate: {
+        enable: true,
+        alipay: 'http://shakespea.wang/myphoto/t00ecentpay.jpg',
+        wechat: 'http://shakespea.wang/myphoto/al00ipay.jpg'
+      },
+      motto: {
+        api: '',
+        default: '一 如 既 往，万 事 胜 意'
+      },
+      galleries: {
+        enable: true
+      },
+      fab: {
+        enable: true,
+        alwaysShow: false
+      },
+      carrier: {
+        enable: true
+      },
+      daovoice: {
+        enable: true
+      }
+    }
+  </script>
+
+  
+
+  
+<meta name="generator" content="Hexo 5.2.0"></head>
+<body class="lock-screen">
+  <div class="loading"></div>
+  
+
+
+<nav class="navbar">
+  <div class="left"></div>
+  <div class="center">spring基础</div>
+  <div class="right">
+    
+      <i class="iconfont iconmoono" id="color-toggle" color-toggle="light"></i>
+    
+    <i class="iconfont iconmenu j-navbar-menu"></i>
+  </div>
+</nav>
+
+  <nav class="menu">
+  <div class="menu-wrap">
+    <div class="menu-close">
+      <i class="iconfont iconbaseline-close-px"></i>
+    </div>
+    <ul class="menu-content">
+      
+      
+      
+      
+      <li class="menu-item"><a href="/ " class="underline"> 首页</a></li>
+      
+      
+      
+      
+      <li class="menu-item"><a href="/galleries " class="underline"> 摄影</a></li>
+      
+      
+      
+      
+      <li class="menu-item"><a href="/archives " class="underline"> 归档</a></li>
+      
+      
+      
+      
+      <li class="menu-item"><a href="/tags " class="underline"> 标签</a></li>
+      
+      
+      
+      
+      <li class="menu-item"><a href="/categories " class="underline"> 分类</a></li>
+      
+      
+      
+      
+      <li class="menu-item"><a href="/about " class="underline"> 作者</a></li>
+      
+    </ul>
+    <div class="menu-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme - <a target="_blank" href="https://github.com/Shakespeawang/Shakespeawang.github.io">shakespeaWang</a></p></div>
+  </div>
+</nav>
+  <main id="main">
+  <div class="container" id="container">
+    <article class="article">
+  <div class="wrap">
+    <section class="head">
+  <img   class="lazyload" data-original="http://shakespea.wang/myphoto/20200421201200.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+  <div class="head-mask">
+    <h1 class="head-title">spring基础</h1>
+    <div class="head-info">
+      <span class="post-info-item"><i class="iconfont iconcalendar"></i>October 28, 2020</span
+        class="post-info-item">
+      
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>11959</span>
+    </div>
+  </div>
+</section>
+    <section class="main">
+      <section class="content">
+        <p>Spring：使得现有的技术更加容易使用，本身是一个大杂烩，整合了现有的技术框架</p>
+<p><strong>优点：</strong></p>
+<p>一个开源的免费的框架（容器）；一个轻量级的非入侵式的框架</p>
+<p>控制反转（IOC），面向切面编程（AOP）</p>
+<p>支持事务的处理，对框架整合的指出</p>
+<p><strong>弊端：</strong>发展太久之后，违背了原来的理念，因为配置变得十分繁琐</p>
+<p>Spring boot：一个快速开发的脚手架，基于springboot可以快速的开发单个微服务，约定大于配置</p>
+<p>Spring cloud：spring cloud基于spring boot实现的</p>
+<h1 id="二、IOC"><a href="#二、IOC" class="headerlink" title="二、IOC"></a><strong>二、IOC</strong></h1><p>IOC是一种设计思想，DI（依赖注入）是实现IOC的方法</p>
+<p>传统的业务中，用户的需求可能会影响原先的代码，需要根据用户的需求去修改源代码，如果程序代码量十分大，修改的成本代价十分昂贵！</p>
+<p>缺点：之前是主动创建对象，控制权在程序员手上；</p>
+<p>改进：把控制权换到用户手上，任其调用</p>
+<p><strong>本质：**</strong>获得依赖对象的方式反转了（之前自己决定，后来是需求决定）**</p>
+<p>举例：需要mysql、oracle、sqlserver获取数据，不可能在dao层修改，那就直接用一个服务接口去调用其中一个类，控制层只需要调用不同的服务接口就可以了，这时就不用从底层开始改起。</p>
+<p>IOC的理解：某一个岗位开发用的是某种框架，这个框架业务主要由java语言写的，框架被某类程序员了解并掌握，当录用了某个优秀的程序员时，招进来后，因为之前不熟悉某种语言，而把框架修改了（不可行），换个思路，由岗位决定（控制权反转），该岗位需要招哪一类的程序员，他自己会学习某种语言，了解该种框架，这样的话岗位无需考虑程序员本身（姓名、年龄等属性），只要能力满足要求即可。</p>
+<p> AOP的理解：招聘不是该业务部门的主要业务，于是加入一个代理（HR），帮忙做这些辅助任务，也就是HR的职责，如果每一个部门都要培养一个HR（静态代理），不太好，干脆由一个工厂来培训（动态代理），给出一些部门招聘需求（反射基本信息），AOP的切面就是HR，AOP的增强（要做的事）就是招人面试笔试/给offer/给感谢信、切入点就是招聘季。</p>
+<h1 id="三、AOP"><a href="#三、AOP" class="headerlink" title="三、AOP"></a>三、AOP</h1><p>AOP可以说是OOP（Object Oriented Programming，面向对象编程）的补充和完善。OOP引入封装、继承、多态等概念来建立一种对象层次结构，用于模拟公共行为的一个集合。不过OOP允许开发者定义纵向的关系，但并不适合定义横向的关系，例如日志功能。日志代码往往横向地散布在所有对象层次中，而与它对应的对象的核心功能毫无关系对于其他类型的代码，如安全性、异常处理和透明的持续性也都是如此，这种散布在各处的无关的代码被称为横切（cross cutting），在OOP设计中，它导致了大量代码的重复，而不利于各个模块的重用。</p>
+<p>AOP技术恰恰相反，它利用一种称为”横切”的技术，剖解开封装的对象内部，并将那些影响了多个类的公共行为封装到一个可重用模块，并将其命名为”Aspect”，即切面。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">(1)横切关注点：对哪些方法进行拦截，拦截后怎么处理，这些关注点称之为横切关注点</span><br><span class="line"></span><br><span class="line">(2)Aspect(切面):通常是一个类，里面可以定义切入点和通知</span><br><span class="line"></span><br><span class="line">(3)JointPoint(连接点):程序执行过程中明确的点，一般是方法的调用。被拦截到的点，因为Spring只支持方法类型的连接点，所以在Spring中连接点指的就是被拦截到的方法，实际上连接点还可以是字段或者构造器</span><br><span class="line"></span><br><span class="line">(4)Advice(通知或增强):AOP在特定的切入点上执行的增强处理，有before(前置),after(后置),afterReturning(最终),afterThrowing(异常),around(环绕)</span><br><span class="line"></span><br><span class="line">(5)Pointcut(切入点):就是带有通知的连接点，在程序中主要体现为书写切入点表达式</span><br><span class="line"></span><br><span class="line">(6)weave(织入)：将切面应用到目标对象并导致代理对象创建的过程</span><br><span class="line"></span><br><span class="line">(7)introduction(引入)：在不修改代码的前提下，引入可以在运行期为类动态地添加一些方法或字段</span><br><span class="line"></span><br><span class="line">(8)AOP代理(AOP Proxy)：AOP框架创建的对象，代理就是目标对象的加强。Spring中的AOP代理可以使JDK动态代理，也可以是CGLIB代理，前者基于接口，后者基于子类</span><br><span class="line"></span><br><span class="line">(9)目标对象（Target Object）: 包含连接点的对象。也被称作被通知或被代理对象。POJO</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h1 id="四、IOC创建对象的方式"><a href="#四、IOC创建对象的方式" class="headerlink" title="四、IOC创建对象的方式"></a><strong>四、IOC创建对象的方式</strong></h1><p>①默认使用无参构造函数创建对象</p>
+<p>②使用构造函数创建对象</p>
+<p>用<constructor-arg>  可以用构造函数的参数下标赋值，类型赋值，参数名赋值</p>
+<h1 id="五、Spring配置"><a href="#五、Spring配置" class="headerlink" title="五、Spring配置"></a><strong>五、Spring配置</strong></h1><p>&lt;id:bean的唯一标识符； class：bean对象对应的全限定名,包名+类名；name：别名，可以同时取多个&gt;</p>
+<p>&lt;property name = “属性名”，value = “属性值”&gt;</p>
+<p>import配置</p>
+<p>把不同的beans配置文件合并到一起</p>
+<import resourse = "xxx.xml">
+
+
+
+<h1 id="六、DI（依赖注入）-："><a href="#六、DI（依赖注入）-：" class="headerlink" title="六、DI（依赖注入） ："></a><strong>六、DI（依赖注入） ：</strong></h1><p><strong>是控制反转的实现方法</strong></p>
+<p>。构造器注入</p>
+<p>。Set方式注入</p>
+<p>依赖：bean对象的创建依赖于容器  ；  注入：bean对象中的所有属性，由容器来注入</p>
+<p>注入方法：常规的、p命名、c命名</p>
+<p>。拓展方式注入</p>
+<h1 id="七、bean的作用域"><a href="#七、bean的作用域" class="headerlink" title="七、bean的作用域"></a><strong>七、bean的作用域</strong></h1><p>单例模式：从始至终的实例都是一个</p>
+<p>原型模式：每次创建的实例都不一样</p>
+<p>还有request session  application socket等，用于web开发</p>
+<h1 id="八、Bean的自动装配"><a href="#八、Bean的自动装配" class="headerlink" title="八、Bean的自动装配"></a><strong>八、Bean的自动装配</strong></h1><ul>
+<li><p>显示xml配置：就是写xml 的beans配置</p>
+</li>
+<li><p>java的显示配置</p>
+</li>
+<li><p>隐式的自动装配（byname和bytype配置，重点是Autowired注解，<strong>Autowired实际先是按bytype、再按byname注入的</strong>）</p>
+</li>
+</ul>
+<p>byname：需要bean的id唯一，这个id与class中setter方法后面的一致</p>
+<p>bytype：保证所有bean的class唯一，并且bean需要和自动注入的属性类型一致</p>
+<p><strong>Autowired注解：</strong></p>
+<p>①导入约束   ②配置注解context驱动</p>
+<p>优点：可以直接在属性上使用，也可以在set方法上使用，使用Autowired可以不用写set方法，前提是自动装配的属性在IOC容器中存在，且符合属性或名字</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://www.springframework.org/schema/beans&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:xsi</span>=<span class="string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span></span><br><span class="line">    xmlns:context=&quot;http://www.springframework.org/schema/context&quot;   &lt;!--约束--&gt;</span><br><span class="line">    xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans</span><br><span class="line">        https://www.springframework.org/schema/beans/spring-beans.xsd</span><br><span class="line">        http://www.springframework.org/schema/context</span><br><span class="line">        https://www.springframework.org/schema/context/spring-context.xsd&quot;&gt;</span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">context:annotation-config</span>/&gt;</span>          <span class="comment">&lt;!--配置注解context驱动--&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>如果beans.xml中有多个bean类型相同，使用@Qualifier配合@Autowired使用，或者@Resource（前两者结合）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Autowired</span></span><br><span class="line"><span class="meta">@Qualifier(vale=&quot;bean的id&quot;)</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@Resource(value=&quot;bean的id&quot;)</span></span><br></pre></td></tr></table></figure>
+
+<p>@Autowired与@Resource的区别</p>
+<p>共同点：都是用来自动装配的，都可以放在属性字段上</p>
+<p>区别：@Autowired首先通过bytype，如果有同一个type有多个，就用byname；</p>
+<p>@Resource默认通过byname的方式实现，如果找不到那么，就用bytype实现，如果都找不到就报错</p>
+<h1 id="9、使用注解开发"><a href="#9、使用注解开发" class="headerlink" title="9、使用注解开发"></a>9、使用注解开发</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span>   <span class="comment">//在类上的注解，可以替换&lt;bean id = &quot;&quot; class = &quot; &quot;&gt;  ,一般用于pojo中</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@Value</span>   <span class="comment">//在类中普通属性或者set方法上注解，可以替换&lt;property name=&quot; &quot; value=&quot; &quot;&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@Respository</span>   <span class="comment">//dao层</span></span><br><span class="line"><span class="meta">@Service</span>      <span class="comment">//服务层</span></span><br><span class="line"><span class="meta">@Controller</span>  <span class="comment">//控制层  ，注意这三个都是Component的衍生注解，作用是把当前对象放入spring容器</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@Scope(&quot;singleton&quot;)</span>  <span class="comment">//用于注明类的模式，比如单例模式、原型模式porotype</span></span><br></pre></td></tr></table></figure>
+
+<p>xml与注解：</p>
+<p>。xml更加万能，适用于任何场所；</p>
+<p>。注解 不是自己的类就使用不了，维护相对复杂</p>
+<p>结合使用：xml用来管理bean，注解负责完成属性的注入，必须让注解生效（开启驱动，开启注解所在包扫描）</p>
+<h1 id="10、使用java的方式配置Spring"><a href="#10、使用java的方式配置Spring" class="headerlink" title="10、使用java的方式配置Spring"></a>10、使用java的方式配置Spring</h1><p>完全不是用Spring的xml配置，全权交给java来做。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span>  <span class="comment">//修饰类，也会被spring容器托管，本身也是一个component，</span></span><br><span class="line">    </span><br><span class="line"><span class="meta">@Bean</span> <span class="comment">//修饰方法，相当于注册一个bean，相当于xml中写的bean，方法名相当于bean的id，返回值就是class对象</span></span><br><span class="line">     <span class="comment">//通过Bean配置的，只能用AnnotationConfigApplicationContext来取出</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h1 id="11、代理模式："><a href="#11、代理模式：" class="headerlink" title="11、代理模式："></a><strong>11、代理模式：</strong></h1><h3 id="静态代理"><a href="#静态代理" class="headerlink" title="静态代理"></a>静态代理</h3><p>静态代理：一个类（真实角色）需要做某件事，</p>
+<p>。抽象角色：一般会使用接口或者抽象类来解决（含有某个方法）</p>
+<p>。真实角色：被代理的角色（实现/继承抽象角色）</p>
+<p>。代理角色：代理真实角色来做，真实角色就不需要做了（实现/继承抽象角色；且有一个属性是 真实角色）</p>
+<p>。用户：访问真实角色</p>
+<p><strong>好处：</strong>在代理角色可以增加一些辅助功能，真实角色可以专注自己的业务，公共业务发生扩展时便于集中管理</p>
+<p><strong>缺点</strong>：一个真实角色就需要添加一个代理角色，开发量增加</p>
+<p><strong>举例</strong>：实现Runnable接口的类threadclass，重写run方法，调用时需要new Thread(threadclass).start();</p>
+<p>threadclass就是真实角色，Runnable就是抽象角色，Thread类就是代理角色，用户就是调用的主程序</p>
+<h3 id="动态代理"><a href="#动态代理" class="headerlink" title="动态代理"></a>动态代理</h3><p>动态代理与静态代理角色一样</p>
+<p>动态代理的代理类是通过反射动态生成的，不是直接写的</p>
+<p>动态代理分为两大类：基于接口的动态代理，基于类的动态代理</p>
+<p>。基于接口——JDK动态代理</p>
+<p>。基于类——cglib</p>
+<p>。java字节码实现——javasist</p>
+<h3 id="Proxy和InvocationHandler"><a href="#Proxy和InvocationHandler" class="headerlink" title="Proxy和InvocationHandler"></a>Proxy和InvocationHandler</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//基于jkd中的反射编程</span></span><br><span class="line"><span class="comment">//InvocationHandler的作用：一个接口，可以调用代理角色中需要实现的方法</span></span><br><span class="line"><span class="comment">//Proxy的作用：有一个静态方法，可以创建动态代理类与实例</span></span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.InvocationHandler;</span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.Method;</span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.Proxy;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">interface</span>  <span class="title">Rent</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">rent</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Host</span> <span class="keyword">implements</span> <span class="title">Rent</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">rent</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;房东要出租房&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//可以生成代理类</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ProxyInvocationHandler</span> <span class="keyword">implements</span> <span class="title">InvocationHandler</span></span>&#123;</span><br><span class="line">    <span class="comment">//被代理的接口</span></span><br><span class="line">    <span class="keyword">private</span> Object target;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setTarget</span><span class="params">(Object target)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.target = target;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//生成代理类</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">getProxy</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> Proxy.newProxyInstance(<span class="keyword">this</span>.getClass().getClassLoader(),target.getClass().getInterfaces(),<span class="keyword">this</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//处理代理类的方法，并返回结果</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">invoke</span><span class="params">(Object proxy, Method method, Object[] args)</span> <span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">        <span class="comment">//动态代理的本质，就是使用反射机制</span></span><br><span class="line">        Object result = method.invoke(target,args);</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Client</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//真实角色</span></span><br><span class="line">        Host host = <span class="keyword">new</span> Host();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//代理角色，还不知道代理哪个真实角色</span></span><br><span class="line">        ProxyInvocationHandler pih = <span class="keyword">new</span> ProxyInvocationHandler();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//代理host</span></span><br><span class="line">        pih.setTarget(host);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//动态生成代理角色</span></span><br><span class="line">        Rent proxy = (Rent) pih.getProxy();</span><br><span class="line">        proxy.rent();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>优点：一个动态代理可以代理多个类，只要实现了同一个接口就行了：</p>
+<p>上述host2如果实现了Rent接口，直接pih.setTarget(host2);即可</p>
+<h3 id="AOP：面向切面编程"><a href="#AOP：面向切面编程" class="headerlink" title="AOP：面向切面编程"></a><strong>AOP：面向切面编程</strong></h3><p>相关概念：</p>
+<ol>
+<li>切面：定义切入点与通知的类</li>
+<li>连接点：哪些主业务方法需要加一些辅助功能（如日志，事务等），这些方法就是连接点</li>
+<li>通知：五种，给连接点一个时间定义，before、after、afterReturning、afterThrowing、around五种</li>
+<li>切入点：连接点加通知</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="meta">@Aspect</span> <span class="comment">// 切面</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LogAspect</span> </span>&#123;</span><br><span class="line"> <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">static</span> Logger LOGGER = LoggerFactory.getLogger(LogAspect.class.getName());</span><br><span class="line"> <span class="comment">// 切入点，表达式是指com.remcarpediem.test.aop.service</span></span><br><span class="line"> <span class="comment">// 包下的所有类的所有方法</span></span><br><span class="line"> <span class="meta">@Pointcut(&quot;execution(* com.remcarpediem.test.aop.service..*(..))&quot;)</span></span><br><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">aspect</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line"> <span class="comment">// 通知，在符合aspect切入点的方法前插入如下代码，并且将连接点作为参数传递</span></span><br><span class="line"> <span class="meta">@Before(&quot;aspect()&quot;)</span></span><br><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">log</span><span class="params">(JoinPoint joinPoint)</span> </span>&#123; <span class="comment">//连接点作为参数传入</span></span><br><span class="line"> <span class="keyword">if</span> (LOGGER.isInfoEnabled()) &#123;</span><br><span class="line"> <span class="comment">// 获得类名，方法名，参数和参数名称。</span></span><br><span class="line"> Signature signature = joinPoint.getSignature();</span><br><span class="line"> String className = joinPoint.getTarget().getClass().getName();</span><br><span class="line"> String methodName = joinPoint.getSignature().getName();</span><br><span class="line"> Object[] arguments = joinPoint.getArgs();</span><br><span class="line"> MethodSignature methodSignature = (MethodSignature) joinPoint.getSignature();</span><br><span class="line"></span><br><span class="line"> String[] argumentNames = methodSignature.getParameterNames();</span><br><span class="line"></span><br><span class="line"> StringBuilder sb = <span class="keyword">new</span> StringBuilder(className + <span class="string">&quot;.&quot;</span> + methodName + <span class="string">&quot;(&quot;</span>);</span><br><span class="line"></span><br><span class="line"> <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i&lt; arguments.length; i++) &#123;</span><br><span class="line">                Object argument = arguments[i];</span><br><span class="line">                sb.append(argumentNames[i] + <span class="string">&quot;-&gt;&quot;</span>);</span><br><span class="line">                sb.append(argument != <span class="keyword">null</span> ? argument.toString() : <span class="string">&quot;null &quot;</span>);</span><br><span class="line"> &#125;</span><br><span class="line"> sb.append(<span class="string">&quot;)&quot;</span>);</span><br><span class="line"> LOGGER.info(sb.toString());</span><br><span class="line"> &#125;</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>方法一：使用Spring的API接口实现</p>
+<p>方法二：自定义来实现AOP</p>
+<p>方法三：配置文件</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">//配置声明式事务</span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;transactionManager&quot;</span> <span class="attr">class</span>=<span class="string">&quot;org.springframework.jdbc.datasource.DataSourceTransactionManager&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;dataSource&quot;</span> <span class="attr">ref</span> =<span class="string">&quot;dataSource&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"></span><br><span class="line">//配置事务通知</span><br><span class="line"><span class="tag">&lt;<span class="name">tx:advice</span> <span class="attr">id</span> = <span class="string">&quot;txAdvice&quot;</span> <span class="attr">transaction-manager</span>=<span class="string">&quot;transactionManager&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">tx:attributes</span>&gt;</span></span><br><span class="line">    	<span class="tag">&lt;<span class="name">tx:method</span> <span class="attr">name</span>=<span class="string">&quot;add&quot;</span> <span class="attr">propogation</span>=<span class="string">&quot;REQUIRED&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tx:attributes</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">tx:advice</span>&gt;</span></span><br><span class="line"></span><br><span class="line">//配置事务切入</span><br><span class="line"><span class="tag">&lt;<span class="name">aop:config</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">aop:pointcut</span> <span class="attr">id</span> =<span class="string">&quot;txAdvice&quot;</span> <span class="attr">expression</span>=<span class="string">&quot;execution(包名.*.*)&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">aop:pointcut</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">aop:advisor</span> <span class="attr">advice-ref</span>=<span class="string">&quot;事务通知&quot;</span>&gt;</span> pointcut-ref=&quot;txpoint&quot;&gt;<span class="tag">&lt;/<span class="name">aop:advisor</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">aop:config</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="12、bean的生命周期"><a href="#12、bean的生命周期" class="headerlink" title="12、bean的生命周期"></a>12、bean的生命周期</h1><p>bean的完整声明周期经历了各个方法的调用，可以分为四个层面：</p>
+<p>①<strong>bean自身的方法</strong>：包括调用自身的方法和配置文件中<init-method>和<destory-method>方法</p>
+<p>②<strong>bean级生命周期的接口中的方法</strong>：有BeanNameAware、BeanFactoryAware、InitializingBean和DiposableBean这些接口的方法</p>
+<p>③容器级别生命周期的接口方法：有BeanPostProcessor和InstantiationAwareBeanPostProcessor这两个接口的实现中的方法，也称为后处理器</p>
+<p>④工厂后处理器接口的方法，比如BeanFactoryPostProcessor中的方法</p>
+<p>过程：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">实例化BeanFactoryPostProcessor的接口实现类，并调用postProcessBeanFactory()方法；</span><br><span class="line">实例化BeanPostProcessor的接口实现类，</span><br><span class="line">实例化InstantiationAwareBeanPostProcessor接口实现类，调用postProcessBeforeInstantiation()方法</span><br><span class="line"></span><br><span class="line">开始调用构造器</span><br><span class="line">InstantiationAwareBeanPostProcessor实现类中调用postProcessPropertyValues()方法</span><br><span class="line">注入属性</span><br><span class="line"></span><br><span class="line">BeanNameAware接口实现类调用setBeanName()方法</span><br><span class="line">BeanFactoryAware接口实现类调用setBeanFactory()方法</span><br><span class="line"></span><br><span class="line">BeanPostProcessor接口实现类调用postProcessBeforeInitialization()对属性进行更改</span><br><span class="line">InitalizingBean接口实现类调用afterPropertiesSet()方法</span><br><span class="line">init-method方法调用</span><br><span class="line">BeanPostProcessor接口实现类调用postProcessAfterInitialization()对属性进行更改</span><br><span class="line"></span><br><span class="line">容器初始化完成</span><br><span class="line">开始执行需要的代码</span><br><span class="line"></span><br><span class="line">容器关闭</span><br><span class="line">DiposibleBean接口实现类调用destroy()方法</span><br><span class="line">destroy-method()方法被调用</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="13、Spring解决循环依赖的问题"><a href="#13、Spring解决循环依赖的问题" class="headerlink" title="13、Spring解决循环依赖的问题"></a>13、Spring解决循环依赖的问题</h1><ul>
+<li>构造器的循环依赖</li>
+</ul>
+<p>无法解决，只能抛出BeanCurrentlyInCreationException异常；</p>
+<ul>
+<li>field属性的循环依赖</li>
+</ul>
+<p>采用提前暴露对象的方法</p>
+<p>spring创建单例对象的三步：</p>
+<ol>
+<li>实例化，调用构造方法</li>
+<li>填充属性，如果有循环依赖的对象属性，会陷入死循环，报错</li>
+<li>调用xml中配置的init-method方法</li>
+</ol>
+<p>解决方案：三级缓存</p>
+<p>singletonFactories ： 单例对象工厂的cache ，三级</p>
+<p>earlySingletonObjects ：提前暴光的单例对象的Cache，二级 </p>
+<p>singletonObjects：单例对象的cache</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">在创建bean的时候，首先想到的是从cache中获取这个单例的bean，这个缓存就是singletonObjects。如果获取不到，并且对象正在创建中，就再从二级缓存earlySingletonObjects中获取。如果还是获取不到且允许singletonFactories通过getObject()获取，就从三级缓存singletonFactory.getObject()(三级缓存)获取，如果获取到了则：从singletonFactories中移除，并放入earlySingletonObjects中。其实也就是从三级缓存移动到了二级缓存。</span><br><span class="line">   从上面三级缓存的分析，我们可以知道，Spring解决循环依赖的诀窍就在于singletonFactories这个三级cache。这个cache的类型是ObjectFactory。这里就是解决循环依赖的关键，发生在createBeanInstance之后，也就是说单例对象此时已经被创建出来(调用了构造器)。这个对象已经被生产出来了，虽然还不完美（还没有进行初始化的第二步和第三步），但是已经能被人认出来了（根据对象引用能定位到堆中的对象），所以Spring此时将这个对象提前曝光出来让大家认识，让大家使用。</span><br><span class="line">   这样做有什么好处呢？让我们来分析一下“A的某个field或者setter依赖了B的实例对象，同时B的某个field或者setter依赖了A的实例对象”这种循环依赖的情况。A首先完成了初始化的第一步，并且将自己提前曝光到singletonFactories中，此时进行初始化的第二步，发现自己依赖对象B，此时就尝试去get(B)，发现B还没有被create，所以走create流程，B在初始化第一步的时候发现自己依赖了对象A，于是尝试get(A)，尝试一级缓存singletonObjects(肯定没有，因为A还没初始化完全)，尝试二级缓存earlySingletonObjects（也没有），尝试三级缓存singletonFactories，由于A通过ObjectFactory将自己提前曝光了，所以B能够通过ObjectFactory.getObject拿到A对象(虽然A还没有初始化完全，但是总比没有好)，B拿到A对象后顺利完成了初始化阶段1、2、3，完全初始化之后将自己放入到一级缓存singletonObjects中。此时返回A中，A此时能拿到B的对象顺利完成自己的初始化阶段2、3，最终A也完成了初始化，进去了一级缓存singletonObjects中，而且更加幸运的是，由于B拿到了A的对象引用，所以B现在hold住的A对象完成了初始化。</span><br><span class="line">知道了这个原理时候，肯定就知道为啥Spring不能解决“A的构造方法中依赖了B的实例对象，同时B的构造方法中依赖了A的实例对象”这类问题了！因为加入singletonFactories三级缓存的前提是执行了构造器，所以构造器的循环依赖没法解决。</span><br></pre></td></tr></table></figure>
+
+<h1 id="14、spring的事务传播机制"><a href="#14、spring的事务传播机制" class="headerlink" title="14、spring的事务传播机制"></a>14、spring的事务传播机制</h1><ul>
+<li><strong>propagation_requierd</strong>：如果当前没有事务，就新建一个事务，如果已存在一个事务中，加入到这个事务中，这是最常见的选择。</li>
+<li><strong>propagation_supports</strong>：支持当前事务，如果没有当前事务，就以非事务方法执行。</li>
+<li><strong>propagation_mandatory</strong>：使用当前事务，如果没有当前事务，就抛出异常。</li>
+<li><strong>propagation_required_new</strong>：新建事务，如果当前存在事务，把当前事务挂起。</li>
+<li><strong>propagation_not_supported</strong>：以非事务方式执行操作，如果当前存在事务，就把当前事务挂起。</li>
+<li><strong>propagation_never</strong>：以非事务方式执行操作，如果当前事务存在则抛出异常。</li>
+<li><strong>propagation_nested</strong>：如果当前存在事务，则在嵌套事务内执行。如果当前没有事务，则执行与propagation_required类似的操作</li>
+</ul>
+<h1 id="15、整合Mybatis"><a href="#15、整合Mybatis" class="headerlink" title="15、整合Mybatis"></a>15、整合Mybatis</h1><p>一、导入jar包</p>
+<p>。junit包</p>
+<p>。mysql</p>
+<p>。mybatis</p>
+<p>。spring-webmvc</p>
+<p>。spring-jdbc‘</p>
+<p>。aspectjweaver</p>
+<p>。aop织入</p>
+<p>二、mybatis</p>
+<p>1、编写实体类</p>
+<p>2、编写核心配置文件</p>
+<p>3、编写Mapper接口</p>
+<p>4、编写Mapper绑定的xml文件（含有sql语句）</p>
+<p>5、测试</p>
+<p>三、Mybatis-Spring</p>
+<p>。编写数据源配置datasource</p>
+<p>。sqlSessionFactory</p>
+<p>。需要给接口加实现类，并把实现类注册到spring中</p>
+<p>。配置sqlSession</p>
+<h1 id="13、声明式事务"><a href="#13、声明式事务" class="headerlink" title="13、声明式事务"></a>13、声明式事务</h1><h3 id="1、回顾事务"><a href="#1、回顾事务" class="headerlink" title="1、回顾事务"></a>1、回顾事务</h3><p>事务ACID原则：</p>
+<p>原子性：要么成功，要么失败</p>
+<p>一致性：资源和状态保持一致，事务必须与系统处于一致的状态，事务并发多少，系统也必须串行事务一样操作</p>
+<p>隔离性：多个业务可能同时操作一个资源，各个业务保持隔离，互不影响，防止数据损坏</p>
+<p>持久性：事务一旦提交，无论系统发生什么问题，结果都不会影响</p>
+<h3 id="2、spring的事务管理"><a href="#2、spring的事务管理" class="headerlink" title="2、spring的事务管理"></a>2、spring的事务管理</h3><p>声明式事务：AOP</p>
+<p>编程式事务：使用代码实现</p>
+<h3 id="3、事务的作用"><a href="#3、事务的作用" class="headerlink" title="3、事务的作用"></a>3、事务的作用</h3><p>。不配置事务，可能存在数据提交不一致的情况</p>
+<p>。如果不在spring中配置声明式事务，就需要在代码中手动配置事务</p>
+<p>。事务在项目的开发中十分重要，涉及到数据的一致性与完整性问题</p>
+
+      </section>
+      <section class="extra">
+        
+        <ul class="copyright">
+  
+  <li><strong>本文作者：</strong>Shakespeawang</li>
+  <li><strong>本文链接：</strong><a href="https://shakespeawang.github.io/2020/10/28/Spring%E5%AD%A6%E4%B9%A0/index.html">https://shakespeawang.github.io/2020/10/28/Spring%E5%AD%A6%E4%B9%A0/index.html</a></li>
+  <li><strong>版权声明：</strong>本博客所有文章均采用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh"
+      rel="external nofollow" target="_blank"> BY-NC-SA </a>许可协议，转载请注明出处！</li>
+  
+</ul>
+        
+        
+        <section class="donate">
+  <div class="qrcode">
+    <img   class="lazyload" data-original="http://shakespea.wang/myphoto/t00ecentpay.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" >
+  </div>
+  <div class="icon">
+    <a href="javascript:;" id="alipay"><i class="iconfont iconalipay"></i></a>
+    <a href="javascript:;" id="wechat"><i class="iconfont iconwechat-fill"></i></a>
+  </div>
+</section>
+        
+        
+  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/" rel="tag">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%90%8E%E7%AB%AF/" rel="tag">后端</a></li></ul>
+
+        
+<nav class="nav">
+  
+    <a href="/2020/10/28/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F_%E7%AC%AC%E4%BA%8C%E7%AB%A0/"><i class="iconfont iconleft"></i>操作系统-分类</a>
+  
+  
+    <a href="/2020/10/28/Springcloud%E5%AD%A6%E4%B9%A0/">sringcloud基础<i class="iconfont iconright"></i></a>
+  
+</nav>
+
+      </section>
+      
+      <section class="comments">
+  
+  <div class="btn" id="comments-btn">查看评论</div>
+  
+  
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<div id="gitalk" class="gitalk"></div>
+<script defer src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script>
+  window.onload = function () {
+    var gitalk = new Gitalk({
+      clientID: 'b94de692eec1311af431',
+      clientSecret: '4170846cebfc84405d9b2c39a9593de7dc88045f',
+      id: window.location.pathname,
+      repo: 'https://github.com/Shakespeawang/BlogComments.git',
+      owner: 'ShakespeaWang',
+      admin: 'ShakespeaWang'
+    });
+    if ( true ) {
+      $("#comments-btn").on("click", function () {
+        $(this).hide();
+        gitalk.render('gitalk');
+      });
+    } else {
+      gitalk.render('gitalk');
+    }
+  }
+</script>
+
+</section>
+      
+    </section>
+  </div>
+</article>
+  </div>
+</main>
+  <footer class="footer">
+  <div class="footer-social">
+    
+    
+    
+    
+    
+    <a href="tencent://message/?Menu=yes&uin=357689848 " target="_blank" onMouseOver="this.style.color= '#12B7F5'"
+      onMouseOut="this.style.color='#33333D'">
+      <i class="iconfont footer-social-item  iconQQ "></i>
+    </a>
+    
+    
+    
+    
+    
+    <a href="javascript:; " target="_blank" onMouseOver="this.style.color= '#09BB07'"
+      onMouseOut="this.style.color='#33333D'">
+      <i class="iconfont footer-social-item  iconwechat-fill "></i>
+    </a>
+    
+    
+    
+    
+    
+    <a href="https://www.instagram.com/izhaoo/ " target="_blank" onMouseOver="this.style.color= '#DA2E76'"
+      onMouseOut="this.style.color='#33333D'">
+      <i class="iconfont footer-social-item  iconinstagram "></i>
+    </a>
+    
+    
+    
+    
+    
+    <a href="https://github.com/Shakespeawang " target="_blank" onMouseOver="this.style.color= '#24292E'"
+      onMouseOut="this.style.color='#33333D'">
+      <i class="iconfont footer-social-item  icongithub-fill "></i>
+    </a>
+    
+    
+    
+    
+    
+    <a href="357689848@qq.com " target="_blank" onMouseOver="this.style.color='#FFBE5B'"
+      onMouseOut="this.style.color='#33333D'">
+      <i class="iconfont footer-social-item  iconmail"></i>
+    </a>
+    
+  </div>
+  <div class="footer-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme - <a target="_blank" href="https://github.com/Shakespeawang/Shakespeawang.github.io">shakespeaWang</a></p></div>
+</footer>
+  
+      <div class="fab fab-plus">
+    <i class="iconfont iconplus"></i>
+  </div>
+  
+  <div class="fab fab-daovoice">
+    <i class="iconfont iconcomment"></i>
+  </div>
+  
+  <div class="fab fab-up">
+    <i class="iconfont iconcaret-up"></i>
+  </div>
+  
+  
+    
+<script src="/js/color-mode.js"></script>
+
+  
+</body>
+
+
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+
+
+
+
+
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
+
+
+
+
+
+
+<script src="https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+
+
+
+
+
+<script src="/js/utils.js"></script>
+<script src="/js/modules.js"></script>
+<script src="/js/zui.js"></script>
+<script src="/js/script.js"></script>
+
+
+
+
+
+<script>
+  (function (i, s, o, g, r, a, m) {
+    i["DaoVoiceObject"] = r;
+    i[r] = i[r] || function () {
+      (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date();
+    a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+    a.async = 1;
+    a.src = g;
+    a.charset = "utf-8";
+    m.parentNode.insertBefore(a, m)
+  })(window, document, "script", ('https:' == document.location.protocol ? 'https:' : 'http:') +
+    "//widget.daovoice.io/widget/0f81ff2f.js", "daovoice")
+  daovoice('init', {
+    app_id: "abcdefg"
+  }, {
+    launcher: {
+      disableLauncherIcon: true,
+    },
+  });
+  daovoice('update');
+</script>
+
+
+
+<script>
+  (function () {
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    } else {
+      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+  })();
+</script>
+
+
+<script>
+  var _hmt = _hmt || [];
+  (function () {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?4c204d8bc027a0455b5fc642ac334ca8";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+
+
+
+
+
+
+
+
+
+
+</html>
