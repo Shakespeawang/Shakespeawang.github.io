@@ -646,7 +646,7 @@ body ul {
   width: 100%;
   height: 100%;
   top: 0;
-  background: url("/images/theme/loading.gif") no-repeat center;
+  background: url("/images/theme/loading1.gif") no-repeat center;
   background-color: var(--color-background);
   z-index: 2019;
   overflow: hidden;
@@ -926,7 +926,7 @@ body ul {
   z-index: 40;
   height: 90vh;
   width: 100%;
-  background-image: url("/images/theme/welcome-image.jpg");
+  background-image: url("/images/theme/home.jpg");
   background-repeat: no-repeat;
   background-size: 100% 100%;
   background-attachment: fixed;
